@@ -19,6 +19,7 @@ def build_rank_model(
 
     week_map = {w["week"]: w for w in weeks}
     week_numbers = sorted(week_map.keys())
+    final_week = max(week_numbers) if week_numbers else None
 
     for week_num in week_numbers:
         week = week_map[week_num]
@@ -78,6 +79,19 @@ def build_rank_model(
                     slack_by_week_contestant.setdefault((week_num, j), []).append(
                         delta
                     )
+
+        if final_week is not None and week_num == final_week:
+            combined_vars = []
+            for i in contestants:
+                rJ = int(week["judge_rank"][i])
+                rF = rF_vars[(week_num, i)]
+                combined = model.NewIntVar(
+                    2, 2 * n_w, f"R_s{season}_w{week_num}_i{i}"
+                )
+                model.Add(combined == rF + rJ)
+                combined_vars.append(combined)
+            if combined_vars:
+                model.AddAllDifferent(combined_vars)
 
     for week_num in week_numbers:
         prev_week = week_num - 1

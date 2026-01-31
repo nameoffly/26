@@ -32,6 +32,7 @@
 - 只保留当周 `judge_score > 0` 且非 NA 的选手。
 - 仅解析 `results` 中的 `"Eliminated Week X"`；`Withdrew` 或无淘汰周不加淘汰约束。
 - `judge_rank` 使用 competition ranking（并列同名次，下一名次跳过）。
+- **决赛周约束**：每季最后一周视为决赛周，强制该周综合名次 `R = rJ + rF` 两两不同（不允许并列），确保综合名次更低者排名更靠前。
 
 ## 程序结构与作用
 
@@ -41,6 +42,7 @@
 - `model_rank.py`  
   - `build_rank_model(...)`：构建 CP-SAT 模型并返回变量/目标表达式。  
   - `solve_season(...)`：完整求解并输出 `rF`、周惩罚、松弛等结果。
+  - **决赛约束**：在决赛周加入 `AllDifferent(R_iw)`，并用 `R_iw = rJ_i + rF_i` 约束综合名次。
 
 - `solve_rank.py`  
   单次求解主脚本：按 season 运行模型并输出预测结果与一致性统计。
