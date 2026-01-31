@@ -1,0 +1,35 @@
+season,week,contestant_id,celebrity_name,ballroom_partner,judge_rank,fan_rank_min,fan_rank_max,combined_rank_min,combined_rank_max,actual_eliminated,epsilon
+30,4,1,Brian Austin Green,Sharna Burgess,13,,,,,1,0.05
+30,4,2,Melora Hardin,Artem Chigvintsev,1,,,,,0,0.05
+30,4,3,Matt James,Lindsay Arnold,12,,,,,1,0.05
+30,4,4,"Mike ""The Miz"" Mizanin",Witney Carson,7,,,,,0,0.05
+30,4,5,Suni Lee,Sasha Farber,4,,,,,0,0.05
+30,4,6,Iman Shumpert,Daniella Karagach,9,,,,,0,0.05
+30,4,7,Cody Rigsby,Cheryl Burke,11,,,,,0,0.05
+30,4,8,Melanie C,Gleb Savchenko,6,,,,,0,0.05
+30,4,9,Jimmie Allen,Emma Slater,7,,,,,0,0.05
+30,4,10,Olivia Jade,Valentin Chmerkovskiy,2,,,,,0,0.05
+30,4,11,JoJo Siwa,Jenna Johnson,2,,,,,0,0.05
+30,4,13,Kenya Moore,Brandon Armstrong,10,,,,,0,0.05
+30,4,14,Amanda Kloots,Alan Bersten,4,,,,,0,0.05
+30,5,2,Melora Hardin,Artem Chigvintsev,3,,,,,0,0.05
+30,5,4,"Mike ""The Miz"" Mizanin",Witney Carson,9,,,,,0,0.05
+30,5,5,Suni Lee,Sasha Farber,3,,,,,0,0.05
+30,5,6,Iman Shumpert,Daniella Karagach,11,,,,,0,0.05
+30,5,7,Cody Rigsby,Cheryl Burke,9,,,,,0,0.05
+30,5,8,Melanie C,Gleb Savchenko,3,,,,,1,0.05
+30,5,9,Jimmie Allen,Emma Slater,8,,,,,0,0.05
+30,5,10,Olivia Jade,Valentin Chmerkovskiy,3,,,,,0,0.05
+30,5,11,JoJo Siwa,Jenna Johnson,1,,,,,0,0.05
+30,5,13,Kenya Moore,Brandon Armstrong,3,,,,,0,0.05
+30,5,14,Amanda Kloots,Alan Bersten,2,,,,,0,0.05
+30,6,2,Melora Hardin,Artem Chigvintsev,8,,,,,0,0.05
+30,6,4,"Mike ""The Miz"" Mizanin",Witney Carson,8,,,,,0,0.05
+30,6,5,Suni Lee,Sasha Farber,5,,,,,0,0.05
+30,6,6,Iman Shumpert,Daniella Karagach,1,,,,,0,0.05
+30,6,7,Cody Rigsby,Cheryl Burke,5,,,,,0,0.05
+30,6,9,Jimmie Allen,Emma Slater,3,,,,,0,0.05
+30,6,10,Olivia Jade,Valentin Chmerkovskiy,5,,,,,0,0.05
+30,6,11,JoJo Siwa,Jenna Johnson,1,,,,,0,0.05
+30,6,13,Kenya Moore,Brandon Armstrong,10,,,,,1,0.05
+30,6,14,Amanda Kloots,Alan Bersten,3,,,,,0,0.05

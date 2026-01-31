@@ -1,0 +1,5 @@
+season,week,contestant_id,celebrity_name,ballroom_partner,judge_rank,fan_rank_min,fan_rank_max,combined_rank_min,combined_rank_max,actual_eliminated,epsilon
+31,10,6,Wayne Brady,Witney Carson,3,,,,,0,0.05
+31,10,11,Charli D'Amelio,Mark Ballas,1,,,,,0,0.05
+31,10,14,Shangela,Gleb Savchenko,3,,,,,0,0.05
+31,10,15,Gabby Windey,Valentin Chmerkovskiy,1,,,,,0,0.05

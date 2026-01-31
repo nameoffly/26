@@ -1,0 +1,22 @@
+season,week,contestant_id,celebrity_name,ballroom_partner,judge_rank,fan_rank_min,fan_rank_max,combined_rank_min,combined_rank_max,actual_eliminated,epsilon
+32,7,2,Barry Williams,Peta Murgatroyd,7,,,,,0,0.05
+32,7,3,Alyson Hannigan,Sasha Farber,6,,,,,0,0.05
+32,7,4,Xochitl Gomez,Valentin Chmerkovskiy,1,,,,,0,0.05
+32,7,8,Jason Mraz,Daniella Karagach,4,,,,,0,0.05
+32,7,9,Lele Pons,Brandon Armstrong,3,,,,,1,0.05
+32,7,10,Harry Jowsey,Rylee Arnold,8,,,,,0,0.05
+32,7,12,Charity Lawson,Artem Chigvintsev,4,,,,,0,0.05
+32,7,13,Ariana Madix,Pasha Pashkov,1,,,,,0,0.05
+32,8,2,Barry Williams,Peta Murgatroyd,5,,,,,1,0.05
+32,8,3,Alyson Hannigan,Sasha Farber,4,,,,,0,0.05
+32,8,4,Xochitl Gomez,Valentin Chmerkovskiy,2,,,,,0,0.05
+32,8,8,Jason Mraz,Daniella Karagach,6,,,,,0,0.05
+32,8,10,Harry Jowsey,Rylee Arnold,7,,,,,0,0.05
+32,8,12,Charity Lawson,Artem Chigvintsev,3,,,,,0,0.05
+32,8,13,Ariana Madix,Pasha Pashkov,1,,,,,0,0.05
+32,9,3,Alyson Hannigan,Sasha Farber,5,,,,,0,0.05
+32,9,4,Xochitl Gomez,Valentin Chmerkovskiy,2,,,,,0,0.05
+32,9,8,Jason Mraz,Daniella Karagach,1,,,,,0,0.05
+32,9,10,Harry Jowsey,Rylee Arnold,6,,,,,1,0.05
+32,9,12,Charity Lawson,Artem Chigvintsev,3,,,,,0,0.05
+32,9,13,Ariana Madix,Pasha Pashkov,4,,,,,0,0.05

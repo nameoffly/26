@@ -1,0 +1,29 @@
+season,week,contestant_id,celebrity_name,ballroom_partner,judge_rank,fan_rank_min,fan_rank_max,combined_rank_min,combined_rank_max,actual_eliminated,epsilon
+28,4,0,Kate Flannery,Pasha Pashkov,8,,,,,0,0.1
+28,4,1,James Van Der Beek,Emma Slater,6,,,,,0,0.1
+28,4,2,Kel Mitchell,Witney Carson,1,,,,,0,0.1
+28,4,4,Lamar Odom,Peta Murgatroyd,10,,,,,1,0.1
+28,4,5,Sailor Brinkley-Cook,Valentin Chmerkovskiy,5,,,,,0,0.1
+28,4,6,Sean Spicer,Lindsay Arnold,9,,,,,0,0.1
+28,4,8,Lauren Alaina,Gleb Savchenko,1,,,,,0,0.1
+28,4,9,Ally Brooke,Sasha Farber,1,,,,,0,0.1
+28,4,10,Karamo Brown,Jenna Johnson,6,,,,,0,0.1
+28,4,11,Hannah Brown,Alan Bersten,1,,,,,0,0.1
+28,5,0,Kate Flannery,Pasha Pashkov,5,,,,,0,0.1
+28,5,1,James Van Der Beek,Emma Slater,2,,,,,0,0.1
+28,5,2,Kel Mitchell,Witney Carson,2,,,,,0,0.1
+28,5,5,Sailor Brinkley-Cook,Valentin Chmerkovskiy,5,,,,,0,0.1
+28,5,6,Sean Spicer,Lindsay Arnold,9,,,,,0,0.1
+28,5,8,Lauren Alaina,Gleb Savchenko,7,,,,,0,0.1
+28,5,9,Ally Brooke,Sasha Farber,1,,,,,0,0.1
+28,5,10,Karamo Brown,Jenna Johnson,8,,,,,0,0.1
+28,5,11,Hannah Brown,Alan Bersten,4,,4,,8,0,0.1
+28,6,0,Kate Flannery,Pasha Pashkov,1,,,,,0,0.1
+28,6,1,James Van Der Beek,Emma Slater,1,,,,,0,0.1
+28,6,2,Kel Mitchell,Witney Carson,4,4,,8,,0,0.1
+28,6,5,Sailor Brinkley-Cook,Valentin Chmerkovskiy,1,,,,,1,0.1
+28,6,6,Sean Spicer,Lindsay Arnold,9,,,,,0,0.1
+28,6,8,Lauren Alaina,Gleb Savchenko,4,,,,,0,0.1
+28,6,9,Ally Brooke,Sasha Farber,6,,,,,0,0.1
+28,6,10,Karamo Brown,Jenna Johnson,6,,,,,0,0.1
+28,6,11,Hannah Brown,Alan Bersten,8,,,,,0,0.1

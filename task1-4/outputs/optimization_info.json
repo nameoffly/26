@@ -1,0 +1,77 @@
+{
+  "weights": {
+    "alpha": 1.0,
+    "beta": 0.1,
+    "gamma": 10.0
+  },
+  "weights_scaled": {
+    "alpha": 10,
+    "beta": 1,
+    "gamma": 100
+  },
+  "weight_scale": 10,
+  "time_limit": 60.0,
+  "workers": 8,
+  "seasons": [
+    1,
+    2,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34
+  ],
+  "season_info": {
+    "1": {
+      "status": "OPTIMAL",
+      "objective_scaled": 462,
+      "objective": 46.2
+    },
+    "2": {
+      "status": "OPTIMAL",
+      "objective_scaled": 806,
+      "objective": 80.6
+    },
+    "28": {
+      "status": "OPTIMAL",
+      "objective_scaled": 3868,
+      "objective": 386.8
+    },
+    "29": {
+      "status": "FEASIBLE",
+      "objective_scaled": 4325,
+      "objective": 432.5
+    },
+    "30": {
+      "status": "FEASIBLE",
+      "objective_scaled": 6762,
+      "objective": 676.2
+    },
+    "31": {
+      "status": "OPTIMAL",
+      "objective_scaled": 2071,
+      "objective": 207.1
+    },
+    "32": {
+      "status": "OPTIMAL",
+      "objective_scaled": 4020,
+      "objective": 402.0
+    },
+    "33": {
+      "status": "OPTIMAL",
+      "objective_scaled": 3110,
+      "objective": 311.0
+    },
+    "34": {
+      "status": "FEASIBLE",
+      "objective_scaled": 4169,
+      "objective": 416.9
+    }
+  },
+  "notes": [
+    "Elimination constraints only applied when results contains 'Eliminated Week X'.",
+    "Weeks with no active contestants are skipped."
+  ]
+}

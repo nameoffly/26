@@ -1,0 +1,37 @@
+season,week,contestant_id,celebrity_name,ballroom_partner,judge_rank,fan_rank_min,fan_rank_max,combined_rank_min,combined_rank_max,actual_eliminated,epsilon
+29,4,0,Anne Heche,Keo Motsepe,10,,,,,1,0.01
+29,4,1,Jesse Metcalfe,Sharna Burgess,10,,,,,0,0.01
+29,4,2,Chrishell Stause,Gleb Savchenko,8,,,,,0,0.01
+29,4,3,Skai Jackson,Alan Bersten,1,,,,,0,0.01
+29,4,4,Justina Machado,Sasha Farber,3,,,,,0,0.01
+29,4,6,Veron Davis,Peta Murgatroyd,8,,,,,0,0.01
+29,4,7,Johnny Weir,Britt Stewart,3,,,,,0,0.01
+29,4,8,Nev Schulman,Jenna Johnson,3,,,,,0,0.01
+29,4,9,AJ McLean,Cheryl Burke,3,,,,,0,0.01
+29,4,10,Nelly,Daniella Karagach,10,,,,,0,0.01
+29,4,11,Kaitlyn Bristowe,Artem Chigvintsev,2,,,,,0,0.01
+29,4,13,Monica Aldama,Valentin Chmerkovskiy,3,,,,,0,0.01
+29,4,14,Jeannie Mai,Brandon Armstrong,10,,,,,0,0.01
+29,5,1,Jesse Metcalfe,Sharna Burgess,11,,,,,1,0.01
+29,5,2,Chrishell Stause,Gleb Savchenko,11,,,,,0,0.01
+29,5,3,Skai Jackson,Alan Bersten,5,,,,,0,0.01
+29,5,4,Justina Machado,Sasha Farber,5,,,,,0,0.01
+29,5,6,Veron Davis,Peta Murgatroyd,10,,,,,0,0.01
+29,5,7,Johnny Weir,Britt Stewart,1,,,,,0,0.01
+29,5,8,Nev Schulman,Jenna Johnson,3,,,,,0,0.01
+29,5,9,AJ McLean,Cheryl Burke,5,,,,,0,0.01
+29,5,10,Nelly,Daniella Karagach,5,,,,,0,0.01
+29,5,11,Kaitlyn Bristowe,Artem Chigvintsev,2,,,,,0,0.01
+29,5,13,Monica Aldama,Valentin Chmerkovskiy,3,,,,,0,0.01
+29,5,14,Jeannie Mai,Brandon Armstrong,5,,,,,0,0.01
+29,6,2,Chrishell Stause,Gleb Savchenko,7,,,,,0,0.01
+29,6,3,Skai Jackson,Alan Bersten,11,,,,,0,0.01
+29,6,4,Justina Machado,Sasha Farber,1,,,,,0,0.01
+29,6,6,Veron Davis,Peta Murgatroyd,10,,,,,1,0.01
+29,6,7,Johnny Weir,Britt Stewart,9,,,,,0,0.01
+29,6,8,Nev Schulman,Jenna Johnson,5,,,,,0,0.01
+29,6,9,AJ McLean,Cheryl Burke,1,,,,,0,0.01
+29,6,10,Nelly,Daniella Karagach,7,,,,,0,0.01
+29,6,11,Kaitlyn Bristowe,Artem Chigvintsev,1,,,,,0,0.01
+29,6,13,Monica Aldama,Valentin Chmerkovskiy,1,,,,,0,0.01
+29,6,14,Jeannie Mai,Brandon Armstrong,6,,,,,0,0.01

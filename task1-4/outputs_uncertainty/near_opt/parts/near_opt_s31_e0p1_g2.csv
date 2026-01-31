@@ -1,0 +1,24 @@
+season,week,contestant_id,celebrity_name,ballroom_partner,judge_rank,fan_rank_min,fan_rank_max,combined_rank_min,combined_rank_max,actual_eliminated,epsilon
+31,7,4,Trevor Donovan,Emma Slater,1,,,,,0,0.1
+31,7,5,Daniel Durant,Britt Stewart,4,,,,,0,0.1
+31,7,6,Wayne Brady,Witney Carson,3,,,,,0,0.1
+31,7,9,Jordin Sparks,Brandon Armstrong,8,,,,,1,0.1
+31,7,10,Heidi D'Amelio,Artem Chigvintsev,7,,,,,0,0.1
+31,7,11,Charli D'Amelio,Mark Ballas,1,,,,,0,0.1
+31,7,13,Vinny Guadagnino,Koko Iwasaki,9,,,,,0,0.1
+31,7,14,Shangela,Gleb Savchenko,4,,,,,0,0.1
+31,7,15,Gabby Windey,Valentin Chmerkovskiy,6,,,,,0,0.1
+31,8,4,Trevor Donovan,Emma Slater,5,,,,,0,0.1
+31,8,5,Daniel Durant,Britt Stewart,5,,,,,0,0.1
+31,8,6,Wayne Brady,Witney Carson,1,,,,,0,0.1
+31,8,10,Heidi D'Amelio,Artem Chigvintsev,7,,,,,1,0.1
+31,8,11,Charli D'Amelio,Mark Ballas,1,,,,,0,0.1
+31,8,13,Vinny Guadagnino,Koko Iwasaki,8,,,,,1,0.1
+31,8,14,Shangela,Gleb Savchenko,3,,,,,0,0.1
+31,8,15,Gabby Windey,Valentin Chmerkovskiy,4,,,,,0,0.1
+31,9,4,Trevor Donovan,Emma Slater,6,,,,,1,0.1
+31,9,5,Daniel Durant,Britt Stewart,5,,,,,1,0.1
+31,9,6,Wayne Brady,Witney Carson,3,,,,,0,0.1
+31,9,11,Charli D'Amelio,Mark Ballas,1,,,,,0,0.1
+31,9,14,Shangela,Gleb Savchenko,3,,,,,0,0.1
+31,9,15,Gabby Windey,Valentin Chmerkovskiy,1,,,,,0,0.1

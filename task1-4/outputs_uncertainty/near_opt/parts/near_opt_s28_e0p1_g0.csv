@@ -1,0 +1,35 @@
+season,week,contestant_id,celebrity_name,ballroom_partner,judge_rank,fan_rank_min,fan_rank_max,combined_rank_min,combined_rank_max,actual_eliminated,epsilon
+28,1,0,Kate Flannery,Pasha Pashkov,9,,,,,0,0.1
+28,1,1,James Van Der Beek,Emma Slater,1,,,,,0,0.1
+28,1,2,Kel Mitchell,Witney Carson,7,,,,,0,0.1
+28,1,3,Ray Lewis,Cheryl Burke,9,,,,,0,0.1
+28,1,4,Lamar Odom,Peta Murgatroyd,12,,,,,0,0.1
+28,1,5,Sailor Brinkley-Cook,Valentin Chmerkovskiy,4,,,,,0,0.1
+28,1,6,Sean Spicer,Lindsay Arnold,11,,,,,0,0.1
+28,1,7,Mary Wilson,Brandon Armstrong,5,,,,,0,0.1
+28,1,8,Lauren Alaina,Gleb Savchenko,3,,,,,0,0.1
+28,1,9,Ally Brooke,Sasha Farber,7,,,,,0,0.1
+28,1,10,Karamo Brown,Jenna Johnson,5,,,,,0,0.1
+28,1,11,Hannah Brown,Alan Bersten,2,,,,,0,0.1
+28,2,0,Kate Flannery,Pasha Pashkov,2,,,,,0,0.1
+28,2,1,James Van Der Beek,Emma Slater,3,,,,,0,0.1
+28,2,2,Kel Mitchell,Witney Carson,3,,,,,0,0.1
+28,2,3,Ray Lewis,Cheryl Burke,10,,,,,0,0.1
+28,2,4,Lamar Odom,Peta Murgatroyd,12,,,,,0,0.1
+28,2,5,Sailor Brinkley-Cook,Valentin Chmerkovskiy,8,,,,,0,0.1
+28,2,6,Sean Spicer,Lindsay Arnold,9,,,,,0,0.1
+28,2,7,Mary Wilson,Brandon Armstrong,10,,,,,1,0.1
+28,2,8,Lauren Alaina,Gleb Savchenko,6,,,,,0,0.1
+28,2,9,Ally Brooke,Sasha Farber,3,,,,,0,0.1
+28,2,10,Karamo Brown,Jenna Johnson,6,,,,,0,0.1
+28,2,11,Hannah Brown,Alan Bersten,1,,,,,0,0.1
+28,3,0,Kate Flannery,Pasha Pashkov,1,,,,,0,0.1
+28,3,1,James Van Der Beek,Emma Slater,3,,,,,0,0.1
+28,3,2,Kel Mitchell,Witney Carson,6,,,,,0,0.1
+28,3,4,Lamar Odom,Peta Murgatroyd,10,,,,,0,0.1
+28,3,5,Sailor Brinkley-Cook,Valentin Chmerkovskiy,3,,,,,0,0.1
+28,3,6,Sean Spicer,Lindsay Arnold,9,,,,,0,0.1
+28,3,8,Lauren Alaina,Gleb Savchenko,6,,,,,0,0.1
+28,3,9,Ally Brooke,Sasha Farber,1,,,,,0,0.1
+28,3,10,Karamo Brown,Jenna Johnson,8,,,,,0,0.1
+28,3,11,Hannah Brown,Alan Bersten,5,,,,,0,0.1
