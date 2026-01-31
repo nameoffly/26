@@ -41,7 +41,7 @@ warnings.filterwarnings('ignore')
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT = os.path.dirname(SCRIPT_DIR)
 DEFAULT_CSV_PATH = os.path.join(SCRIPT_DIR, 'fan_vote_estimates_entropy_smooth_150.csv')
-DEFAULT_EXCEL_PATH = os.path.join(PROJECT_ROOT, '2026_MCM_Problem_C_Processed_Data.xlsx')
+DEFAULT_EXCEL_PATH = os.path.join(PROJECT_ROOT, 'Data_4.xlsx')
 
 
 def load_estimate_csv(csv_path: str) -> pd.DataFrame:
