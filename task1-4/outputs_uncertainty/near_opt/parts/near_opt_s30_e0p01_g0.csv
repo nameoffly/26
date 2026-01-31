@@ -1,0 +1,45 @@
+season,week,contestant_id,celebrity_name,ballroom_partner,judge_rank,fan_rank_min,fan_rank_max,combined_rank_min,combined_rank_max,actual_eliminated,epsilon
+30,1,0,Martin Kove,Britt Stewart,15,,,,,0,0.01
+30,1,1,Brian Austin Green,Sharna Burgess,9,,,,,0,0.01
+30,1,2,Melora Hardin,Artem Chigvintsev,5,,,,,0,0.01
+30,1,3,Matt James,Lindsay Arnold,9,,,,,0,0.01
+30,1,4,"Mike ""The Miz"" Mizanin",Witney Carson,9,,,,,0,0.01
+30,1,5,Suni Lee,Sasha Farber,2,,,,,0,0.01
+30,1,6,Iman Shumpert,Daniella Karagach,14,,,,,0,0.01
+30,1,7,Cody Rigsby,Cheryl Burke,9,,,,,0,0.01
+30,1,8,Melanie C,Gleb Savchenko,4,,,,,0,0.01
+30,1,9,Jimmie Allen,Emma Slater,13,,,,,0,0.01
+30,1,10,Olivia Jade,Valentin Chmerkovskiy,7,,,,,0,0.01
+30,1,11,JoJo Siwa,Jenna Johnson,1,,,,,0,0.01
+30,1,12,Christine Chiu,Pasha Pashkov,7,,,,,0,0.01
+30,1,13,Kenya Moore,Brandon Armstrong,5,,,,,0,0.01
+30,1,14,Amanda Kloots,Alan Bersten,2,,,,,0,0.01
+30,2,0,Martin Kove,Britt Stewart,15,,,,,1,0.01
+30,2,1,Brian Austin Green,Sharna Burgess,13,,,,,0,0.01
+30,2,2,Melora Hardin,Artem Chigvintsev,5,,,,,0,0.01
+30,2,3,Matt James,Lindsay Arnold,14,,,,,0,0.01
+30,2,4,"Mike ""The Miz"" Mizanin",Witney Carson,8,,,,,0,0.01
+30,2,5,Suni Lee,Sasha Farber,4,,,,,0,0.01
+30,2,6,Iman Shumpert,Daniella Karagach,9,,,,,0,0.01
+30,2,7,Cody Rigsby,Cheryl Burke,10,,,,,0,0.01
+30,2,8,Melanie C,Gleb Savchenko,3,,,,,0,0.01
+30,2,9,Jimmie Allen,Emma Slater,5,,,,,0,0.01
+30,2,10,Olivia Jade,Valentin Chmerkovskiy,5,,,,,0,0.01
+30,2,11,JoJo Siwa,Jenna Johnson,2,,,,,0,0.01
+30,2,12,Christine Chiu,Pasha Pashkov,10,,,,,0,0.01
+30,2,13,Kenya Moore,Brandon Armstrong,10,,,,,0,0.01
+30,2,14,Amanda Kloots,Alan Bersten,1,,,,,0,0.01
+30,3,1,Brian Austin Green,Sharna Burgess,12,,,,,0,0.01
+30,3,2,Melora Hardin,Artem Chigvintsev,4,,,,,0,0.01
+30,3,3,Matt James,Lindsay Arnold,10,,,,,0,0.01
+30,3,4,"Mike ""The Miz"" Mizanin",Witney Carson,5,,,,,0,0.01
+30,3,5,Suni Lee,Sasha Farber,7,,,,,0,0.01
+30,3,6,Iman Shumpert,Daniella Karagach,12,,,,,0,0.01
+30,3,7,Cody Rigsby,Cheryl Burke,14,,,,,0,0.01
+30,3,8,Melanie C,Gleb Savchenko,5,,,,,0,0.01
+30,3,9,Jimmie Allen,Emma Slater,10,,,,,0,0.01
+30,3,10,Olivia Jade,Valentin Chmerkovskiy,1,,,,,0,0.01
+30,3,11,JoJo Siwa,Jenna Johnson,1,,,,,0,0.01
+30,3,12,Christine Chiu,Pasha Pashkov,7,,,,,1,0.01
+30,3,13,Kenya Moore,Brandon Armstrong,7,,,,,0,0.01
+30,3,14,Amanda Kloots,Alan Bersten,1,,,,,0,0.01

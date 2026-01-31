@@ -1,0 +1,25 @@
+season,week,contestant_id,celebrity_name,ballroom_partner,judge_rank,fan_rank_min,fan_rank_max,combined_rank_min,combined_rank_max,actual_eliminated,epsilon
+33,4,3,Chandler Kinney,Brandon Armstrong,4,,,,,0,0.05
+33,4,4,Dwight Howard?,Daniella Karagach,9,,,,,0,0.05
+33,4,5,Danny Amendola,Witney Carson,1,,,,,0,0.05
+33,4,6,Stephen Nedoroscik,Rylee Arnold,3,,,,,0,0.05
+33,4,7,Ilona Maher,Alan Bersten,4,,,,,0,0.05
+33,4,9,Brooks Nader,Gleb Savchenko,4,,,,,1,0.05
+33,4,10,Phaedra Parks,Val Chmerkovskiy,4,,,,,0,0.05
+33,4,11,Jenn Tran,Sasha Farber,4,,,,,0,0.05
+33,4,12,Joey Graziadei,Jenna Johnson,1,,,,,0,0.05
+33,5,3,Chandler Kinney,Brandon Armstrong,1,,,,,0,0.05
+33,5,4,Dwight Howard?,Daniella Karagach,6,,,,,0,0.05
+33,5,5,Danny Amendola,Witney Carson,4,,,,,0,0.05
+33,5,6,Stephen Nedoroscik,Rylee Arnold,6,,,,,0,0.05
+33,5,7,Ilona Maher,Alan Bersten,2,,,,,0,0.05
+33,5,10,Phaedra Parks,Val Chmerkovskiy,6,,,,,1,0.05
+33,5,11,Jenn Tran,Sasha Farber,4,,,,,0,0.05
+33,5,12,Joey Graziadei,Jenna Johnson,2,,,,,0,0.05
+33,6,3,Chandler Kinney,Brandon Armstrong,1,,,,,0,0.05
+33,6,4,Dwight Howard?,Daniella Karagach,3,,,,,0,0.05
+33,6,5,Danny Amendola,Witney Carson,5,,,,,0,0.05
+33,6,6,Stephen Nedoroscik,Rylee Arnold,5,,,,,0,0.05
+33,6,7,Ilona Maher,Alan Bersten,7,,,,,0,0.05
+33,6,11,Jenn Tran,Sasha Farber,3,,,,,1,0.05
+33,6,12,Joey Graziadei,Jenna Johnson,1,,,,,0,0.05

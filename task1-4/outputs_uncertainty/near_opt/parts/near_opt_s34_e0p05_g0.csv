@@ -1,0 +1,41 @@
+season,week,contestant_id,celebrity_name,ballroom_partner,judge_rank,fan_rank_min,fan_rank_max,combined_rank_min,combined_rank_max,actual_eliminated,epsilon
+34,1,0,Corey Feldman,Jenna Johnson,13,,,,,0,0.05
+34,1,1,Danielle Fishel,Pasha Pashkov,6,,,,,0,0.05
+34,1,2,Elaine Hendrix,Alan Bersten (Rashad Jennings week 9),6,,,,,0,0.05
+34,1,3,Baron Davis,Britt Stewart,9,,,,,0,0.05
+34,1,4,Jordan Chiles,Ezra Sosa (Apolo Anton Ohno week 9),9,,,,,0,0.05
+34,1,5,Andy Richter,Emma Slater/Kaitlyn Bristowe (week 9),13,,,,,0,0.05
+34,1,6,Robert Irwin,Witney Carson (Xoshitl Gomez week 9),1,,,,,0,0.05
+34,1,7,Hilaria Baldwin,Gleb Savchenko,3,,,,,0,0.05
+34,1,8,Lauren Jauregui,Brandon Armstrong,4,,,,,0,0.05
+34,1,9,Scott Hoying,Rylee Arnold,9,,,,,0,0.05
+34,1,10,Alix Earle,Val Chmerkovskiy (Joey Graziadei week 9),4,,,,,0,0.05
+34,1,11,Jen Affleck,Jan Ravnik,6,,,,,0,0.05
+34,1,12,Whitney Leavitt,Mark Ballas,1,,,,,0,0.05
+34,1,13,Dylan Efron,Daniella Karagach (Rumer Willis week 9),9,,,,,0,0.05
+34,2,0,Corey Feldman,Jenna Johnson,14,,,,,1,0.05
+34,2,1,Danielle Fishel,Pasha Pashkov,10,,,,,0,0.05
+34,2,2,Elaine Hendrix,Alan Bersten (Rashad Jennings week 9),5,,,,,0,0.05
+34,2,3,Baron Davis,Britt Stewart,11,,,,,1,0.05
+34,2,4,Jordan Chiles,Ezra Sosa (Apolo Anton Ohno week 9),1,,,,,0,0.05
+34,2,5,Andy Richter,Emma Slater/Kaitlyn Bristowe (week 9),13,,,,,0,0.05
+34,2,6,Robert Irwin,Witney Carson (Xoshitl Gomez week 9),1,,,,,0,0.05
+34,2,7,Hilaria Baldwin,Gleb Savchenko,5,,,,,0,0.05
+34,2,8,Lauren Jauregui,Brandon Armstrong,5,,,,,0,0.05
+34,2,9,Scott Hoying,Rylee Arnold,11,,,,,0,0.05
+34,2,10,Alix Earle,Val Chmerkovskiy (Joey Graziadei week 9),5,,,,,0,0.05
+34,2,11,Jen Affleck,Jan Ravnik,1,,,,,0,0.05
+34,2,12,Whitney Leavitt,Mark Ballas,1,,,,,0,0.05
+34,2,13,Dylan Efron,Daniella Karagach (Rumer Willis week 9),9,,,,,0,0.05
+34,3,1,Danielle Fishel,Pasha Pashkov,8,,,,,0,0.05
+34,3,2,Elaine Hendrix,Alan Bersten (Rashad Jennings week 9),8,,,,,0,0.05
+34,3,4,Jordan Chiles,Ezra Sosa (Apolo Anton Ohno week 9),1,,,,,0,0.05
+34,3,5,Andy Richter,Emma Slater/Kaitlyn Bristowe (week 9),11,,,,,0,0.05
+34,3,6,Robert Irwin,Witney Carson (Xoshitl Gomez week 9),5,,,,,0,0.05
+34,3,7,Hilaria Baldwin,Gleb Savchenko,5,,,,,0,0.05
+34,3,8,Lauren Jauregui,Brandon Armstrong,11,,,,,1,0.05
+34,3,9,Scott Hoying,Rylee Arnold,5,,,,,0,0.05
+34,3,10,Alix Earle,Val Chmerkovskiy (Joey Graziadei week 9),3,,,,,0,0.05
+34,3,11,Jen Affleck,Jan Ravnik,10,,,,,0,0.05
+34,3,12,Whitney Leavitt,Mark Ballas,1,,,,,0,0.05
+34,3,13,Dylan Efron,Daniella Karagach (Rumer Willis week 9),3,,,,,0,0.05

@@ -1,0 +1,17 @@
+season,week,contestant_id,celebrity_name,ballroom_partner,judge_rank,fan_rank_min,fan_rank_max,combined_rank_min,combined_rank_max,actual_eliminated,epsilon
+33,7,3,Chandler Kinney,Brandon Armstrong,1,,,,,0,0.01
+33,7,4,Dwight Howard?,Daniella Karagach,6,,,,,1,0.01
+33,7,5,Danny Amendola,Witney Carson,5,,,,,0,0.01
+33,7,6,Stephen Nedoroscik,Rylee Arnold,3,,,,,0,0.01
+33,7,7,Ilona Maher,Alan Bersten,4,,,,,0,0.01
+33,7,12,Joey Graziadei,Jenna Johnson,2,,,,,0,0.01
+33,8,3,Chandler Kinney,Brandon Armstrong,1,,,,,0,0.01
+33,8,5,Danny Amendola,Witney Carson,4,,,,,0,0.01
+33,8,6,Stephen Nedoroscik,Rylee Arnold,5,,,,,0,0.01
+33,8,7,Ilona Maher,Alan Bersten,3,,,,,0,0.01
+33,8,12,Joey Graziadei,Jenna Johnson,1,,,,,0,0.01
+33,9,3,Chandler Kinney,Brandon Armstrong,1,,,,,0,0.01
+33,9,5,Danny Amendola,Witney Carson,5,,,,,0,0.01
+33,9,6,Stephen Nedoroscik,Rylee Arnold,2,,,,,0,0.01
+33,9,7,Ilona Maher,Alan Bersten,4,,,,,0,0.01
+33,9,12,Joey Graziadei,Jenna Johnson,2,,,,,0,0.01

@@ -1,0 +1,24 @@
+season,week,contestant_id,celebrity_name,ballroom_partner,judge_rank,fan_rank_min,fan_rank_max,combined_rank_min,combined_rank_max,actual_eliminated,epsilon
+30,7,2,Melora Hardin,Artem Chigvintsev,3,,,,,0,0.1
+30,7,4,"Mike ""The Miz"" Mizanin",Witney Carson,9,,,,,1,0.1
+30,7,5,Suni Lee,Sasha Farber,6,,,,,0,0.1
+30,7,6,Iman Shumpert,Daniella Karagach,6,,,,,0,0.1
+30,7,7,Cody Rigsby,Cheryl Burke,5,,,,,0,0.1
+30,7,9,Jimmie Allen,Emma Slater,3,,,,,0,0.1
+30,7,10,Olivia Jade,Valentin Chmerkovskiy,1,,,,,0,0.1
+30,7,11,JoJo Siwa,Jenna Johnson,2,,,,,0,0.1
+30,7,14,Amanda Kloots,Alan Bersten,6,,,,,0,0.1
+30,8,2,Melora Hardin,Artem Chigvintsev,1,,,,,0,0.1
+30,8,5,Suni Lee,Sasha Farber,1,,,,,0,0.1
+30,8,6,Iman Shumpert,Daniella Karagach,7,,,,,0,0.1
+30,8,7,Cody Rigsby,Cheryl Burke,5,,,,,0,0.1
+30,8,9,Jimmie Allen,Emma Slater,8,,,,,1,0.1
+30,8,10,Olivia Jade,Valentin Chmerkovskiy,6,,,,,1,0.1
+30,8,11,JoJo Siwa,Jenna Johnson,4,,,,,0,0.1
+30,8,14,Amanda Kloots,Alan Bersten,1,,,,,0,0.1
+30,9,2,Melora Hardin,Artem Chigvintsev,5,,,,,1,0.1
+30,9,5,Suni Lee,Sasha Farber,3,,,,,1,0.1
+30,9,6,Iman Shumpert,Daniella Karagach,3,,,,,0,0.1
+30,9,7,Cody Rigsby,Cheryl Burke,6,,,,,0,0.1
+30,9,11,JoJo Siwa,Jenna Johnson,1,,,,,0,0.1
+30,9,14,Amanda Kloots,Alan Bersten,2,,,,,0,0.1

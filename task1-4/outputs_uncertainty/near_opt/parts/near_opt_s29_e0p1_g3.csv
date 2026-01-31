@@ -1,0 +1,11 @@
+season,week,contestant_id,celebrity_name,ballroom_partner,judge_rank,fan_rank_min,fan_rank_max,combined_rank_min,combined_rank_max,actual_eliminated,epsilon
+29,10,3,Skai Jackson,Alan Bersten,4,,,,,1,0.1
+29,10,4,Justina Machado,Sasha Farber,3,,,,,0,0.1
+29,10,7,Johnny Weir,Britt Stewart,4,,,,,1,0.1
+29,10,8,Nev Schulman,Jenna Johnson,1,,,,,0,0.1
+29,10,10,Nelly,Daniella Karagach,6,,,,,0,0.1
+29,10,11,Kaitlyn Bristowe,Artem Chigvintsev,1,,,,,0,0.1
+29,11,4,Justina Machado,Sasha Farber,1,,,,,0,0.1
+29,11,8,Nev Schulman,Jenna Johnson,1,,,,,0,0.1
+29,11,10,Nelly,Daniella Karagach,4,,,,,0,0.1
+29,11,11,Kaitlyn Bristowe,Artem Chigvintsev,1,,,,,0,0.1

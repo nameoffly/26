@@ -105,6 +105,82 @@ python uncertainty_analysis.py \
 - `--near-opt-time-limit` / `--perturb-time-limit`：单次求解时限
 - `--processes`：并行进程数（默认 `min(cpu_count, 12)`，每进程单线程求解）
 
+### 交替最优化扰动分析（新脚本，速度优先）
+
+该模式使用交替最优化（逐周指派 + 多轮 sweep）替代 CP-SAT，仅做输入扰动分析，速度更快。
+脚本：`task1-4/uncertainty_altopt.py`，默认输出目录：
+`task1-4/outputs_uncertainty_altopt/perturb`。
+
+运行默认配置（4-6 轮 sweep，基于基准解初始化）：
+
+```
+python uncertainty_altopt.py
+```
+
+典型参数示例：
+
+```
+python uncertainty_altopt.py \
+  --processes 12 \
+  --n-samples 300 \
+  --noise-std 0.7 \
+  --sweeps 5 \
+  --init baseline
+```
+
+核心参数说明：
+- `--sweeps`：每个扰动样本的交替最优化轮数（建议 4-6）。
+- `--init`：初始化方式（`baseline` 使用基准 `fan_rank`；`judge` 使用评委名次）。
+- `--elim-weight`：淘汰倾向权重（默认跟随 `gamma`）。
+- `--cost-scale`：指派问题成本缩放因子（整数化用，默认 1000）。
+
+输出文件（与 CP-SAT 扰动格式一致，便于对比）：
+- `perturb_rF_stats.csv`：扰动下 `fan_rank` 的均值/标准差/P05/P95。
+- `perturb_elim_prob.csv`：扰动下被预测淘汰的概率。
+- `perturb_rank_stability.csv`：与基准解 Spearman/Kendall 稳定性统计。
+
+注意事项：
+- 该脚本是启发式求解，不保证最优；适合大量扰动快速评估。
+- 若需更高精度，请使用 `uncertainty_analysis.py` 的 CP-SAT 扰动。
+
+### 数学说明（交替最优化扰动）
+
+扰动分析对评委分数加入噪声后，使用交替最优化近似最小化目标函数：
+
+- 评委贴近：\u03b1\u22c5( r^F_{i,w} - r^J_{i,w} )^2
+- 跨周平滑：\u03b2\u22c5( r^F_{i,w} - r^F_{i,w-1} )^2 + \u03b2\u22c5( r^F_{i,w} - r^F_{i,w+1} )^2
+- 淘汰倾向：elim_weight\u22c5P(i,k)（对淘汰者在更差名次给予额外代价）
+
+在固定相邻周名次的条件下，第 w 周可以转化为指派问题：为每位选手 i 选择名次 k=1..n_w，
+最小化
+
+```
+C(i,k) = \u03b1 (k-r^J_{i,w})^2 + \u03b2 (k-r^F_{i,w-1})^2 + \u03b2 (k-r^F_{i,w+1})^2 + elim_weight * P(i,k)
+```
+
+这里 P(i,k) 默认可取 (n_w - k)（让淘汰者倾向于更差名次）。每个 sweep 按周解一次指派（匈牙利算法），
+更新 r^F，再重复 4-6 轮以逼近局部最优。
+
+### 数学说明（Spearman/Kendall 稳定性）
+
+稳定性统计基于“基准综合名次”与“扰动综合名次”的秩相关：
+
+- Spearman \u03c1：对“秩序排名”的 Pearson 相关
+
+```
+rho = corr( rank(x), rank(y) )
+```
+
+若存在并列，可用 average rank（平均秩）处理。
+
+- Kendall tau-a：基于一致/不一致对数
+
+```
+tau = (C - D) / (n(n-1)/2)
+```
+
+其中 C 为一致对数，D 为不一致对数。若并列较多，可考虑 tau-b（对并列修正）。
+
 ## 结果解读
 
 ### 基准输出（`task1-4/outputs/...`）

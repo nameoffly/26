@@ -1,0 +1,25 @@
+season,week,contestant_id,celebrity_name,ballroom_partner,judge_rank,fan_rank_min,fan_rank_max,combined_rank_min,combined_rank_max,actual_eliminated,epsilon
+34,7,1,Danielle Fishel,Pasha Pashkov,6,,,,,0,0.01
+34,7,2,Elaine Hendrix,Alan Bersten (Rashad Jennings week 9),8,,,,,0,0.01
+34,7,4,Jordan Chiles,Ezra Sosa (Apolo Anton Ohno week 9),4,,,,,0,0.01
+34,7,5,Andy Richter,Emma Slater/Kaitlyn Bristowe (week 9),9,,,,,0,0.01
+34,7,6,Robert Irwin,Witney Carson (Xoshitl Gomez week 9),3,,,,,0,0.01
+34,7,10,Alix Earle,Val Chmerkovskiy (Joey Graziadei week 9),1,,,,,0,0.01
+34,7,11,Jen Affleck,Jan Ravnik,7,,,,,1,0.01
+34,7,12,Whitney Leavitt,Mark Ballas,2,,,,,0,0.01
+34,7,13,Dylan Efron,Daniella Karagach (Rumer Willis week 9),4,,,,,0,0.01
+34,8,1,Danielle Fishel,Pasha Pashkov,7,,,,,1,0.01
+34,8,2,Elaine Hendrix,Alan Bersten (Rashad Jennings week 9),6,,,,,0,0.01
+34,8,4,Jordan Chiles,Ezra Sosa (Apolo Anton Ohno week 9),2,,,,,0,0.01
+34,8,5,Andy Richter,Emma Slater/Kaitlyn Bristowe (week 9),8,,,,,0,0.01
+34,8,6,Robert Irwin,Witney Carson (Xoshitl Gomez week 9),4,,,,,0,0.01
+34,8,10,Alix Earle,Val Chmerkovskiy (Joey Graziadei week 9),3,,,,,0,0.01
+34,8,12,Whitney Leavitt,Mark Ballas,1,,,,,0,0.01
+34,8,13,Dylan Efron,Daniella Karagach (Rumer Willis week 9),4,,,,,0,0.01
+34,9,2,Elaine Hendrix,Alan Bersten (Rashad Jennings week 9),6,,,,,0,0.01
+34,9,4,Jordan Chiles,Ezra Sosa (Apolo Anton Ohno week 9),5,,,,,0,0.01
+34,9,5,Andy Richter,Emma Slater/Kaitlyn Bristowe (week 9),7,,,,,1,0.01
+34,9,6,Robert Irwin,Witney Carson (Xoshitl Gomez week 9),1,,,,,0,0.01
+34,9,10,Alix Earle,Val Chmerkovskiy (Joey Graziadei week 9),4,,,,,0,0.01
+34,9,12,Whitney Leavitt,Mark Ballas,1,,,,,0,0.01
+34,9,13,Dylan Efron,Daniella Karagach (Rumer Willis week 9),1,,,,,0,0.01

@@ -1,0 +1,32 @@
+season,week,contestant_id,celebrity_name,ballroom_partner,judge_rank,fan_rank_min,fan_rank_max,combined_rank_min,combined_rank_max,actual_eliminated,epsilon
+34,4,1,Danielle Fishel,Pasha Pashkov,9,,,,,0,0.05
+34,4,2,Elaine Hendrix,Alan Bersten (Rashad Jennings week 9),2,,,,,0,0.05
+34,4,4,Jordan Chiles,Ezra Sosa (Apolo Anton Ohno week 9),2,,,,,0,0.05
+34,4,5,Andy Richter,Emma Slater/Kaitlyn Bristowe (week 9),11,,,,,0,0.05
+34,4,6,Robert Irwin,Witney Carson (Xoshitl Gomez week 9),8,,,,,0,0.05
+34,4,7,Hilaria Baldwin,Gleb Savchenko,5,,,,,1,0.05
+34,4,9,Scott Hoying,Rylee Arnold,9,,,,,0,0.05
+34,4,10,Alix Earle,Val Chmerkovskiy (Joey Graziadei week 9),2,,,,,0,0.05
+34,4,11,Jen Affleck,Jan Ravnik,5,,,,,0,0.05
+34,4,12,Whitney Leavitt,Mark Ballas,1,,,,,0,0.05
+34,4,13,Dylan Efron,Daniella Karagach (Rumer Willis week 9),5,,,,,0,0.05
+34,5,1,Danielle Fishel,Pasha Pashkov,8,,,,,0,0.05
+34,5,2,Elaine Hendrix,Alan Bersten (Rashad Jennings week 9),6,,,,,0,0.05
+34,5,4,Jordan Chiles,Ezra Sosa (Apolo Anton Ohno week 9),5,,,,,0,0.05
+34,5,5,Andy Richter,Emma Slater/Kaitlyn Bristowe (week 9),10,,,,,0,0.05
+34,5,6,Robert Irwin,Witney Carson (Xoshitl Gomez week 9),2,,,,,0,0.05
+34,5,9,Scott Hoying,Rylee Arnold,6,,,,,0,0.05
+34,5,10,Alix Earle,Val Chmerkovskiy (Joey Graziadei week 9),2,,,,,0,0.05
+34,5,11,Jen Affleck,Jan Ravnik,8,,,,,0,0.05
+34,5,12,Whitney Leavitt,Mark Ballas,4,,,,,0,0.05
+34,5,13,Dylan Efron,Daniella Karagach (Rumer Willis week 9),1,,,,,0,0.05
+34,6,1,Danielle Fishel,Pasha Pashkov,3,,,,,0,0.05
+34,6,2,Elaine Hendrix,Alan Bersten (Rashad Jennings week 9),3,,,,,0,0.05
+34,6,4,Jordan Chiles,Ezra Sosa (Apolo Anton Ohno week 9),1,,,,,0,0.05
+34,6,5,Andy Richter,Emma Slater/Kaitlyn Bristowe (week 9),10,,,,,0,0.05
+34,6,6,Robert Irwin,Witney Carson (Xoshitl Gomez week 9),3,,,,,0,0.05
+34,6,9,Scott Hoying,Rylee Arnold,9,,,,,1,0.05
+34,6,10,Alix Earle,Val Chmerkovskiy (Joey Graziadei week 9),6,,,,,0,0.05
+34,6,11,Jen Affleck,Jan Ravnik,7,,,,,0,0.05
+34,6,12,Whitney Leavitt,Mark Ballas,1,,,,,0,0.05
+34,6,13,Dylan Efron,Daniella Karagach (Rumer Willis week 9),7,,,,,0,0.05

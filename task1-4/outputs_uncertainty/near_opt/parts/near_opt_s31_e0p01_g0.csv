@@ -1,0 +1,46 @@
+season,week,contestant_id,celebrity_name,ballroom_partner,judge_rank,fan_rank_min,fan_rank_max,combined_rank_min,combined_rank_max,actual_eliminated,epsilon
+31,1,0,Jason Lewis,Peta Murgatroyd,15,,,,,1,0.01
+31,1,1,Cheryl Ladd,Louis van Amstel,10,,,,,0,0.01
+31,1,2,Selma Blair,Sasha Farber,3,,,,,0,0.01
+31,1,3,Joseph Baena,Daniella Karagach,9,,,,,0,0.01
+31,1,4,Trevor Donovan,Emma Slater,10,,,,,0,0.01
+31,1,5,Daniel Durant,Britt Stewart,6,,,,,0,0.01
+31,1,6,Wayne Brady,Witney Carson,2,,,,,0,0.01
+31,1,7,Sam Champion,Cheryl Burke,12,,,,,0,0.01
+31,1,8,Jessie James Decker,Alan Bersten,12,,,,,0,0.01
+31,1,9,Jordin Sparks,Brandon Armstrong,7,,,,,0,0.01
+31,1,10,Heidi D'Amelio,Artem Chigvintsev,8,,,,,0,0.01
+31,1,11,Charli D'Amelio,Mark Ballas,1,,,,,0,0.01
+31,1,12,Teresa Giudice,Pasha Pashkov,12,,,,,0,0.01
+31,1,13,Vinny Guadagnino,Koko Iwasaki,16,,,,,0,0.01
+31,1,14,Shangela,Gleb Savchenko,3,,,,,0,0.01
+31,1,15,Gabby Windey,Valentin Chmerkovskiy,3,,,,,0,0.01
+31,2,1,Cheryl Ladd,Louis van Amstel,15,,,,,0,0.01
+31,2,2,Selma Blair,Sasha Farber,6,,,,,0,0.01
+31,2,3,Joseph Baena,Daniella Karagach,13,,,,,0,0.01
+31,2,4,Trevor Donovan,Emma Slater,4,,,,,0,0.01
+31,2,5,Daniel Durant,Britt Stewart,5,,,,,0,0.01
+31,2,6,Wayne Brady,Witney Carson,1,,,,,0,0.01
+31,2,7,Sam Champion,Cheryl Burke,11,,,,,0,0.01
+31,2,8,Jessie James Decker,Alan Bersten,12,,,,,0,0.01
+31,2,9,Jordin Sparks,Brandon Armstrong,9,,,,,0,0.01
+31,2,10,Heidi D'Amelio,Artem Chigvintsev,6,,,,,0,0.01
+31,2,11,Charli D'Amelio,Mark Ballas,1,,,,,0,0.01
+31,2,12,Teresa Giudice,Pasha Pashkov,14,,,,,1,0.01
+31,2,13,Vinny Guadagnino,Koko Iwasaki,9,,,,,0,0.01
+31,2,14,Shangela,Gleb Savchenko,6,,,,,0,0.01
+31,2,15,Gabby Windey,Valentin Chmerkovskiy,1,,,,,0,0.01
+31,3,1,Cheryl Ladd,Louis van Amstel,13,,,,,1,0.01
+31,3,2,Selma Blair,Sasha Farber,9,,,,,0,0.01
+31,3,3,Joseph Baena,Daniella Karagach,7,,,,,0,0.01
+31,3,4,Trevor Donovan,Emma Slater,10,,,,,0,0.01
+31,3,5,Daniel Durant,Britt Stewart,5,,,,,0,0.01
+31,3,6,Wayne Brady,Witney Carson,1,,,,,0,0.01
+31,3,7,Sam Champion,Cheryl Burke,12,,,,,0,0.01
+31,3,8,Jessie James Decker,Alan Bersten,11,,,,,0,0.01
+31,3,9,Jordin Sparks,Brandon Armstrong,7,,,,,0,0.01
+31,3,10,Heidi D'Amelio,Artem Chigvintsev,4,,,,,0,0.01
+31,3,11,Charli D'Amelio,Mark Ballas,1,,,,,0,0.01
+31,3,13,Vinny Guadagnino,Koko Iwasaki,14,,,,,0,0.01
+31,3,14,Shangela,Gleb Savchenko,6,,,,,0,0.01
+31,3,15,Gabby Windey,Valentin Chmerkovskiy,1,,,,,0,0.01

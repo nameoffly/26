@@ -1,0 +1,26 @@
+season,week,contestant_id,celebrity_name,ballroom_partner,judge_rank,fan_rank_min,fan_rank_max,combined_rank_min,combined_rank_max,actual_eliminated,epsilon
+29,7,2,Chrishell Stause,Gleb Savchenko,5,,,,,0,0.05
+29,7,3,Skai Jackson,Alan Bersten,2,,,,,0,0.05
+29,7,4,Justina Machado,Sasha Farber,5,,,,,0,0.05
+29,7,7,Johnny Weir,Britt Stewart,2,,,,,0,0.05
+29,7,8,Nev Schulman,Jenna Johnson,1,,,,,0,0.05
+29,7,9,AJ McLean,Cheryl Burke,5,,,,,0,0.05
+29,7,10,Nelly,Daniella Karagach,2,,,,,0,0.05
+29,7,11,Kaitlyn Bristowe,Artem Chigvintsev,9,,,,,0,0.05
+29,7,13,Monica Aldama,Valentin Chmerkovskiy,10,,,,,1,0.05
+29,7,14,Jeannie Mai,Brandon Armstrong,8,,,,,0,0.05
+29,8,2,Chrishell Stause,Gleb Savchenko,5,,,,,1,0.05
+29,8,3,Skai Jackson,Alan Bersten,7,,,,,0,0.05
+29,8,4,Justina Machado,Sasha Farber,3,,,,,0,0.05
+29,8,7,Johnny Weir,Britt Stewart,1,,,,,0,0.05
+29,8,8,Nev Schulman,Jenna Johnson,1,,,,,0,0.05
+29,8,9,AJ McLean,Cheryl Burke,5,,,,,0,0.05
+29,8,10,Nelly,Daniella Karagach,8,,,,,0,0.05
+29,8,11,Kaitlyn Bristowe,Artem Chigvintsev,4,,,,,0,0.05
+29,9,3,Skai Jackson,Alan Bersten,3,,,,,0,0.05
+29,9,4,Justina Machado,Sasha Farber,5,,,,,0,0.05
+29,9,7,Johnny Weir,Britt Stewart,1,,,,,0,0.05
+29,9,8,Nev Schulman,Jenna Johnson,3,,,,,0,0.05
+29,9,9,AJ McLean,Cheryl Burke,6,,,,,1,0.05
+29,9,10,Nelly,Daniella Karagach,7,,,,,0,0.05
+29,9,11,Kaitlyn Bristowe,Artem Chigvintsev,1,,,,,0,0.05

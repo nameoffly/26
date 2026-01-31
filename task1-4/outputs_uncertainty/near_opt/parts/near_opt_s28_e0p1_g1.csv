@@ -17,7 +17,7 @@ season,week,contestant_id,celebrity_name,ballroom_partner,judge_rank,fan_rank_mi
 28,5,8,Lauren Alaina,Gleb Savchenko,7,,,,,0,0.1
 28,5,9,Ally Brooke,Sasha Farber,1,,,,,0,0.1
 28,5,10,Karamo Brown,Jenna Johnson,8,,,,,0,0.1
-28,5,11,Hannah Brown,Alan Bersten,4,,,,,0,0.1
+28,5,11,Hannah Brown,Alan Bersten,4,,4,,8,0,0.1
 28,6,0,Kate Flannery,Pasha Pashkov,1,,,,,0,0.1
 28,6,1,James Van Der Beek,Emma Slater,1,,,,,0,0.1
 28,6,2,Kel Mitchell,Witney Carson,4,4,,8,,0,0.1

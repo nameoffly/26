@@ -1,0 +1,781 @@
+season,week,contestant_id,celebrity_name,ballroom_partner,fan_rank_mean,fan_rank_std,fan_rank_p05,fan_rank_p95
+1,1,0,John O'Hurley,Charlotte Jorgensen,2.0518,0.874524579027903,1.0,3.0
+1,1,1,Kelly Monaco,Alec Mazo,6.0,0.0,6.0,6.0
+1,1,2,Evander Holyfield,Edyta Sliwinska,4.4364,0.614160206522636,4.0,5.0
+1,1,3,Rachel Hunter,Jonathan Roberts,2.0344,0.8858301809663914,1.0,3.0
+1,1,4,Joey McIntyre,Ashly DelGrosso,2.0376,0.887166808720125,1.0,3.0
+1,1,5,Trista Sutter,Louis van Amstel,4.4398,0.6265901543450502,4.0,5.0
+1,2,0,John O'Hurley,Charlotte Jorgensen,1.0216,0.14538071933841673,1.0,1.0
+1,2,1,Kelly Monaco,Alec Mazo,4.0014,0.03739224275142901,4.0,4.0
+1,2,2,Evander Holyfield,Edyta Sliwinska,4.9986,0.03739224275142901,5.0,5.0
+1,2,3,Rachel Hunter,Jonathan Roberts,1.9799,0.15065941665220456,2.0,2.0
+1,2,4,Joey McIntyre,Ashly DelGrosso,2.9985,0.03870271036993401,3.0,3.0
+1,2,5,Trista Sutter,Louis van Amstel,6.0,0.0,6.0,6.0
+1,3,0,John O'Hurley,Charlotte Jorgensen,2.0002,0.2083369876667198,2.0,2.0
+1,3,1,Kelly Monaco,Alec Mazo,3.8405,0.36725091875137994,3.0,4.0
+1,3,2,Evander Holyfield,Edyta Sliwinska,5.0,0.0,5.0,5.0
+1,3,3,Rachel Hunter,Jonathan Roberts,1.0214,0.1447208845102918,1.0,1.0
+1,3,4,Joey McIntyre,Ashly DelGrosso,3.1379,0.4011230234828174,3.0,4.0
+1,4,0,John O'Hurley,Charlotte Jorgensen,2.1603,0.36690240083321,2.0,3.0
+1,4,1,Kelly Monaco,Alec Mazo,1.0,0.0,1.0,1.0
+1,4,3,Rachel Hunter,Jonathan Roberts,4.0,0.0,4.0,4.0
+1,4,4,Joey McIntyre,Ashly DelGrosso,2.8397,0.36690240083321,2.0,3.0
+1,5,0,John O'Hurley,Charlotte Jorgensen,1.0,0.0,1.0,1.0
+1,5,1,Kelly Monaco,Alec Mazo,2.1581,0.36485298651673015,2.0,3.0
+1,5,4,Joey McIntyre,Ashly DelGrosso,2.8419,0.36485298651673015,2.0,3.0
+1,6,0,John O'Hurley,Charlotte Jorgensen,1.6949,0.4604727934627108,1.0,2.0
+1,6,1,Kelly Monaco,Alec Mazo,1.3051,0.4604727934627108,1.0,2.0
+2,1,0,Tatum O'Neal,Nick Kosovich,2.509,0.9100559434353558,1.0,4.0
+2,1,1,Tia Carrere,Maksim Chmerkoskiy,6.0047,0.6349159171277583,5.0,7.0
+2,1,2,George Hamilton,Edyta Sliwinska,7.8268,0.4219236446991275,7.0,8.0
+2,1,3,Lisa Rinna,Louis van Amstel,6.9677,0.587274381460585,6.0,8.0
+2,1,4,Stacy Keibler,Tony Dovolani,3.8443,0.818122510657324,2.0,5.0
+2,1,5,Jerry Rice,Anna Trebunskaya,4.9717,0.6849423512986045,4.0,6.0
+2,1,6,Giselle Fernandez,Jonathan Roberts,2.538,0.9009090762759427,1.0,4.0
+2,1,7,Master P,Ashly DelGrosso,9.0,0.0,9.0,9.0
+2,1,8,Drew Lachey,Cheryl Burke,1.3378,0.6397906635840503,1.0,3.0
+2,1,9,Kenny Mayne,Andrea Hale,10.0,0.0,10.0,10.0
+2,2,0,Tatum O'Neal,Nick Kosovich,9.0,0.0,9.0,9.0
+2,2,1,Tia Carrere,Maksim Chmerkoskiy,5.3331,0.7674654978101835,4.0,6.0
+2,2,2,George Hamilton,Edyta Sliwinska,5.3466,0.7636273650644443,4.0,6.0
+2,2,3,Lisa Rinna,Louis van Amstel,6.9552,0.23194469132528853,7.0,7.0
+2,2,4,Stacy Keibler,Tony Dovolani,1.0231,0.1502286486149911,1.0,1.0
+2,2,5,Jerry Rice,Anna Trebunskaya,4.1634,0.7541600067171245,3.0,6.0
+2,2,6,Giselle Fernandez,Jonathan Roberts,3.2002,0.4689796948647354,3.0,4.0
+2,2,7,Master P,Ashly DelGrosso,8.0,0.0,8.0,8.0
+2,2,8,Drew Lachey,Cheryl Burke,1.9784,0.1553571806688013,2.0,2.0
+2,3,1,Tia Carrere,Maksim Chmerkoskiy,2.8258,0.7533333333333341,1.0,4.0
+2,3,2,George Hamilton,Edyta Sliwinska,5.0008,0.048985711794317995,5.0,5.0
+2,3,3,Lisa Rinna,Louis van Amstel,3.8036,0.46759908563906355,3.0,4.0
+2,3,4,Stacy Keibler,Tony Dovolani,1.6898,0.7433917023496511,1.0,3.0
+2,3,5,Jerry Rice,Anna Trebunskaya,5.9984,0.03996998573900156,6.0,6.0
+2,3,6,Giselle Fernandez,Jonathan Roberts,8.0,0.0,8.0,8.0
+2,3,7,Master P,Ashly DelGrosso,7.0,0.0,7.0,7.0
+2,3,8,Drew Lachey,Cheryl Burke,1.6816,0.7299826898445932,1.0,3.0
+2,4,1,Tia Carrere,Maksim Chmerkoskiy,3.8395,0.7468571011598926,2.0,5.0
+2,4,2,George Hamilton,Edyta Sliwinska,5.9992,0.0282743690291117,6.0,6.0
+2,4,3,Lisa Rinna,Louis van Amstel,2.6505,0.7533966489513123,2.0,4.0
+2,4,4,Stacy Keibler,Tony Dovolani,2.6625,0.7652792400369445,2.0,4.0
+2,4,5,Jerry Rice,Anna Trebunskaya,4.8051,0.46447342610353554,4.0,5.0
+2,4,7,Master P,Ashly DelGrosso,7.0,0.0,7.0,7.0
+2,4,8,Drew Lachey,Cheryl Burke,1.0432,0.22167244724454768,1.0,1.0
+2,5,1,Tia Carrere,Maksim Chmerkoskiy,6.0,0.0,6.0,6.0
+2,5,2,George Hamilton,Edyta Sliwinska,4.0037,0.5586747906896962,3.0,5.0
+2,5,3,Lisa Rinna,Louis van Amstel,3.1591,0.44766866176120884,3.0,4.0
+2,5,4,Stacy Keibler,Tony Dovolani,1.0014,0.03739224275142907,1.0,1.0
+2,5,5,Jerry Rice,Anna Trebunskaya,4.8163,0.419490056128533,4.0,5.0
+2,5,8,Drew Lachey,Cheryl Burke,2.0195,0.15073825726145393,2.0,2.0
+2,6,2,George Hamilton,Edyta Sliwinska,5.0,0.0,5.0,5.0
+2,6,3,Lisa Rinna,Louis van Amstel,2.9975,0.05190394399214964,3.0,3.0
+2,6,4,Stacy Keibler,Tony Dovolani,1.5042,0.502202728744156,1.0,2.0
+2,6,5,Jerry Rice,Anna Trebunskaya,4.0,0.0,4.0,4.0
+2,6,8,Drew Lachey,Cheryl Burke,1.4983,0.5026155312335895,1.0,2.0
+2,7,3,Lisa Rinna,Louis van Amstel,4.0,0.0,4.0,4.0
+2,7,4,Stacy Keibler,Tony Dovolani,1.5044,0.50000564053224,1.0,2.0
+2,7,5,Jerry Rice,Anna Trebunskaya,3.0,0.0,3.0,3.0
+2,7,8,Drew Lachey,Cheryl Burke,1.4956,0.50000564053224,1.0,2.0
+2,8,4,Stacy Keibler,Tony Dovolani,1.6495,0.5181472741024171,1.0,2.0
+2,8,5,Jerry Rice,Anna Trebunskaya,2.9677,0.19042146946603283,3.0,3.0
+2,8,8,Drew Lachey,Cheryl Burke,1.3828,0.5050640246215294,1.0,2.0
+28,1,0,Kate Flannery,Pasha Pashkov,9.136,0.979591731281968,7.0,10.0
+28,1,1,James Van Der Beek,Emma Slater,1.1796,0.41588596527607335,1.0,2.0
+28,1,2,Kel Mitchell,Witney Carson,7.453,1.2394130120591162,5.0,10.0
+28,1,3,Ray Lewis,Cheryl Burke,9.1588,0.9624319131859389,7.0,10.0
+28,1,4,Lamar Odom,Peta Murgatroyd,11.8468,0.3601981874932566,11.0,12.0
+28,1,5,Sailor Brinkley-Cook,Valentin Chmerkovskiy,4.1852,0.873256673448174,3.0,6.0
+28,1,6,Sean Spicer,Lindsay Arnold,11.1513,0.3636227882754547,11.0,12.0
+28,1,7,Mary Wilson,Brandon Armstrong,5.684,1.161929002951897,4.0,8.0
+28,1,8,Lauren Alaina,Gleb Savchenko,3.0208,0.6764710794351306,2.0,4.0
+28,1,9,Ally Brooke,Sasha Farber,7.4792,1.261794980437497,5.0,10.0
+28,1,10,Karamo Brown,Jenna Johnson,5.6801,1.1734997657307031,4.0,8.0
+28,1,11,Hannah Brown,Alan Bersten,2.0252,0.6043190218320238,1.0,3.0
+28,2,0,Kate Flannery,Pasha Pashkov,2.5199,0.9000472201500598,2.0,4.0
+28,2,1,James Van Der Beek,Emma Slater,4.1704,1.3718425693947287,2.0,7.0
+28,2,2,Kel Mitchell,Witney Carson,4.1959,1.3740130935322685,2.0,7.0
+28,2,3,Ray Lewis,Cheryl Burke,9.8443,0.37104080251060284,9.0,10.0
+28,2,4,Lamar Odom,Peta Murgatroyd,10.9984,0.03996998573900158,11.0,11.0
+28,2,5,Sailor Brinkley-Cook,Valentin Chmerkovskiy,7.6504,0.7609452961773115,6.0,8.0
+28,2,6,Sean Spicer,Lindsay Arnold,9.131,0.40330542461830615,9.0,10.0
+28,2,7,Mary Wilson,Brandon Armstrong,12.0,0.0,12.0,12.0
+28,2,8,Lauren Alaina,Gleb Savchenko,6.1596,1.2652620000588308,4.0,8.0
+28,2,9,Ally Brooke,Sasha Farber,4.156,1.3759554227272546,2.0,7.0
+28,2,10,Karamo Brown,Jenna Johnson,6.173,1.2638159371808488,4.0,8.0
+28,2,11,Hannah Brown,Alan Bersten,1.0011,0.033149658972438927,1.0,1.0
+28,3,0,Kate Flannery,Pasha Pashkov,1.8244,0.895122765030834,1.0,4.0
+28,3,1,James Van Der Beek,Emma Slater,3.2111,0.9251066815439287,1.0,4.0
+28,3,2,Kel Mitchell,Witney Carson,6.363,0.6905640360377796,5.0,7.0
+28,3,4,Lamar Odom,Peta Murgatroyd,9.9983,0.04119805490521137,10.0,10.0
+28,3,5,Sailor Brinkley-Cook,Valentin Chmerkovskiy,3.2021,0.9130930751552049,1.0,4.0
+28,3,6,Sean Spicer,Lindsay Arnold,8.8453,0.3663076959781389,8.0,9.0
+28,3,8,Lauren Alaina,Gleb Savchenko,6.3267,0.6949931017939334,5.0,7.0
+28,3,9,Ally Brooke,Sasha Farber,1.813,0.8816511389847392,1.0,4.0
+28,3,10,Karamo Brown,Jenna Johnson,8.1563,0.36343296266551683,8.0,9.0
+28,3,11,Hannah Brown,Alan Bersten,5.2598,0.6430748902977415,5.0,7.0
+28,4,0,Kate Flannery,Pasha Pashkov,7.9591,0.2145502113243377,8.0,8.0
+28,4,1,James Van Der Beek,Emma Slater,6.5227,0.5386220580074081,6.0,7.0
+28,4,2,Kel Mitchell,Witney Carson,2.6457,1.2917965721577005,1.0,5.0
+28,4,4,Lamar Odom,Peta Murgatroyd,10.0,0.0,10.0,10.0
+28,4,5,Sailor Brinkley-Cook,Valentin Chmerkovskiy,4.3737,0.9872921475320541,2.0,5.0
+28,4,6,Sean Spicer,Lindsay Arnold,9.0,0.0,9.0,9.0
+28,4,8,Lauren Alaina,Gleb Savchenko,2.6764,1.2967078256563864,1.0,5.0
+28,4,9,Ally Brooke,Sasha Farber,2.6462,1.2807769512916347,1.0,5.0
+28,4,10,Karamo Brown,Jenna Johnson,6.5155,0.5379485931470466,6.0,7.0
+28,4,11,Hannah Brown,Alan Bersten,2.6607,1.3005939660272343,1.0,5.0
+28,5,0,Kate Flannery,Pasha Pashkov,5.456,0.9300271474798485,4.0,7.0
+28,5,1,James Van Der Beek,Emma Slater,2.5413,0.9409478456773417,1.0,4.0
+28,5,2,Kel Mitchell,Witney Carson,2.538,0.9459627289425573,1.0,4.0
+28,5,5,Sailor Brinkley-Cook,Valentin Chmerkovskiy,5.4679,0.9467096787936584,4.0,7.0
+28,5,6,Sean Spicer,Lindsay Arnold,8.9796,0.14137127920429363,9.0,9.0
+28,5,8,Lauren Alaina,Gleb Savchenko,6.6855,0.6647058999236711,5.0,7.0
+28,5,9,Ally Brooke,Sasha Farber,1.3474,0.6503503175624327,1.0,3.0
+28,5,10,Karamo Brown,Jenna Johnson,7.9965,0.21608428735547658,8.0,8.0
+28,5,11,Hannah Brown,Alan Bersten,3.9878,0.9853670660345224,2.0,6.0
+28,6,0,Kate Flannery,Pasha Pashkov,1.8705,1.0053013543616216,1.0,4.0
+28,6,1,James Van Der Beek,Emma Slater,1.8531,0.967167995434681,1.0,4.0
+28,6,2,Kel Mitchell,Witney Carson,3.5322,1.3109290650150929,1.0,6.0
+28,6,5,Sailor Brinkley-Cook,Valentin Chmerkovskiy,6.9282,1.148815362742757,5.0,9.0
+28,6,6,Sean Spicer,Lindsay Arnold,8.9327,0.2513504082009218,8.0,9.0
+28,6,8,Lauren Alaina,Gleb Savchenko,3.5539,1.3086122560191997,1.0,6.0
+28,6,9,Ally Brooke,Sasha Farber,5.485,1.352463646754169,3.0,8.0
+28,6,10,Karamo Brown,Jenna Johnson,5.7223,1.4294009335042652,3.0,8.0
+28,6,11,Hannah Brown,Alan Bersten,7.1221,0.9910044394350098,5.0,8.0
+28,7,0,Kate Flannery,Pasha Pashkov,5.9048,0.3437277627388976,5.0,6.0
+28,7,1,James Van Der Beek,Emma Slater,2.225,1.0998617956802377,1.0,4.0
+28,7,2,Kel Mitchell,Witney Carson,4.555,0.8684759208190536,3.0,6.0
+28,7,6,Sean Spicer,Lindsay Arnold,7.0046,0.08233782819454973,7.0,7.0
+28,7,8,Lauren Alaina,Gleb Savchenko,2.218,1.0894010645616015,1.0,4.0
+28,7,9,Ally Brooke,Sasha Farber,2.2172,1.0866196364061422,1.0,4.0
+28,7,10,Karamo Brown,Jenna Johnson,7.9942,0.07724607883685465,8.0,8.0
+28,7,11,Hannah Brown,Alan Bersten,3.8812,1.0497603343982702,2.0,5.0
+28,8,0,Kate Flannery,Pasha Pashkov,7.0,0.0,7.0,7.0
+28,8,1,James Van Der Beek,Emma Slater,1.2013,0.4686152686661024,1.0,2.0
+28,8,2,Kel Mitchell,Witney Carson,3.3233,0.7351402268379224,2.0,4.0
+28,8,6,Sean Spicer,Lindsay Arnold,6.0,0.0,6.0,6.0
+28,8,8,Lauren Alaina,Gleb Savchenko,5.0,0.0,5.0,5.0
+28,8,9,Ally Brooke,Sasha Farber,3.3257,0.7276485808724736,2.0,4.0
+28,8,11,Hannah Brown,Alan Bersten,2.1497,0.7360326653134633,1.0,4.0
+28,9,1,James Van Der Beek,Emma Slater,3.308,0.8367831383351714,2.0,5.0
+28,9,2,Kel Mitchell,Witney Carson,2.258,0.5621989032012386,2.0,3.0
+28,9,6,Sean Spicer,Lindsay Arnold,6.0,0.0,6.0,6.0
+28,9,8,Lauren Alaina,Gleb Savchenko,4.5074,0.7188858878097198,3.0,5.0
+28,9,9,Ally Brooke,Sasha Farber,1.0013,0.03603387078825137,1.0,1.0
+28,9,11,Hannah Brown,Alan Bersten,3.9253,0.8349788194696287,3.0,5.0
+28,10,1,James Van Der Beek,Emma Slater,5.0,0.0,5.0,5.0
+28,10,2,Kel Mitchell,Witney Carson,1.9743,0.5646869904112485,1.0,3.0
+28,10,8,Lauren Alaina,Gleb Savchenko,3.4357,0.6090177339454298,2.0,4.0
+28,10,9,Ally Brooke,Sasha Farber,1.1675,0.39630727465641497,1.0,2.0
+28,10,11,Hannah Brown,Alan Bersten,3.4225,0.6122346226107375,2.0,4.0
+28,11,2,Kel Mitchell,Witney Carson,2.1529,0.9225002388449894,1.0,4.0
+28,11,8,Lauren Alaina,Gleb Savchenko,3.4679,0.775003001907281,2.0,4.0
+28,11,9,Ally Brooke,Sasha Farber,1.5295,0.7647144753585379,1.0,3.0
+28,11,11,Hannah Brown,Alan Bersten,2.8497,0.9178203252352499,1.0,4.0
+29,1,0,Anne Heche,Keo Motsepe,7.9797,1.8624271189706596,5.0,11.0
+29,1,1,Jesse Metcalfe,Sharna Burgess,7.9434,1.865889759460471,5.0,11.0
+29,1,2,Chrishell Stause,Gleb Savchenko,13.1731,0.41346521661263685,13.0,14.0
+29,1,3,Skai Jackson,Alan Bersten,1.8371,0.9383238434376036,1.0,4.0
+29,1,4,Justina Machado,Sasha Farber,1.8337,0.9300165606484168,1.0,4.0
+29,1,5,Charles Oakley,Emma Slater,14.005,0.5522730308009388,13.0,15.0
+29,1,6,Veron Davis,Peta Murgatroyd,10.3595,1.352568924036562,8.0,12.0
+29,1,7,Johnny Weir,Britt Stewart,7.9713,1.8617795068947411,5.0,11.0
+29,1,8,Nev Schulman,Jenna Johnson,3.4534,1.2304388802308688,1.0,5.0
+29,1,9,AJ McLean,Cheryl Burke,8.0185,1.8519451179967552,5.0,11.0
+29,1,10,Nelly,Daniella Karagach,11.7334,0.6412219245749913,11.0,12.0
+29,1,11,Kaitlyn Bristowe,Artem Chigvintsev,3.4607,1.225236969146399,1.0,5.0
+29,1,12,Carole Baskin,Pasha Pashkov,14.8201,0.4158765265418728,14.0,15.0
+29,1,13,Monica Aldama,Valentin Chmerkovskiy,5.4407,1.5698184426851107,3.0,8.049999999999272
+29,1,14,Jeannie Mai,Brandon Armstrong,7.9704,1.8343555615072586,5.0,11.0
+29,2,0,Anne Heche,Keo Motsepe,8.3502,1.9745758671131093,5.0,11.0
+29,2,1,Jesse Metcalfe,Sharna Burgess,3.9635,1.0248281696351496,2.0,6.0
+29,2,2,Chrishell Stause,Gleb Savchenko,8.363,1.984848851297311,5.0,11.0
+29,2,3,Skai Jackson,Alan Bersten,13.677,0.6065540295629716,12.0,14.0
+29,2,4,Justina Machado,Sasha Farber,2.5371,0.9184268837496434,1.0,4.0
+29,2,5,Charles Oakley,Emma Slater,14.9999,0.010000000000000125,15.0,15.0
+29,2,6,Veron Davis,Peta Murgatroyd,8.3503,1.97306340696917,5.0,11.0
+29,2,7,Johnny Weir,Britt Stewart,8.3642,1.9740182458132147,5.0,11.0
+29,2,8,Nev Schulman,Jenna Johnson,2.5332,0.9325152644712293,1.0,4.0
+29,2,9,AJ McLean,Cheryl Burke,5.7046,1.5593530704108738,4.0,9.0
+29,2,10,Nelly,Daniella Karagach,8.3555,1.9907576601902437,5.0,11.0
+29,2,11,Kaitlyn Bristowe,Artem Chigvintsev,1.3288,0.6250837007659831,1.0,3.0
+29,2,12,Carole Baskin,Pasha Pashkov,12.537,0.9175593667546269,11.0,14.0
+29,2,13,Monica Aldama,Valentin Chmerkovskiy,12.5198,0.9350376407070217,11.0,14.0
+29,2,14,Jeannie Mai,Brandon Armstrong,8.4159,1.9739596859318487,5.0,11.0
+29,3,0,Anne Heche,Keo Motsepe,12.9974,0.05285375437880645,13.0,13.0
+29,3,1,Jesse Metcalfe,Sharna Burgess,8.8281,0.9461711864094132,7.0,10.0
+29,3,2,Chrishell Stause,Gleb Savchenko,5.1249,1.4586681463842697,3.0,8.0
+29,3,3,Skai Jackson,Alan Bersten,11.3232,0.7424263463051193,10.0,12.0
+29,3,4,Justina Machado,Sasha Farber,10.0954,0.8230228287585135,9.0,12.0
+29,3,6,Veron Davis,Peta Murgatroyd,5.1341,1.4715072964047184,3.0,8.0
+29,3,7,Johnny Weir,Britt Stewart,1.7309,0.839258974073293,1.0,3.0
+29,3,8,Nev Schulman,Jenna Johnson,1.7288,0.8398339669894345,1.0,3.0
+29,3,9,AJ McLean,Cheryl Burke,7.1921,1.3210496232960856,5.0,9.0
+29,3,10,Nelly,Daniella Karagach,11.3267,0.7304933073254036,10.0,12.0
+29,3,11,Kaitlyn Bristowe,Artem Chigvintsev,3.2044,1.19363441484888,1.0,5.0
+29,3,12,Carole Baskin,Pasha Pashkov,14.0,0.0,14.0,14.0
+29,3,13,Monica Aldama,Valentin Chmerkovskiy,7.161,1.2938494520771977,5.0,9.0
+29,3,14,Jeannie Mai,Brandon Armstrong,5.153,1.4368707178260596,3.0,8.0
+29,4,0,Anne Heche,Keo Motsepe,12.9961,0.07270019622981204,13.0,13.0
+29,4,1,Jesse Metcalfe,Sharna Burgess,10.6776,1.2047420389187182,8.0,12.0
+29,4,2,Chrishell Stause,Gleb Savchenko,8.8505,1.239154268172463,7.0,11.0
+29,4,3,Skai Jackson,Alan Bersten,1.0014,0.037392242751429015,1.0,1.0
+29,4,4,Justina Machado,Sasha Farber,4.8663,1.642039566939221,2.0,7.0
+29,4,6,Veron Davis,Peta Murgatroyd,8.8756,1.2120526173210115,7.0,11.0
+29,4,7,Johnny Weir,Britt Stewart,4.9049,1.6449700856423677,2.0,7.0
+29,4,8,Nev Schulman,Jenna Johnson,4.8948,1.6749368648848042,2.0,7.0
+29,4,9,AJ McLean,Cheryl Burke,4.8997,1.6553289465819614,2.0,7.0
+29,4,10,Nelly,Daniella Karagach,10.6693,1.1971970757080101,8.0,12.0
+29,4,11,Kaitlyn Bristowe,Artem Chigvintsev,2.774,1.1938452691419676,2.0,5.0
+29,4,13,Monica Aldama,Valentin Chmerkovskiy,4.8954,1.6488573962205824,2.0,7.0
+29,4,14,Jeannie Mai,Brandon Armstrong,10.6944,1.19379694886338,8.0,12.0
+29,5,1,Jesse Metcalfe,Sharna Burgess,12.0,0.0,12.0,12.0
+29,5,2,Chrishell Stause,Gleb Savchenko,10.9807,0.1375841667500082,11.0,11.0
+29,5,3,Skai Jackson,Alan Bersten,6.9775,1.4874861382551254,5.0,9.0
+29,5,4,Justina Machado,Sasha Farber,6.941,1.4995812330072134,5.0,9.0
+29,5,6,Veron Davis,Peta Murgatroyd,10.0136,0.16005499604878337,10.0,10.0
+29,5,7,Johnny Weir,Britt Stewart,1.0238,0.15632019575333211,1.0,1.0
+29,5,8,Nev Schulman,Jenna Johnson,3.4513,0.883123038217247,2.0,5.0
+29,5,9,AJ McLean,Cheryl Burke,6.9574,1.4841177515783768,5.0,9.0
+29,5,10,Nelly,Daniella Karagach,6.9457,1.4796521371743785,5.0,9.0
+29,5,11,Kaitlyn Bristowe,Artem Chigvintsev,2.3018,0.6404356140765257,2.0,4.0
+29,5,13,Monica Aldama,Valentin Chmerkovskiy,3.4513,0.8814227139120354,2.0,5.0
+29,5,14,Jeannie Mai,Brandon Armstrong,6.9559,1.482894159240216,5.0,9.0
+29,6,2,Chrishell Stause,Gleb Savchenko,7.3414,0.7701333329593348,6.0,8.0
+29,6,3,Skai Jackson,Alan Bersten,10.0,0.0,10.0,10.0
+29,6,4,Justina Machado,Sasha Farber,2.6743,1.3240826369539598,1.0,5.0
+29,6,6,Veron Davis,Peta Murgatroyd,11.0,0.0,11.0,11.0
+29,6,7,Johnny Weir,Britt Stewart,8.9548,0.2327281165601267,9.0,9.0
+29,6,8,Nev Schulman,Jenna Johnson,4.5864,1.1799467222831477,2.0,6.0
+29,6,9,AJ McLean,Cheryl Burke,2.6536,1.3158192041529886,1.0,5.0
+29,6,10,Nelly,Daniella Karagach,7.3394,0.7776040810146799,6.0,8.0
+29,6,11,Kaitlyn Bristowe,Artem Chigvintsev,2.6888,1.340796156555256,1.0,5.0
+29,6,13,Monica Aldama,Valentin Chmerkovskiy,2.6933,1.3367923591123416,1.0,5.0
+29,6,14,Jeannie Mai,Brandon Armstrong,6.068,0.8963572645070503,5.0,8.0
+29,7,2,Chrishell Stause,Gleb Savchenko,5.713,1.546890521992006,3.0,8.0
+29,7,3,Skai Jackson,Alan Bersten,3.4901,1.4087229820103035,2.0,6.0
+29,7,4,Justina Machado,Sasha Farber,5.7426,1.5433675642386093,3.0,8.0
+29,7,7,Johnny Weir,Britt Stewart,3.4832,1.389428231712999,2.0,6.0
+29,7,8,Nev Schulman,Jenna Johnson,1.0031,0.05559405606633659,1.0,1.0
+29,7,9,AJ McLean,Cheryl Burke,5.6836,1.5532972391758528,3.0,8.0
+29,7,10,Nelly,Daniella Karagach,3.4954,1.4211899303336653,2.0,6.0
+29,7,11,Kaitlyn Bristowe,Artem Chigvintsev,8.7726,0.5311472975975453,8.0,9.0
+29,7,13,Monica Aldama,Valentin Chmerkovskiy,10.0,0.0,10.0,10.0
+29,7,14,Jeannie Mai,Brandon Armstrong,7.6164,1.0812807021285822,5.0,9.0
+29,8,2,Chrishell Stause,Gleb Savchenko,7.9967,0.06549457194222563,8.0,8.0
+29,8,3,Skai Jackson,Alan Bersten,5.3185,0.7484074835115806,4.0,6.0
+29,8,4,Justina Machado,Sasha Farber,2.8902,0.8100676397425686,1.0,4.0
+29,8,7,Johnny Weir,Britt Stewart,1.6666,0.7208997223199378,1.0,3.0
+29,8,8,Nev Schulman,Jenna Johnson,1.6846,0.7413351453828274,1.0,3.0
+29,8,9,AJ McLean,Cheryl Burke,5.324,0.7384297717811651,4.0,6.0
+29,8,10,Nelly,Daniella Karagach,7.001,0.06927827904902645,7.0,7.0
+29,8,11,Kaitlyn Bristowe,Artem Chigvintsev,4.1184,0.7986521298553295,3.0,6.0
+29,9,3,Skai Jackson,Alan Bersten,3.2048,0.8710527155593549,1.0,4.0
+29,9,4,Justina Machado,Sasha Farber,5.0194,0.1510825026012581,5.0,5.0
+29,9,7,Johnny Weir,Britt Stewart,1.7929,0.8811851330588099,1.0,4.0
+29,9,8,Nev Schulman,Jenna Johnson,3.1935,0.8755195048885794,1.0,4.0
+29,9,9,AJ McLean,Cheryl Burke,7.0,0.0,7.0,7.0
+29,9,10,Nelly,Daniella Karagach,5.9788,0.14405774975171012,6.0,6.0
+29,9,11,Kaitlyn Bristowe,Artem Chigvintsev,1.8106,0.8675268873585582,1.0,4.0
+29,10,3,Skai Jackson,Alan Bersten,5.4905,0.5185910177243401,5.0,6.0
+29,10,4,Justina Machado,Sasha Farber,2.8445,0.7410632007236274,1.0,4.0
+29,10,7,Johnny Weir,Britt Stewart,5.4891,0.5212565211449001,5.0,6.0
+29,10,8,Nev Schulman,Jenna Johnson,1.6713,0.7300065759704482,1.0,3.0
+29,10,10,Nelly,Daniella Karagach,3.8238,0.49089475222880224,3.0,4.0
+29,10,11,Kaitlyn Bristowe,Artem Chigvintsev,1.6808,0.727849116530096,1.0,3.0
+29,11,4,Justina Machado,Sasha Farber,2.0632,0.9068009642688322,1.0,3.0499999999992724
+29,11,8,Nev Schulman,Jenna Johnson,2.0711,0.9148379544204989,1.0,4.0
+29,11,10,Nelly,Daniella Karagach,3.8004,0.5134064653078139,3.0,4.0
+29,11,11,Kaitlyn Bristowe,Artem Chigvintsev,2.0653,0.9070381369149717,1.0,4.0
+30,1,0,Martin Kove,Britt Stewart,15.0,0.0,15.0,15.0
+30,1,1,Brian Austin Green,Sharna Burgess,10.155,1.5785512922988132,7.0,12.0
+30,1,2,Melora Hardin,Artem Chigvintsev,5.7022,1.2771367459386573,4.0,8.0
+30,1,3,Matt James,Lindsay Arnold,10.1877,1.5679651021167995,7.0,12.0
+30,1,4,"Mike ""The Miz"" Mizanin",Witney Carson,10.1523,1.5897035653676361,7.0,12.0
+30,1,5,Suni Lee,Sasha Farber,2.5253,0.9263075701792868,1.0,4.0
+30,1,6,Iman Shumpert,Daniella Karagach,13.832,0.3836544266288448,13.0,14.0
+30,1,7,Cody Rigsby,Cheryl Burke,10.1569,1.585728174494084,7.0,12.0
+30,1,8,Melanie C,Gleb Savchenko,4.0465,1.0514981287817313,2.0,6.0
+30,1,9,Jimmie Allen,Emma Slater,13.0741,0.5548332848679864,12.0,14.0
+30,1,10,Olivia Jade,Valentin Chmerkovskiy,7.7926,1.6074960791132393,5.0,11.0
+30,1,11,JoJo Siwa,Jenna Johnson,1.344,0.6449074278988077,1.0,3.0
+30,1,12,Christine Chiu,Pasha Pashkov,7.7807,1.6179830953782224,5.0,11.0
+30,1,13,Kenya Moore,Brandon Armstrong,5.708,1.2847961200544662,4.0,8.0
+30,1,14,Amanda Kloots,Alan Bersten,2.5427,0.9525058722882875,1.0,4.0
+30,2,0,Martin Kove,Britt Stewart,15.0,0.0,15.0,15.0
+30,2,1,Brian Austin Green,Sharna Burgess,12.6826,0.9842530748804099,11.0,14.0
+30,2,2,Melora Hardin,Artem Chigvintsev,6.0218,1.2006118885346315,4.0,8.0
+30,2,3,Matt James,Lindsay Arnold,13.7662,0.5353187990549755,13.0,14.0
+30,2,4,"Mike ""The Miz"" Mizanin",Witney Carson,7.7442,1.0758634245157797,6.0,9.0
+30,2,5,Suni Lee,Sasha Farber,4.4733,0.8623001021376587,4.0,6.0
+30,2,6,Iman Shumpert,Daniella Karagach,9.2545,1.0896093221184755,8.0,11.0
+30,2,7,Cody Rigsby,Cheryl Burke,10.9843,1.236691736304994,9.0,13.0
+30,2,8,Melanie C,Gleb Savchenko,2.8488,0.45095331896947927,2.0,3.0
+30,2,9,Jimmie Allen,Emma Slater,6.0106,1.2097247552225854,4.0,8.0
+30,2,10,Olivia Jade,Valentin Chmerkovskiy,6.035,1.2196408292506618,4.0,8.0
+30,2,11,JoJo Siwa,Jenna Johnson,2.0,0.5577016255223854,1.0,3.0
+30,2,12,Christine Chiu,Pasha Pashkov,11.0059,1.237343239295056,9.0,13.0
+30,2,13,Kenya Moore,Brandon Armstrong,10.9958,1.238279327764682,9.0,13.0
+30,2,14,Amanda Kloots,Alan Bersten,1.177,0.4097411241001782,1.0,2.0
+30,3,1,Brian Austin Green,Sharna Burgess,11.7688,1.4003366217682875,9.0,14.0
+30,3,2,Melora Hardin,Artem Chigvintsev,3.8762,1.1690210524289553,2.0,6.0
+30,3,3,Matt James,Lindsay Arnold,9.6449,1.502607657699538,7.0,12.0
+30,3,4,"Mike ""The Miz"" Mizanin",Witney Carson,5.624,1.2394263260725802,4.0,8.0
+30,3,5,Suni Lee,Sasha Farber,7.5046,1.3596925080221784,5.0,10.0
+30,3,6,Iman Shumpert,Daniella Karagach,11.5517,1.3634195983995998,9.0,14.0
+30,3,7,Cody Rigsby,Cheryl Burke,13.2166,0.9376419131180751,11.0,14.0
+30,3,8,Melanie C,Gleb Savchenko,5.6691,1.2366721982047564,4.0,8.0
+30,3,9,Jimmie Allen,Emma Slater,9.5492,1.4300293208133275,7.0,12.0
+30,3,10,Olivia Jade,Valentin Chmerkovskiy,2.2086,1.076197872227046,1.0,4.0
+30,3,11,JoJo Siwa,Jenna Johnson,2.199,1.074762537238408,1.0,4.0
+30,3,12,Christine Chiu,Pasha Pashkov,12.4417,1.4759467984636776,10.0,14.0
+30,3,13,Kenya Moore,Brandon Armstrong,7.5416,1.3655240406490725,5.0,10.0
+30,3,14,Amanda Kloots,Alan Bersten,2.204,1.0826362316683347,1.0,4.0
+30,4,1,Brian Austin Green,Sharna Burgess,12.9939,0.07786781324548639,13.0,13.0
+30,4,2,Melora Hardin,Artem Chigvintsev,1.1439,0.4268618173380118,1.0,2.0
+30,4,3,Matt James,Lindsay Arnold,12.0061,0.07786781324548639,12.0,12.0
+30,4,4,"Mike ""The Miz"" Mizanin",Witney Carson,7.2323,1.16510619998596,5.0,9.0
+30,4,5,Suni Lee,Sasha Farber,4.4688,1.252590698650536,2.0,7.0
+30,4,6,Iman Shumpert,Daniella Karagach,8.6198,0.775569539635925,7.0,9.0
+30,4,7,Cody Rigsby,Cheryl Burke,10.6918,0.4720540684120315,10.0,11.0
+30,4,8,Melanie C,Gleb Savchenko,6.3324,1.2361484725972969,4.0,8.0
+30,4,9,Jimmie Allen,Emma Slater,7.1919,1.1821227226532536,5.0,9.0
+30,4,10,Olivia Jade,Valentin Chmerkovskiy,2.7869,1.0390362600193332,1.0,5.0
+30,4,11,JoJo Siwa,Jenna Johnson,2.7775,1.0230828020458482,1.0,5.0
+30,4,13,Kenya Moore,Brandon Armstrong,10.2793,0.5001165080780325,10.0,11.0
+30,4,14,Amanda Kloots,Alan Bersten,4.4754,1.2524183387229364,2.0,7.0
+30,5,2,Melora Hardin,Artem Chigvintsev,4.5224,1.1539633456658462,3.0,6.0
+30,5,4,"Mike ""The Miz"" Mizanin",Witney Carson,8.8985,0.8020362062947157,8.0,10.0
+30,5,5,Suni Lee,Sasha Farber,4.5168,1.1587286244856998,3.0,6.0
+30,5,6,Iman Shumpert,Daniella Karagach,10.6106,0.4876386153104722,10.0,11.0
+30,5,7,Cody Rigsby,Cheryl Burke,8.9548,0.7957513946127923,8.0,10.0
+30,5,8,Melanie C,Gleb Savchenko,9.4724,1.349303635965677,8.0,11.0
+30,5,9,Jimmie Allen,Emma Slater,6.9716,0.4634813065185574,6.0,7.0
+30,5,10,Olivia Jade,Valentin Chmerkovskiy,4.5186,1.1531639166666048,3.0,6.0
+30,5,11,JoJo Siwa,Jenna Johnson,1.1559,0.36305422575296403,1.0,2.0
+30,5,13,Kenya Moore,Brandon Armstrong,4.5281,1.1636777064894115,3.0,6.0
+30,5,14,Amanda Kloots,Alan Bersten,1.8503,0.374571675910019,1.0,2.0
+30,6,2,Melora Hardin,Artem Chigvintsev,8.4212,0.6166267776039943,8.0,9.0
+30,6,4,"Mike ""The Miz"" Mizanin",Witney Carson,8.4492,0.6256664493566716,8.0,9.0
+30,6,5,Suni Lee,Sasha Farber,6.0051,0.9568518937404354,5.0,7.0
+30,6,6,Iman Shumpert,Daniella Karagach,1.5404,0.5801736810214803,1.0,2.0
+30,6,7,Cody Rigsby,Cheryl Burke,5.9947,0.9561188871330978,5.0,7.0
+30,6,9,Jimmie Allen,Emma Slater,3.5149,0.6931277173820577,3.0,5.0
+30,6,10,Olivia Jade,Valentin Chmerkovskiy,5.9945,0.955594613895772,5.0,7.0
+30,6,11,JoJo Siwa,Jenna Johnson,1.5473,0.5789613368982092,1.0,2.0
+30,6,13,Kenya Moore,Brandon Armstrong,10.0,0.0,10.0,10.0
+30,6,14,Amanda Kloots,Alan Bersten,3.5327,0.7035482982857723,3.0,5.0
+30,7,2,Melora Hardin,Artem Chigvintsev,3.3572,0.7228142265067856,2.0,4.0
+30,7,4,"Mike ""The Miz"" Mizanin",Witney Carson,9.0,0.0,9.0,9.0
+30,7,5,Suni Lee,Sasha Farber,6.9833,0.8541042438753838,6.0,8.0
+30,7,6,Iman Shumpert,Daniella Karagach,6.9744,0.8494803127089943,6.0,8.0
+30,7,7,Cody Rigsby,Cheryl Burke,5.0229,0.37654982270198706,5.0,6.0
+30,7,9,Jimmie Allen,Emma Slater,3.3668,0.7268497720018264,2.0,4.0
+30,7,10,Olivia Jade,Valentin Chmerkovskiy,1.0005,0.02235620674439206,1.0,1.0
+30,7,11,JoJo Siwa,Jenna Johnson,2.3186,0.5876466394503452,2.0,4.0
+30,7,14,Amanda Kloots,Alan Bersten,6.9763,0.849005530629279,6.0,8.0
+30,8,2,Melora Hardin,Artem Chigvintsev,2.1524,0.991701864099654,1.0,4.0
+30,8,5,Suni Lee,Sasha Farber,2.1705,0.9968596304958356,1.0,4.0
+30,8,6,Iman Shumpert,Daniella Karagach,5.999,0.031608541725156994,6.0,6.0
+30,8,7,Cody Rigsby,Cheryl Burke,5.0003,0.04123202648428536,5.0,5.0
+30,8,9,Jimmie Allen,Emma Slater,8.0,0.0,8.0,8.0
+30,8,10,Olivia Jade,Valentin Chmerkovskiy,7.0,0.0,7.0,7.0
+30,8,11,JoJo Siwa,Jenna Johnson,3.5279,0.7854191736441318,2.0,4.0
+30,8,14,Amanda Kloots,Alan Bersten,2.1499,1.0002649863932562,1.0,4.0
+30,9,2,Melora Hardin,Artem Chigvintsev,5.9345,0.24741841400178502,5.0,6.0
+30,9,5,Suni Lee,Sasha Farber,5.0641,0.2505942332675972,5.0,6.0
+30,9,6,Iman Shumpert,Daniella Karagach,2.9949,0.22644893003013059,3.0,3.0
+30,9,7,Cody Rigsby,Cheryl Burke,3.9795,0.1512681004171744,4.0,4.0
+30,9,11,JoJo Siwa,Jenna Johnson,1.3129,0.47182184305642233,1.0,2.0
+30,9,14,Amanda Kloots,Alan Bersten,1.7141,0.49818270604353615,1.0,2.0
+30,10,6,Iman Shumpert,Daniella Karagach,1.6851,0.7390484485207477,1.0,3.0
+30,10,7,Cody Rigsby,Cheryl Burke,3.7953,0.47309649335965526,3.0,4.0
+30,10,11,JoJo Siwa,Jenna Johnson,1.677,0.7297425932650782,1.0,3.0
+30,10,14,Amanda Kloots,Alan Bersten,2.8426,0.7490536350187567,1.0,4.0
+31,1,0,Jason Lewis,Peta Murgatroyd,16.0,0.0,16.0,16.0
+31,1,1,Cheryl Ladd,Louis van Amstel,10.9326,1.1064265262392243,10.0,13.0
+31,1,2,Selma Blair,Sasha Farber,4.0356,1.189232553963583,2.0,6.0
+31,1,3,Joseph Baena,Daniella Karagach,8.8967,0.4563440971388801,8.0,9.0
+31,1,4,Trevor Donovan,Emma Slater,10.9401,1.0968282879417912,10.0,13.0
+31,1,5,Daniel Durant,Britt Stewart,5.6652,0.9827540590371798,4.0,7.0
+31,1,6,Wayne Brady,Witney Carson,2.4987,0.8418249087058974,2.0,4.0
+31,1,7,Sam Champion,Cheryl Burke,12.6733,1.174097508938695,11.0,14.0
+31,1,8,Jessie James Decker,Alan Bersten,12.7095,1.1816299653180304,10.0,14.0
+31,1,9,Jordin Sparks,Brandon Armstrong,6.8021,0.5504233703147603,6.0,7.0
+31,1,10,Heidi D'Amelio,Artem Chigvintsev,8.1329,0.40478880344883555,8.0,9.0
+31,1,11,Charli D'Amelio,Mark Ballas,1.0008,0.028274369029111873,1.0,1.0
+31,1,12,Teresa Giudice,Pasha Pashkov,12.6952,1.1696297548268584,11.0,14.0
+31,1,13,Vinny Guadagnino,Koko Iwasaki,14.9963,0.062343393153300064,15.0,15.0
+31,1,14,Shangela,Gleb Savchenko,3.9965,1.2074077742640776,2.0,6.0
+31,1,15,Gabby Windey,Valentin Chmerkovskiy,4.0245,1.1992679326812017,2.0,6.0
+31,2,1,Cheryl Ladd,Louis van Amstel,13.9987,0.036033870788251626,14.0,14.0
+31,2,2,Selma Blair,Sasha Farber,7.1761,1.4065868756190893,5.0,10.0
+31,2,3,Joseph Baena,Daniella Karagach,12.8235,0.42209663177601386,12.0,13.0
+31,2,4,Trevor Donovan,Emma Slater,4.158,0.6142261207183702,3.0,5.0
+31,2,5,Daniel Durant,Britt Stewart,5.351,1.0228898427313844,4.0,7.0
+31,2,6,Wayne Brady,Witney Carson,2.0118,0.8499017550866288,1.0,3.0
+31,2,7,Sam Champion,Cheryl Burke,10.8038,0.9071867827442587,9.0,12.0
+31,2,8,Jessie James Decker,Alan Bersten,11.9411,0.6636827837783277,11.0,13.0
+31,2,9,Jordin Sparks,Brandon Armstrong,9.2096,1.2895092568152997,7.0,11.0
+31,2,10,Heidi D'Amelio,Artem Chigvintsev,7.13,1.4097158330220283,5.0,10.0
+31,2,11,Charli D'Amelio,Mark Ballas,2.0332,0.8534463059031346,1.0,3.0
+31,2,12,Teresa Giudice,Pasha Pashkov,15.0,0.0,15.0,15.0
+31,2,13,Vinny Guadagnino,Koko Iwasaki,9.2099,1.2920560865895439,7.0,11.0
+31,2,14,Shangela,Gleb Savchenko,7.1312,1.3866430102531018,5.0,10.0
+31,2,15,Gabby Windey,Valentin Chmerkovskiy,2.0221,0.8526923820639208,1.0,3.0
+31,3,1,Cheryl Ladd,Louis van Amstel,14.0,0.0,14.0,14.0
+31,3,2,Selma Blair,Sasha Farber,8.8419,0.8202265950130587,7.0,10.0
+31,3,3,Joseph Baena,Daniella Karagach,7.4898,0.9544564205378222,6.0,9.0
+31,3,4,Trevor Donovan,Emma Slater,9.9739,0.6812233088493461,9.0,11.0
+31,3,5,Daniel Durant,Britt Stewart,4.9914,0.7551046671196195,4.0,6.0
+31,3,6,Wayne Brady,Witney Carson,2.162,1.0277458957167454,1.0,4.0
+31,3,7,Sam Champion,Cheryl Burke,11.8387,0.4559639243515115,11.0,12.0
+31,3,8,Jessie James Decker,Alan Bersten,10.9839,0.6032223285968217,10.0,12.0
+31,3,9,Jordin Sparks,Brandon Armstrong,7.5041,0.9374812409364336,6.0,9.0
+31,3,10,Heidi D'Amelio,Artem Chigvintsev,3.7293,0.9573469388451282,2.0,5.0
+31,3,11,Charli D'Amelio,Mark Ballas,2.1918,1.035142459756722,1.0,4.0
+31,3,13,Vinny Guadagnino,Koko Iwasaki,12.976,0.15500452457997477,13.0,13.0
+31,3,14,Shangela,Gleb Savchenko,6.155,0.8441837860480762,5.0,8.0
+31,3,15,Gabby Windey,Valentin Chmerkovskiy,2.1622,1.0238144263478417,1.0,4.0
+31,4,2,Selma Blair,Sasha Farber,6.6244,0.7570878140584626,6.0,8.0
+31,4,3,Joseph Baena,Daniella Karagach,11.1904,0.8873706005149516,9.0,12.0
+31,4,4,Trevor Donovan,Emma Slater,11.1837,0.8835340249460238,9.0,12.0
+31,4,5,Daniel Durant,Britt Stewart,9.7935,0.915719173196901,9.0,12.0
+31,4,6,Wayne Brady,Witney Carson,2.0277,0.8818222445862353,1.0,3.0
+31,4,7,Sam Champion,Cheryl Burke,13.0,0.0,13.0,13.0
+31,4,8,Jessie James Decker,Alan Bersten,7.7297,0.6513680511306977,6.0,8.0
+31,4,9,Jordin Sparks,Brandon Armstrong,4.4749,0.6932662200087211,3.0,5.0
+31,4,10,Heidi D'Amelio,Artem Chigvintsev,4.4817,0.6878316808944795,3.0,5.0
+31,4,11,Charli D'Amelio,Mark Ballas,2.0519,0.8871781661593423,1.0,3.0
+31,4,13,Vinny Guadagnino,Koko Iwasaki,9.7828,0.9076929825965755,9.0,12.0
+31,4,14,Shangela,Gleb Savchenko,6.6099,0.7673205771297997,6.0,8.0
+31,4,15,Gabby Windey,Valentin Chmerkovskiy,2.0494,0.8919861007439484,1.0,3.0
+31,5,2,Selma Blair,Sasha Farber,3.8762,0.8829221455776923,2.0,5.0
+31,5,3,Joseph Baena,Daniella Karagach,11.9993,0.02644957387172426,12.0,12.0
+31,5,4,Trevor Donovan,Emma Slater,7.797,0.8001593750638376,7.0,9.0
+31,5,5,Daniel Durant,Britt Stewart,9.971,0.2134562164839329,10.0,10.0
+31,5,6,Wayne Brady,Witney Carson,2.533,0.9170578495983497,1.0,4.0
+31,5,8,Jessie James Decker,Alan Bersten,7.8145,0.8043347844303037,7.0,9.0
+31,5,9,Jordin Sparks,Brandon Armstrong,8.4064,0.7831349628493174,7.0,9.0
+31,5,10,Heidi D'Amelio,Artem Chigvintsev,5.1093,0.7362117295799342,4.0,6.0
+31,5,11,Charli D'Amelio,Mark Ballas,1.3436,0.6384197662821834,1.0,3.0
+31,5,13,Vinny Guadagnino,Koko Iwasaki,10.9957,0.07537956094208009,11.0,11.0
+31,5,14,Shangela,Gleb Savchenko,5.6265,0.6294738864618401,4.0,6.0
+31,5,15,Gabby Windey,Valentin Chmerkovskiy,2.5275,0.9209389571824428,1.0,4.0
+31,6,4,Trevor Donovan,Emma Slater,6.4549,1.188321169011169,5.0,8.0
+31,6,5,Daniel Durant,Britt Stewart,6.4616,1.2090788341389131,5.0,8.0
+31,6,6,Wayne Brady,Witney Carson,6.435,1.1830955039628666,5.0,8.0
+31,6,8,Jessie James Decker,Alan Bersten,9.9992,0.02827436902911203,10.0,10.0
+31,6,9,Jordin Sparks,Brandon Armstrong,6.4606,1.1928075783595198,5.0,8.0
+31,6,10,Heidi D'Amelio,Artem Chigvintsev,3.4232,0.8411732979902079,2.0,5.0
+31,6,11,Charli D'Amelio,Mark Ballas,1.0016,0.03996998573900166,1.0,1.0
+31,6,13,Vinny Guadagnino,Koko Iwasaki,9.0008,0.02827436902911203,9.0,9.0
+31,6,14,Shangela,Gleb Savchenko,3.4506,0.8395416148186454,2.0,5.0
+31,6,15,Gabby Windey,Valentin Chmerkovskiy,2.3125,0.5898122903549791,2.0,4.0
+31,7,4,Trevor Donovan,Emma Slater,1.6733,0.7147154621380319,1.0,3.0
+31,7,5,Daniel Durant,Britt Stewart,4.6349,0.899045504010686,3.0,6.0
+31,7,6,Wayne Brady,Witney Carson,2.8264,0.7655858228606497,1.0,4.0
+31,7,9,Jordin Sparks,Brandon Armstrong,8.9973,0.05189392351643688,9.0,9.0
+31,7,10,Heidi D'Amelio,Artem Chigvintsev,6.5572,0.6880228902803682,5.0,7.0
+31,7,11,Charli D'Amelio,Mark Ballas,1.6633,0.716229298786949,1.0,3.0
+31,7,13,Vinny Guadagnino,Koko Iwasaki,8.0023,0.05563289945661829,8.0,8.0
+31,7,14,Shangela,Gleb Savchenko,4.6441,0.8941561057858679,3.0,6.0
+31,7,15,Gabby Windey,Valentin Chmerkovskiy,6.0012,0.8361031436651146,4.0,7.0
+31,8,4,Trevor Donovan,Emma Slater,5.3392,0.6926697186494546,4.0,6.0
+31,8,5,Daniel Durant,Britt Stewart,5.3419,0.6945881047523972,4.0,6.0
+31,8,6,Wayne Brady,Witney Carson,1.5013,0.5028156643932609,1.0,2.0
+31,8,10,Heidi D'Amelio,Artem Chigvintsev,7.0,0.0,7.0,7.0
+31,8,11,Charli D'Amelio,Mark Ballas,1.5016,0.503013660126866,1.0,2.0
+31,8,13,Vinny Guadagnino,Koko Iwasaki,8.0,0.0,8.0,8.0
+31,8,14,Shangela,Gleb Savchenko,3.0199,0.1615753714526624,3.0,3.0
+31,8,15,Gabby Windey,Valentin Chmerkovskiy,4.2961,0.6148679502621909,4.0,6.0
+31,9,4,Trevor Donovan,Emma Slater,5.9779,0.14701616025164543,6.0,6.0
+31,9,5,Daniel Durant,Britt Stewart,5.0221,0.14701616025164543,5.0,5.0
+31,9,6,Wayne Brady,Witney Carson,3.5044,0.5014038098958341,3.0,4.0
+31,9,11,Charli D'Amelio,Mark Ballas,1.5008,0.5012229867516496,1.0,2.0
+31,9,14,Shangela,Gleb Savchenko,3.4943,0.5011912102809931,3.0,4.0
+31,9,15,Gabby Windey,Valentin Chmerkovskiy,1.5005,0.5014228679360855,1.0,2.0
+31,10,6,Wayne Brady,Witney Carson,3.4428,0.5820326762335783,3.0,4.0
+31,10,11,Charli D'Amelio,Mark Ballas,1.5463,0.5811110728663669,1.0,2.0
+31,10,14,Shangela,Gleb Savchenko,3.4661,0.5811063228496539,3.0,4.0
+31,10,15,Gabby Windey,Valentin Chmerkovskiy,1.5448,0.5846598521484694,1.0,2.0
+32,1,0,Jamie Lynn Spears,Alan Bersten,9.336,0.7762501249118361,8.0,10.0
+32,1,1,Mira Sorvino,Gleb Savchenko,6.8646,0.8468403355151352,5.0,8.0
+32,1,2,Barry Williams,Peta Murgatroyd,8.1264,0.8078912729017951,7.0,10.0
+32,1,3,Alyson Hannigan,Sasha Farber,11.2702,0.6423653347763523,11.0,13.0
+32,1,4,Xochitl Gomez,Valentin Chmerkovskiy,5.5127,0.8975072489546766,4.0,7.0
+32,1,5,Adrian Peterson,Britt Stewart,5.5188,0.9074849381071224,4.0,7.0
+32,1,6,Matt Walsh,Koko Iwasaki,14.0,0.0,14.0,14.0
+32,1,7,Tyson Beckford,Jenna Johnson,12.3412,0.6918312099365737,11.0,13.0
+32,1,8,Jason Mraz,Daniella Karagach,2.3609,0.7272579187661293,1.0,3.0
+32,1,9,Lele Pons,Brandon Armstrong,4.29,0.7033843010385549,4.0,6.0
+32,1,10,Harry Jowsey,Rylee Arnold,12.341,0.701832071670769,11.0,13.0
+32,1,11,Mauricio Umansky,Emma Slater,9.3467,0.7758603649694924,8.0,10.0
+32,1,12,Charity Lawson,Artem Chigvintsev,1.3126,0.5881460971418209,1.0,3.0
+32,1,13,Ariana Madix,Pasha Pashkov,2.3789,0.7288263913929554,1.0,3.0
+32,2,0,Jamie Lynn Spears,Alan Bersten,12.9935,0.09412032651657325,13.0,13.0
+32,2,1,Mira Sorvino,Gleb Savchenko,7.3153,0.7484262984372063,6.0,8.0
+32,2,2,Barry Williams,Peta Murgatroyd,9.9999,0.8235094454714412,9.0,11.0
+32,2,3,Alyson Hannigan,Sasha Farber,6.1158,0.8113298870487653,5.0,8.0
+32,2,4,Xochitl Gomez,Valentin Chmerkovskiy,1.5065,0.5061455999382316,1.0,2.0
+32,2,5,Adrian Peterson,Britt Stewart,9.992,0.8236527425948627,9.0,11.0
+32,2,7,Tyson Beckford,Jenna Johnson,7.3388,0.7306626764757308,6.0,8.0
+32,2,8,Jason Mraz,Daniella Karagach,1.4989,0.5053952239913277,1.0,2.0
+32,2,9,Lele Pons,Brandon Armstrong,3.6848,0.7446505290678603,3.0,5.0
+32,2,10,Harry Jowsey,Rylee Arnold,10.0039,0.8262887299888163,9.0,11.0
+32,2,11,Mauricio Umansky,Emma Slater,12.0017,0.09847882923746026,12.0,12.0
+32,2,12,Charity Lawson,Artem Chigvintsev,3.6693,0.7322507283116304,3.0,5.0
+32,2,13,Ariana Madix,Pasha Pashkov,4.8796,0.8107833107296258,3.0,6.0
+32,3,1,Mira Sorvino,Gleb Savchenko,6.046,0.6456978337963168,5.0,7.0
+32,3,2,Barry Williams,Peta Murgatroyd,7.1469,0.824614084792931,6.0,9.0
+32,3,3,Alyson Hannigan,Sasha Farber,8.4835,0.9363842328569801,7.0,10.0
+32,3,4,Xochitl Gomez,Valentin Chmerkovskiy,3.4591,0.5780662644200969,3.0,4.0
+32,3,5,Adrian Peterson,Britt Stewart,10.7913,0.48452841689489917,10.0,11.0
+32,3,7,Tyson Beckford,Jenna Johnson,12.0,0.0,12.0,12.0
+32,3,8,Jason Mraz,Daniella Karagach,1.5448,0.5846598521484699,1.0,2.0
+32,3,9,Lele Pons,Brandon Armstrong,5.1855,0.4286118533266223,5.0,6.0
+32,3,10,Harry Jowsey,Rylee Arnold,8.5126,0.9383652236359205,7.0,10.0
+32,3,11,Mauricio Umansky,Emma Slater,9.8342,0.779853304870673,8.0,11.0
+32,3,12,Charity Lawson,Artem Chigvintsev,3.453,0.578640201202997,3.0,4.0
+32,3,13,Ariana Madix,Pasha Pashkov,1.5431,0.5772137451332531,1.0,2.0
+32,4,1,Mira Sorvino,Gleb Savchenko,6.368,0.7299515620425036,5.0,7.0
+32,4,2,Barry Williams,Peta Murgatroyd,9.389,0.7807303977657067,8.0,11.0
+32,4,3,Alyson Hannigan,Sasha Farber,9.4031,0.7688104427943835,8.0,11.0
+32,4,4,Xochitl Gomez,Valentin Chmerkovskiy,1.0251,0.15771010509071637,1.0,1.0
+32,4,5,Adrian Peterson,Britt Stewart,10.8851,0.32727465662664273,10.0,11.0
+32,4,8,Jason Mraz,Daniella Karagach,3.3716,0.7348247660113768,2.0,4.0
+32,4,9,Lele Pons,Brandon Armstrong,5.2694,0.6547262837634246,5.0,7.0
+32,4,10,Harry Jowsey,Rylee Arnold,6.3626,0.7336041558672852,5.0,7.0
+32,4,11,Mauricio Umansky,Emma Slater,8.2724,0.6736791702007983,8.0,10.0
+32,4,12,Charity Lawson,Artem Chigvintsev,3.3662,0.7308563299975642,2.0,4.0
+32,4,13,Ariana Madix,Pasha Pashkov,2.2875,0.6062016974982863,2.0,4.0
+32,5,1,Mira Sorvino,Gleb Savchenko,9.9989,0.04357728649181593,10.0,10.0
+32,5,2,Barry Williams,Peta Murgatroyd,5.5061,1.1211995802933052,4.0,7.0
+32,5,3,Alyson Hannigan,Sasha Farber,7.9961,0.0853552491171764,8.0,8.0
+32,5,4,Xochitl Gomez,Valentin Chmerkovskiy,1.6594,0.6921268264952569,1.0,3.0
+32,5,8,Jason Mraz,Daniella Karagach,2.6879,0.5940781791046438,1.0,3.0
+32,5,9,Lele Pons,Brandon Armstrong,5.5104,1.1256191815415135,4.0,7.0
+32,5,10,Harry Jowsey,Rylee Arnold,8.9999,0.03873164099288054,9.0,9.0
+32,5,11,Mauricio Umansky,Emma Slater,5.4753,1.1243292763386386,4.0,7.0
+32,5,12,Charity Lawson,Artem Chigvintsev,1.6583,0.6926680943344312,1.0,3.0
+32,5,13,Ariana Madix,Pasha Pashkov,5.5077,1.1191362547052355,4.0,7.0
+32,6,2,Barry Williams,Peta Murgatroyd,6.1523,0.3612724204477524,6.0,7.0
+32,6,3,Alyson Hannigan,Sasha Farber,6.8709,0.39604150652108283,6.0,7.0
+32,6,4,Xochitl Gomez,Valentin Chmerkovskiy,1.1463,0.3556809819150992,1.0,2.0
+32,6,8,Jason Mraz,Daniella Karagach,3.1537,0.4511060403784975,3.0,4.0
+32,6,9,Lele Pons,Brandon Armstrong,4.831,0.40553106606591105,4.0,5.0
+32,6,10,Harry Jowsey,Rylee Arnold,7.9768,0.1525256909790635,8.0,8.0
+32,6,11,Mauricio Umansky,Emma Slater,9.0,0.0,9.0,9.0
+32,6,12,Charity Lawson,Artem Chigvintsev,3.9878,0.5532465708676544,3.0,5.0
+32,6,13,Ariana Madix,Pasha Pashkov,1.8812,0.3996279898268199,1.0,2.0
+32,7,2,Barry Williams,Peta Murgatroyd,6.727,0.766374407827724,6.0,8.0
+32,7,3,Alyson Hannigan,Sasha Farber,4.7462,0.779260087922166,3.0,6.0
+32,7,4,Xochitl Gomez,Valentin Chmerkovskiy,1.8292,0.9187555557258523,1.0,4.0
+32,7,8,Jason Mraz,Daniella Karagach,3.3303,1.034654029565481,1.0,5.0
+32,7,9,Lele Pons,Brandon Armstrong,6.9314,0.9961893792487115,5.0,8.0
+32,7,10,Harry Jowsey,Rylee Arnold,7.2434,0.7577690026559131,6.0,8.0
+32,7,12,Charity Lawson,Artem Chigvintsev,3.3526,1.0508966068875831,1.0,5.0
+32,7,13,Ariana Madix,Pasha Pashkov,1.8399,0.9318555818808785,1.0,4.0
+32,8,2,Barry Williams,Peta Murgatroyd,7.0,0.0,7.0,7.0
+32,8,3,Alyson Hannigan,Sasha Farber,3.9993,0.05567602699545088,4.0,4.0
+32,8,4,Xochitl Gomez,Valentin Chmerkovskiy,2.1361,0.3952118536189472,2.0,3.0
+32,8,8,Jason Mraz,Daniella Karagach,4.9988,0.034621956443661346,5.0,5.0
+32,8,10,Harry Jowsey,Rylee Arnold,6.0,0.0,6.0,6.0
+32,8,12,Charity Lawson,Artem Chigvintsev,2.8451,0.370026596298423,2.0,3.0
+32,8,13,Ariana Madix,Pasha Pashkov,1.0207,0.1444769786496654,1.0,1.0
+32,9,3,Alyson Hannigan,Sasha Farber,5.0,0.0,5.0,5.0
+32,9,4,Xochitl Gomez,Valentin Chmerkovskiy,1.9785,0.15504887621457153,2.0,2.0
+32,9,8,Jason Mraz,Daniella Karagach,1.023,0.1499107978923879,1.0,1.0
+32,9,10,Harry Jowsey,Rylee Arnold,6.0,0.0,6.0,6.0
+32,9,12,Charity Lawson,Artem Chigvintsev,3.1465,0.35784152226300686,3.0,4.0
+32,9,13,Ariana Madix,Pasha Pashkov,3.852,0.3551177422504913,3.0,4.0
+32,10,3,Alyson Hannigan,Sasha Farber,4.9991,0.029987996398439177,5.0,5.0
+32,10,4,Xochitl Gomez,Valentin Chmerkovskiy,1.5242,0.7631989303325354,1.0,3.0
+32,10,8,Jason Mraz,Daniella Karagach,3.482,0.7684627860250296,2.0,4.0
+32,10,12,Charity Lawson,Artem Chigvintsev,2.1691,0.9249814858011526,1.0,4.0
+32,10,13,Ariana Madix,Pasha Pashkov,2.8256,0.9182967749571417,1.0,4.0
+32,11,3,Alyson Hannigan,Sasha Farber,4.9976,0.048933418518889486,5.0,5.0
+32,11,4,Xochitl Gomez,Valentin Chmerkovskiy,2.1201,1.0510882306670828,1.0,4.0
+32,11,8,Jason Mraz,Daniella Karagach,2.0972,1.0466430653143481,1.0,4.0
+32,11,12,Charity Lawson,Artem Chigvintsev,2.9021,1.046338889895264,1.0,4.0
+32,11,13,Ariana Madix,Pasha Pashkov,2.883,1.0488188604807818,1.0,4.0
+33,1,0,Tori Spelling,Pasha Pashkov,10.6635,1.0567778517469018,9.0,12.0
+33,1,1,Eric Roberts,Britt Stewart,12.82,0.4247564499853771,12.0,13.0
+33,1,2,Reginald VelJohnson,Emma Slater,11.9271,0.7001675609890436,11.0,13.0
+33,1,3,Chandler Kinney,Brandon Armstrong,1.1972,0.4633936052249062,1.0,2.0
+33,1,4,Dwight Howard?,Daniella Karagach,2.1823,0.7921675725162541,1.0,4.0
+33,1,5,Danny Amendola,Witney Carson,5.0369,1.0799328754610429,3.0,7.0
+33,1,6,Stephen Nedoroscik,Rylee Arnold,3.5324,0.9850113018267725,2.0,5.0
+33,1,7,Ilona Maher,Alan Bersten,8.8524,1.402287731205013,6.0,11.0
+33,1,8,Anna Delvey,Ezra Sosa,8.8321,1.419686987020064,6.0,11.0
+33,1,9,Brooks Nader,Gleb Savchenko,8.8561,1.423936638181264,6.0,11.0
+33,1,10,Phaedra Parks,Val Chmerkovskiy,6.7835,1.3289862190546022,5.0,9.0
+33,1,11,Jenn Tran,Sasha Farber,6.7938,1.3250121228549454,5.0,9.0
+33,1,12,Joey Graziadei,Jenna Johnson,3.5227,0.9793776738637673,2.0,5.0
+33,2,0,Tori Spelling,Pasha Pashkov,11.8691,0.4726388988994407,11.0,12.0
+33,2,1,Eric Roberts,Britt Stewart,10.5889,0.6075637442855994,10.0,12.0
+33,2,2,Reginald VelJohnson,Emma Slater,10.5655,0.6064210786676743,10.0,12.0
+33,2,3,Chandler Kinney,Brandon Armstrong,1.0692,0.30532062175393,1.0,2.0
+33,2,4,Dwight Howard?,Daniella Karagach,3.4605,1.4299805014137232,2.0,6.0
+33,2,5,Danny Amendola,Witney Carson,5.7208,1.5573984425929326,3.0,8.0
+33,2,6,Stephen Nedoroscik,Rylee Arnold,3.5,1.458153840053276,2.0,6.0
+33,2,7,Ilona Maher,Alan Bersten,5.6868,1.5621618978132497,3.0,8.0
+33,2,8,Anna Delvey,Ezra Sosa,12.9759,0.15786602601008493,13.0,13.0
+33,2,9,Brooks Nader,Gleb Savchenko,7.5981,1.0916480932772936,5.0,9.0
+33,2,10,Phaedra Parks,Val Chmerkovskiy,5.7097,1.548504341798775,3.0,8.0
+33,2,11,Jenn Tran,Sasha Farber,8.7824,0.5314870533218884,8.0,9.0
+33,2,12,Joey Graziadei,Jenna Johnson,3.4731,1.4317406811772204,2.0,6.0
+33,3,1,Eric Roberts,Britt Stewart,10.0205,0.14171012023076426,10.0,10.0
+33,3,2,Reginald VelJohnson,Emma Slater,10.9795,0.14171012023076426,11.0,11.0
+33,3,3,Chandler Kinney,Brandon Armstrong,1.6957,0.4607849197556574,1.0,2.0
+33,3,4,Dwight Howard?,Daniella Karagach,8.9575,0.21976937879965394,9.0,9.0
+33,3,5,Danny Amendola,Witney Carson,5.4362,0.9058761621557959,4.0,6.0
+33,3,6,Stephen Nedoroscik,Rylee Arnold,3.9411,0.9619372756745803,3.0,6.0
+33,3,7,Ilona Maher,Alan Bersten,7.4948,0.5875435990188947,7.0,8.0
+33,3,9,Brooks Nader,Gleb Savchenko,4.7255,1.0112625846937664,3.0,6.0
+33,3,10,Phaedra Parks,Val Chmerkovskiy,7.4905,0.5881703362415037,7.0,8.0
+33,3,11,Jenn Tran,Sasha Farber,3.954,0.9617569847158698,3.0,6.0
+33,3,12,Joey Graziadei,Jenna Johnson,1.3047,0.46052048587635164,1.0,2.0
+33,4,3,Chandler Kinney,Brandon Armstrong,5.344,1.2957746344138381,3.0,7.0
+33,4,4,Dwight Howard?,Daniella Karagach,8.2307,0.43485218136967346,8.0,9.0
+33,4,5,Danny Amendola,Witney Carson,1.4983,0.5020182389427911,1.0,2.0
+33,4,6,Stephen Nedoroscik,Rylee Arnold,3.6192,0.975954204182177,3.0,6.0
+33,4,7,Ilona Maher,Alan Bersten,5.3315,1.305058645351534,3.0,7.0
+33,4,9,Brooks Nader,Gleb Savchenko,8.74,0.489718268393408,8.0,9.0
+33,4,10,Phaedra Parks,Val Chmerkovskiy,5.3774,1.3164127522374671,3.0,7.0
+33,4,11,Jenn Tran,Sasha Farber,5.3553,1.2981642550321986,3.0,7.0
+33,4,12,Joey Graziadei,Jenna Johnson,1.5036,0.5018089489259069,1.0,2.0
+33,5,3,Chandler Kinney,Brandon Armstrong,1.4511,0.8196804118665768,1.0,3.0
+33,5,4,Dwight Howard?,Daniella Karagach,6.3273,0.8041389021415348,5.0,7.0
+33,5,5,Danny Amendola,Witney Carson,3.9666,1.3193401782143162,2.0,6.0
+33,5,6,Stephen Nedoroscik,Rylee Arnold,6.3103,0.8098638761852474,5.0,7.0
+33,5,7,Ilona Maher,Alan Bersten,3.0068,1.290550391124348,1.0,5.0
+33,5,10,Phaedra Parks,Val Chmerkovskiy,7.9975,0.055624269936248034,8.0,8.0
+33,5,11,Jenn Tran,Sasha Farber,3.9578,1.3080482632632098,2.0,6.0
+33,5,12,Joey Graziadei,Jenna Johnson,2.9826,1.2849367090384722,1.0,5.0
+33,6,3,Chandler Kinney,Brandon Armstrong,1.662,0.6916674348153451,1.0,3.0
+33,6,4,Dwight Howard?,Daniella Karagach,2.6914,0.5812054886027812,1.0,3.0
+33,6,5,Danny Amendola,Witney Carson,4.5127,0.5217910851994871,4.0,5.0
+33,6,6,Stephen Nedoroscik,Rylee Arnold,4.5068,0.5261002168254776,4.0,5.0
+33,6,7,Ilona Maher,Alan Bersten,6.064,0.2447651752171864,6.0,7.0
+33,6,11,Jenn Tran,Sasha Farber,6.914,0.3501660486485839,6.0,7.0
+33,6,12,Joey Graziadei,Jenna Johnson,1.6491,0.6897947315521984,1.0,3.0
+33,7,3,Chandler Kinney,Brandon Armstrong,1.0066,0.08577398042280507,1.0,1.0
+33,7,4,Dwight Howard?,Daniella Karagach,6.0,0.0,6.0,6.0
+33,7,5,Danny Amendola,Witney Carson,4.6089,0.6112103957024794,3.0,5.0
+33,7,6,Stephen Nedoroscik,Rylee Arnold,2.8995,0.7363789618107911,2.0,4.0
+33,7,7,Ilona Maher,Alan Bersten,4.0989,0.7326475736987879,3.0,5.0
+33,7,12,Joey Graziadei,Jenna Johnson,2.3861,0.6192456188893484,2.0,4.0
+33,8,3,Chandler Kinney,Brandon Armstrong,1.8186,0.8227768446994731,1.0,3.0
+33,8,5,Danny Amendola,Witney Carson,4.1948,0.6325290264461623,3.0,5.0
+33,8,6,Stephen Nedoroscik,Rylee Arnold,4.6642,0.5339165353186479,4.0,5.0
+33,8,7,Ilona Maher,Alan Bersten,2.4816,0.8622852159113923,1.0,4.0
+33,8,12,Joey Graziadei,Jenna Johnson,1.8408,0.8302555585054777,1.0,3.0
+33,9,3,Chandler Kinney,Brandon Armstrong,1.7062,0.9030853316888904,1.0,3.0
+33,9,5,Danny Amendola,Witney Carson,4.5362,0.7330370347597951,3.0,5.0
+33,9,6,Stephen Nedoroscik,Rylee Arnold,2.4099,1.0492817015505977,1.0,4.0
+33,9,7,Ilona Maher,Alan Bersten,3.9373,0.9312655021762342,2.0,5.0
+33,9,12,Joey Graziadei,Jenna Johnson,2.4104,1.034929441022329,1.0,4.0
+34,1,0,Corey Feldman,Jenna Johnson,12.871,1.2847272287942044,10.0,14.0
+34,1,1,Danielle Fishel,Pasha Pashkov,6.7346,1.3520153973100497,4.0,9.0
+34,1,2,Elaine Hendrix,Alan Bersten (Rashad Jennings week 9),6.7647,1.358645833854496,4.0,9.0
+34,1,3,Baron Davis,Britt Stewart,10.7561,1.5634760106005998,9.0,13.0
+34,1,4,Jordan Chiles,Ezra Sosa (Apolo Anton Ohno week 9),10.725,1.5449963434811544,9.0,13.0
+34,1,5,Andy Richter,Emma Slater/Kaitlyn Bristowe (week 9),12.8879,1.2601160181657582,10.0,14.0
+34,1,6,Robert Irwin,Witney Carson (Xoshitl Gomez week 9),1.7055,0.7809165980265174,1.0,3.0
+34,1,7,Hilaria Baldwin,Gleb Savchenko,3.0655,1.0405373716509063,1.0,5.0
+34,1,8,Lauren Jauregui,Brandon Armstrong,4.7809,1.2926957477417582,3.0,7.0
+34,1,9,Scott Hoying,Rylee Arnold,10.7568,1.5638728624261542,9.0,13.0
+34,1,10,Alix Earle,Val Chmerkovskiy (Joey Graziadei week 9),4.7796,1.3078971287872594,3.0,7.0
+34,1,11,Jen Affleck,Jan Ravnik,6.7444,1.365450506429491,4.0,9.0
+34,1,12,Whitney Leavitt,Mark Ballas,1.7016,0.7907085189854725,1.0,3.0
+34,1,13,Dylan Efron,Daniella Karagach (Rumer Willis week 9),10.7264,1.580757071561579,9.0,13.0
+34,2,0,Corey Feldman,Jenna Johnson,13.9984,0.03996998573900177,14.0,14.0
+34,2,1,Danielle Fishel,Pasha Pashkov,9.912,0.74626516143333,9.0,11.0
+34,2,2,Elaine Hendrix,Alan Bersten (Rashad Jennings week 9),6.0636,2.0254790289039404,2.0,9.0
+34,2,3,Baron Davis,Britt Stewart,12.999,0.06480293158487672,13.0,13.0
+34,2,4,Jordan Chiles,Ezra Sosa (Apolo Anton Ohno week 9),3.1448,1.8672390361605589,1.0,7.0
+34,2,5,Andy Richter,Emma Slater/Kaitlyn Bristowe (week 9),11.98,0.16125321782843935,12.0,12.0
+34,2,6,Robert Irwin,Witney Carson (Xoshitl Gomez week 9),3.163,1.8842998855293376,1.0,7.0
+34,2,7,Hilaria Baldwin,Gleb Savchenko,6.0721,2.0023742258264368,2.0,9.0
+34,2,8,Lauren Jauregui,Brandon Armstrong,6.0611,2.0278012693059355,2.0,9.0
+34,2,9,Scott Hoying,Rylee Arnold,10.8438,0.45433710196309307,10.0,11.0
+34,2,10,Alix Earle,Val Chmerkovskiy (Joey Graziadei week 9),6.0022,2.0223758702120733,2.0,9.0
+34,2,11,Jen Affleck,Jan Ravnik,3.1506,1.8794874001409911,1.0,7.0
+34,2,12,Whitney Leavitt,Mark Ballas,3.1525,1.8950997045773141,1.0,7.0
+34,2,13,Dylan Efron,Daniella Karagach (Rumer Willis week 9),8.4569,1.3299320516200024,6.0,10.0
+34,3,1,Danielle Fishel,Pasha Pashkov,8.0102,1.194587235770745,6.0,9.0
+34,3,2,Elaine Hendrix,Alan Bersten (Rashad Jennings week 9),8.0011,1.179083463450057,6.0,9.0
+34,3,4,Jordan Chiles,Ezra Sosa (Apolo Anton Ohno week 9),1.8712,1.0155361595576669,1.0,4.0
+34,3,5,Andy Richter,Emma Slater/Kaitlyn Bristowe (week 9),10.8498,0.360351141658424,10.0,11.0
+34,3,6,Robert Irwin,Witney Carson (Xoshitl Gomez week 9),5.9407,1.5841194568104207,3.0,9.0
+34,3,7,Hilaria Baldwin,Gleb Savchenko,5.9985,1.5832714311963314,3.0,9.0
+34,3,8,Lauren Jauregui,Brandon Armstrong,12.0,0.0,12.0,12.0
+34,3,9,Scott Hoying,Rylee Arnold,5.9432,1.5924281279650512,3.0,9.0
+34,3,10,Alix Earle,Val Chmerkovskiy (Joey Graziadei week 9),3.6907,1.467599705263493,1.0,6.0
+34,3,11,Jen Affleck,Jan Ravnik,10.1028,0.4398312234829575,10.0,11.0
+34,3,12,Whitney Leavitt,Mark Ballas,1.8959,1.014971037330947,1.0,4.0
+34,3,13,Dylan Efron,Daniella Karagach (Rumer Willis week 9),3.6959,1.468277485313113,1.0,6.0
+34,4,1,Danielle Fishel,Pasha Pashkov,8.5304,0.9808017318519174,7.0,10.0
+34,4,2,Elaine Hendrix,Alan Bersten (Rashad Jennings week 9),3.2254,1.4066245765199523,1.0,6.0
+34,4,4,Jordan Chiles,Ezra Sosa (Apolo Anton Ohno week 9),3.1782,1.3603785587042683,1.0,6.0
+34,4,5,Andy Richter,Emma Slater/Kaitlyn Bristowe (week 9),10.6522,0.48068520450142993,10.0,11.0
+34,4,6,Robert Irwin,Witney Carson (Xoshitl Gomez week 9),6.9778,1.1006490370823383,5.0,9.0
+34,4,7,Hilaria Baldwin,Gleb Savchenko,9.8252,1.21687839955516,7.0,11.0
+34,4,9,Scott Hoying,Rylee Arnold,8.4949,0.9207924716664377,7.0,10.0
+34,4,10,Alix Earle,Val Chmerkovskiy (Joey Graziadei week 9),3.1405,1.3686296302164704,1.0,6.0
+34,4,11,Jen Affleck,Jan Ravnik,5.2407,1.3732997142687056,3.0,7.0
+34,4,12,Whitney Leavitt,Mark Ballas,1.4986,0.8706743635738553,1.0,3.0
+34,4,13,Dylan Efron,Daniella Karagach (Rumer Willis week 9),5.2361,1.3427349268222537,3.0,7.0
+34,5,1,Danielle Fishel,Pasha Pashkov,8.1869,0.879230171553194,6.0,9.0
+34,5,2,Elaine Hendrix,Alan Bersten (Rashad Jennings week 9),6.7934,0.9200005870150365,6.0,9.0
+34,5,4,Jordan Chiles,Ezra Sosa (Apolo Anton Ohno week 9),4.8835,0.4518275830629214,4.0,5.0
+34,5,5,Andy Richter,Emma Slater/Kaitlyn Bristowe (week 9),10.0,0.0,10.0,10.0
+34,5,6,Robert Irwin,Witney Carson (Xoshitl Gomez week 9),2.3686,0.7314284235343043,1.0,3.0
+34,5,9,Scott Hoying,Rylee Arnold,6.7933,0.9126107581217648,6.0,9.0
+34,5,10,Alix Earle,Val Chmerkovskiy (Joey Graziadei week 9),2.363,0.7197796942682029,1.0,3.0
+34,5,11,Jen Affleck,Jan Ravnik,8.1785,0.8958336909271606,6.0,9.0
+34,5,12,Whitney Leavitt,Mark Ballas,4.1153,0.45894114295546684,4.0,5.0
+34,5,13,Dylan Efron,Daniella Karagach (Rumer Willis week 9),1.3175,0.5927300252967544,1.0,3.0
+34,6,1,Danielle Fishel,Pasha Pashkov,4.1524,0.9978345591232726,3.0,6.0
+34,6,2,Elaine Hendrix,Alan Bersten (Rashad Jennings week 9),4.1498,0.9971255617717336,3.0,6.0
+34,6,4,Jordan Chiles,Ezra Sosa (Apolo Anton Ohno week 9),1.5078,0.5082961700619523,1.0,2.0
+34,6,5,Andy Richter,Emma Slater/Kaitlyn Bristowe (week 9),9.0,0.0,9.0,9.0
+34,6,6,Robert Irwin,Witney Carson (Xoshitl Gomez week 9),4.1638,1.0035289069213225,3.0,6.0
+34,6,9,Scott Hoying,Rylee Arnold,10.0,0.0,10.0,10.0
+34,6,10,Alix Earle,Val Chmerkovskiy (Joey Graziadei week 9),5.5292,0.7944875587749053,4.0,6.0
+34,6,11,Jen Affleck,Jan Ravnik,7.5033,0.5030053791373843,7.0,8.0
+34,6,12,Whitney Leavitt,Mark Ballas,1.5001,0.5075684708246341,1.0,2.0
+34,6,13,Dylan Efron,Daniella Karagach (Rumer Willis week 9),7.4936,0.5033730013000737,7.0,8.0
+34,7,1,Danielle Fishel,Pasha Pashkov,5.9997,0.05196325642222402,6.0,6.0
+34,7,2,Elaine Hendrix,Alan Bersten (Rashad Jennings week 9),7.0003,0.05196325642222383,7.0,7.0
+34,7,4,Jordan Chiles,Ezra Sosa (Apolo Anton Ohno week 9),4.5043,0.5039909827477767,4.0,5.0
+34,7,5,Andy Richter,Emma Slater/Kaitlyn Bristowe (week 9),7.9985,0.03870271036993404,8.0,8.0
+34,7,6,Robert Irwin,Witney Carson (Xoshitl Gomez week 9),2.8305,0.41639775300651055,2.0,3.0
+34,7,10,Alix Earle,Val Chmerkovskiy (Joey Graziadei week 9),1.178,0.41368238216212583,1.0,2.0
+34,7,11,Jen Affleck,Jan Ravnik,9.0,0.0,9.0,9.0
+34,7,12,Whitney Leavitt,Mark Ballas,1.9942,0.54643958460379,1.0,3.0
+34,7,13,Dylan Efron,Daniella Karagach (Rumer Willis week 9),4.4945,0.5039793145704999,4.0,5.0
+34,8,1,Danielle Fishel,Pasha Pashkov,7.9705,0.19502193044715666,8.0,8.0
+34,8,2,Elaine Hendrix,Alan Bersten (Rashad Jennings week 9),5.1502,1.0864428175470533,3.0,6.0
+34,8,4,Jordan Chiles,Ezra Sosa (Apolo Anton Ohno week 9),2.3748,1.2120527493416788,1.0,5.0
+34,8,5,Andy Richter,Emma Slater/Kaitlyn Bristowe (week 9),7.0251,0.15643668765262336,7.0,7.0
+34,8,6,Robert Irwin,Witney Carson (Xoshitl Gomez week 9),4.2666,1.310990583349463,2.0,6.0
+34,8,10,Alix Earle,Val Chmerkovskiy (Joey Graziadei week 9),3.2989,1.3445220578169763,1.0,6.0
+34,8,12,Whitney Leavitt,Mark Ballas,1.6148,0.9204920915298814,1.0,3.0
+34,8,13,Dylan Efron,Daniella Karagach (Rumer Willis week 9),4.2991,1.3013871640887984,2.0,6.0
+34,9,2,Elaine Hendrix,Alan Bersten (Rashad Jennings week 9),5.9986,0.03739224275142956,6.0,6.0
+34,9,4,Jordan Chiles,Ezra Sosa (Apolo Anton Ohno week 9),4.8465,0.37114892584044284,4.0,5.0
+34,9,5,Andy Richter,Emma Slater/Kaitlyn Bristowe (week 9),7.0,0.0,7.0,7.0
+34,9,6,Robert Irwin,Witney Carson (Xoshitl Gomez week 9),2.046,0.8499154285124836,1.0,3.0
+34,9,10,Alix Earle,Val Chmerkovskiy (Joey Graziadei week 9),4.0864,0.4843123948956751,3.0,5.0
+34,9,12,Whitney Leavitt,Mark Ballas,2.0017,0.8523906187756272,1.0,3.0
+34,9,13,Dylan Efron,Daniella Karagach (Rumer Willis week 9),2.0208,0.8547750721929156,1.0,3.0
+34,10,2,Elaine Hendrix,Alan Bersten (Rashad Jennings week 9),3.2063,1.1660515758866603,1.0,5.0
+34,10,4,Jordan Chiles,Ezra Sosa (Apolo Anton Ohno week 9),3.2,1.1478378601419799,1.0,5.0
+34,10,6,Robert Irwin,Witney Carson (Xoshitl Gomez week 9),1.6428,0.9061403142046495,1.0,4.0
+34,10,10,Alix Earle,Val Chmerkovskiy (Joey Graziadei week 9),2.3696,1.1024143375959763,1.0,4.0
+34,10,12,Whitney Leavitt,Mark Ballas,5.94,0.23749871697349517,5.0,6.0
+34,10,13,Dylan Efron,Daniella Karagach (Rumer Willis week 9),4.6413,0.7557059078384342,3.0,5.0
+34,11,2,Elaine Hendrix,Alan Bersten (Rashad Jennings week 9),3.9634,1.185242979347277,2.0,5.0
+34,11,4,Jordan Chiles,Ezra Sosa (Apolo Anton Ohno week 9),2.7581,1.3208174915122066,1.0,5.0
+34,11,6,Robert Irwin,Witney Carson (Xoshitl Gomez week 9),2.7488,1.3096068368051141,1.0,5.0
+34,11,10,Alix Earle,Val Chmerkovskiy (Joey Graziadei week 9),2.14,1.2177636448956288,1.0,5.0
+34,11,13,Dylan Efron,Daniella Karagach (Rumer Willis week 9),3.3897,1.3085125641403104,1.0,5.0
