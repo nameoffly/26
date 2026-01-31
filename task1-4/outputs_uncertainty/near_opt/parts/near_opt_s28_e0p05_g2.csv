@@ -1,0 +1,22 @@
+season,week,contestant_id,celebrity_name,ballroom_partner,judge_rank,fan_rank_min,fan_rank_max,combined_rank_min,combined_rank_max,actual_eliminated,epsilon
+28,7,0,Kate Flannery,Pasha Pashkov,7,,,,,0,0.05
+28,7,1,James Van Der Beek,Emma Slater,1,,,,,0,0.05
+28,7,2,Kel Mitchell,Witney Carson,5,,,,,0,0.05
+28,7,6,Sean Spicer,Lindsay Arnold,8,,,,,0,0.05
+28,7,8,Lauren Alaina,Gleb Savchenko,1,,,,,0,0.05
+28,7,9,Ally Brooke,Sasha Farber,1,,,,,0,0.05
+28,7,10,Karamo Brown,Jenna Johnson,6,,,,,1,0.05
+28,7,11,Hannah Brown,Alan Bersten,4,,,,,0,0.05
+28,8,0,Kate Flannery,Pasha Pashkov,5,,,,,1,0.05
+28,8,1,James Van Der Beek,Emma Slater,1,,,,,0,0.05
+28,8,2,Kel Mitchell,Witney Carson,4,,,,,0,0.05
+28,8,6,Sean Spicer,Lindsay Arnold,7,,,,,0,0.05
+28,8,8,Lauren Alaina,Gleb Savchenko,6,,,,,0,0.05
+28,8,9,Ally Brooke,Sasha Farber,3,,,,,0,0.05
+28,8,11,Hannah Brown,Alan Bersten,2,,,,,0,0.05
+28,9,1,James Van Der Beek,Emma Slater,3,,,,,0,0.05
+28,9,2,Kel Mitchell,Witney Carson,2,,,,,0,0.05
+28,9,6,Sean Spicer,Lindsay Arnold,6,,,,,1,0.05
+28,9,8,Lauren Alaina,Gleb Savchenko,5,,,,,0,0.05
+28,9,9,Ally Brooke,Sasha Farber,1,,,,,0,0.05
+28,9,11,Hannah Brown,Alan Bersten,4,,,,,0,0.05

@@ -1,0 +1,10 @@
+season,week,contestant_id,celebrity_name,ballroom_partner,judge_rank,fan_rank_min,fan_rank_max,combined_rank_min,combined_rank_max,actual_eliminated,epsilon
+28,10,1,James Van Der Beek,Emma Slater,5,,,,,1,0.1
+28,10,2,Kel Mitchell,Witney Carson,2,,,,,0,0.1
+28,10,8,Lauren Alaina,Gleb Savchenko,3,,,,,0,0.1
+28,10,9,Ally Brooke,Sasha Farber,1,,,,,0,0.1
+28,10,11,Hannah Brown,Alan Bersten,3,,,,,0,0.1
+28,11,2,Kel Mitchell,Witney Carson,2,,,,,0,0.1
+28,11,8,Lauren Alaina,Gleb Savchenko,4,,,,,0,0.1
+28,11,9,Ally Brooke,Sasha Farber,1,,,,,0,0.1
+28,11,11,Hannah Brown,Alan Bersten,3,,,,,0,0.1

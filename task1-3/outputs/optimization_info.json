@@ -1,8 +1,0 @@
-{
-  "success":true,
-  "status":0,
-  "message":"CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
-  "fun":6.2333312897,
-  "nit":217,
-  "method":"L-BFGS-B"
-}

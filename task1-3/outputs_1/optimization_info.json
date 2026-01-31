@@ -1,8 +1,0 @@
-{
-  "success":false,
-  "status":9,
-  "message":"Iteration limit reached",
-  "fun":2.0748636755,
-  "nit":150,
-  "method":"SLSQP"
-}
