@@ -143,6 +143,37 @@ python uncertainty_altopt.py \
 - 该脚本是启发式求解，不保证最优；适合大量扰动快速评估。
 - 若需更高精度，请使用 `uncertainty_analysis.py` 的 CP-SAT 扰动。
 
+### 可视化（PNG）
+
+脚本：`task1-4/plot_results.py`，输出目录：`task1-4/outputs_images`。
+
+运行默认配置（所有季度合并输出）：
+
+```
+python plot_results.py
+```
+
+常用参数：
+- `--output-dir`：图片输出目录（默认 `task1-4/outputs_images`）
+- `--baseline-dir`：基准结果目录（默认 `outputs/grid_a1p0_b0p05_g10p0`）
+- `--perturb-dir`：扰动不确定性目录（默认 `outputs_uncertainty_altopt/perturb`）
+- `--seasons`：指定赛季（默认全部赛季）
+- `--top-k`：轨迹与误差条图的 Top-K（默认 6）
+- `--vote-week`：指定投票分布周（默认每季最后一周）
+- `--zipf-beta`：Zipf log-log 里的 beta（默认 1.0）
+- `--mode`：绘图模式（`all` 合并所有季度；`per-season` 每季一组；`both` 两者都有）
+
+输出图示例（合并所有季度）：
+- `all_rank_distribution.png`
+- `all_judge_vs_fan.png`
+- `all_consistency_heatmap.png`
+- `all_penalty_mean.png`
+- `all_vote_distribution.png`
+- `all_zipf_loglog.png`
+- `all_fan_rank_std.png`
+- `all_elim_prob_heatmap.png`
+- `all_rank_stability.png`
+
 ### 数学说明（交替最优化扰动）
 
 扰动分析对评委分数加入噪声后，使用交替最优化近似最小化目标函数：
@@ -180,6 +211,45 @@ tau = (C - D) / (n(n-1)/2)
 ```
 
 其中 C 为一致对数，D 为不一致对数。若并列较多，可考虑 tau-b（对并列修正）。
+
+### 数学说明（近最优区间分析）
+
+近最优分析基于 CP-SAT 的全季模型。先求得原问题最优目标值 Opt，然后对每个
+\u03b5 \u2208 {0.01, 0.05, 0.1} 加入近最优约束：
+
+```
+Objective <= (1 + \u03b5) * Opt
+```
+
+在该约束下，对每个选手 i 与周 w，分别解两个优化问题：
+
+- rF_min(i,w) = min rF_{i,w}
+- rF_max(i,w) = max rF_{i,w}  (等价于 min -rF_{i,w})
+
+由此得到综合名次区间：
+
+```
+R_min(i,w) = rJ_{i,w} + rF_min(i,w)
+R_max(i,w) = rJ_{i,w} + rF_max(i,w)
+```
+
+由于需要为大量 (i,w) 解两次优化，程序会按 week_group 分块并行执行；分块只影响
+求解任务的分发，不改变模型约束。
+
+淘汰稳定性基于“更差名次”的区间比较。设当周真实淘汰人数为 k：
+
+- 更差的确定人数：
+  worse_definite(i) = #{ j != i | R_min(j) > R_max(i) }
+- 更差的可能人数：
+  worse_possible(i) = #{ j != i | R_max(j) > R_min(i) }
+
+判定规则：
+
+- 若 worse_definite(i) >= k，则 i 一定安全（always_safe）
+- 若 worse_possible(i) <= k-1，则 i 一定淘汰（always_eliminated）
+- 否则为不确定（uncertain）
+
+该规则与“综合名次越大越差”的淘汰逻辑一致，并考虑了近最优区间的不确定性。
 
 ## 结果解读
 
