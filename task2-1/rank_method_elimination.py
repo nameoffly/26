@@ -75,6 +75,9 @@ def apply_rank_method_one_week(
     评委排名：1=评委百分比最高（最好）；观众排名：1=观众百分比最高（最好）。
     综合 = 评委排名 + 观众排名，和越大越差。淘汰综合和最大的 n_eliminate 人。
     同分时先淘汰评委排名更差（数字更大）的，即更偏观众的人先淘汰。
+
+    排名规则：同一百分比的选手排名相同，下一名顺延。例如两人并列第一，则下一名为第三名。
+    使用 pandas rank(ascending=False, method='min') 实现：同分取该组最小名次，后续名次顺延。
     """
     n = len(names)
     if n_eliminate <= 0:
@@ -82,7 +85,7 @@ def apply_rank_method_one_week(
     if n_eliminate >= n:
         return list(names)
 
-    # 评委排名：降序，最高百分比=1（method='min' 使同分取较小排名）
+    # 评委排名：降序，最高百分比=1；同分同排名、下一名顺延（method='min'）
     judge_rank = pd.Series(judge_percents).rank(ascending=False, method='min').astype(int).values
     # 观众排名：同上
     fan_rank = pd.Series(fan_percents).rank(ascending=False, method='min').astype(int).values
@@ -212,6 +215,10 @@ def analyze_which_favors_audience(differences: list, excel_path: str, fan_csv_pa
     favor_rank_audience = percent_eliminated_tend_to_high_fan + rank_eliminated_tend_to_low_fan
     favor_percent_audience = cases - favor_rank_audience  # 其余情况可视为百分比法更偏观众
 
+    print(f"favor_rank_audience: {favor_rank_audience},这是排名法更偏观众的次数")
+    print(f"favor_percent_audience: {favor_percent_audience},这是百分比法更偏观众的次数")
+
+
     if favor_rank_audience > favor_percent_audience:
         return "当淘汰结果不同时，多数情况下：（1）「仅百分比法淘汰」的选手观众投票占比较高，即排名法下他们被保留；或（2）「仅排名法淘汰」的选手观众投票占比偏低，即排名法淘汰了观众人气较低者、百分比法则因其评委分高而保留他们。综合可知 **排名法更偏向观众意见**（观众人气高的人更容易在排名法下被保留，观众人气低的人更容易在排名法下被淘汰）。"
     elif favor_percent_audience > favor_rank_audience:
@@ -233,19 +240,30 @@ def main():
 
     df, differences = run_rank_method_all_seasons(excel_path, fan_csv_path)
 
-    # 汇总
+    # 汇总（排除没有人淘汰的周数）
     total_weeks = len(df)
-    same_weeks = df['same_result'].sum()
-    diff_weeks = total_weeks - same_weeks
+    # same_weeks = df['same_result'].sum()
+    # diff_weeks = total_weeks - same_weeks
+    df_with_elimination = df[df['n_eliminated'] > 0]  # 只考虑有人淘汰的周数
+    weeks_with_elimination = len(df_with_elimination)
+    same_weeks = df_with_elimination['same_result'].sum()
+    diff_weeks = weeks_with_elimination - same_weeks
+    weeks_no_elimination = total_weeks - weeks_with_elimination
+    
     print(f"总周数（有选手参与）: {total_weeks}")
+    print(f"  其中无人淘汰周数: {weeks_no_elimination}")
+    print(f"  其中有人淘汰周数: {weeks_with_elimination}")
     print(f"淘汰结果一致周数: {same_weeks}")
     print(f"淘汰结果不同周数: {diff_weeks}")
-    if total_weeks > 0:
-        print(f"一致比例: {same_weeks/total_weeks*100:.1f}%")
+    if weeks_with_elimination > 0:
+        print(f"一致比例（仅统计有淘汰的周数）: {same_weeks/weeks_with_elimination*100:.1f}%")
+
+    # if total_weeks > 0:
+    #     print(f"一致比例: {same_weeks/total_weeks*100:.1f}%")
     print()
 
     # 保存每周对比
-    out_csv = os.path.join(SCRIPT_DIR, 'rank_vs_percent_elimination.csv')
+    out_csv = os.path.join(SCRIPT_DIR, 'rank_vs_percent_elimination_2.csv')
     df.to_csv(out_csv, index=False, encoding='utf-8-sig')
     print(f"每周对比已保存: {out_csv}")
     print()

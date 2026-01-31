@@ -151,7 +151,7 @@ def certainty_method2_bootstrap(
     base = pd.read_csv(csv_path)
     merge_cols = ['season', 'week', 'celebrity_name']
     out_df = base.merge(agg_b, on=merge_cols, how='left')
-    out_path = os.path.join(output_dir, 'certainty_method2_bootstrap_10000.csv')
+    out_path = os.path.join(output_dir, 'certainty_method2_bootstrap_1000.csv')
     out_df.to_csv(out_path, index=False, encoding='utf-8-sig')
     print(f"方法二（Bootstrap）结果已保存: {out_path}")
     # 简要汇总
