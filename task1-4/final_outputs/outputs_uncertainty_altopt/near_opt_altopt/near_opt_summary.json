@@ -1,0 +1,14 @@
+{
+  "baseline_dir": "/home/hisheep/d/MCM/26/task1-4/outputs/grid_a1p0_b0p05_g10p0",
+  "epsilons": [
+    0.15,
+    0.2,
+    0.3,
+    0.5
+  ],
+  "n_samples": 100,
+  "sweeps": 30,
+  "alpha": 1.0,
+  "beta": 0.05,
+  "gamma": 10.0
+}

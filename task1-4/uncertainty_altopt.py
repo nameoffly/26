@@ -12,6 +12,8 @@ import numpy as np
 import pandas as pd
 from ortools.graph.python import linear_sum_assignment
 
+from data_processing import parse_final_place
+
 
 DEFAULT_SEASONS = [1, 2, 28, 29, 30, 31, 32, 33, 34]
 DEFAULT_BASELINE_DIR = (
@@ -79,6 +81,7 @@ def _build_season_weeks_with_noise(
     season_df = season_df.reset_index(drop=True)
     season_df["contestant_id"] = season_df.index.astype(int)
     season_df["elim_week"] = season_df["results"].apply(_parse_elimination_week)
+    season_df["final_place"] = season_df["results"].apply(parse_final_place)
 
     weeks = []
     for idx, col in enumerate(week_cols, start=1):
@@ -99,6 +102,7 @@ def _build_season_weeks_with_noise(
                 "ballroom_partner",
                 "results",
                 "elim_week",
+                "final_place",
             ],
         ].copy()
         week_df["judge_score"] = pert_scores
@@ -109,6 +113,11 @@ def _build_season_weeks_with_noise(
         eliminated_ids = week_df.loc[
             week_df["elim_week"] == idx, "contestant_id"
         ].tolist()
+        final_places = week_df.dropna(subset=["final_place"])
+        final_place_map = {
+            int(row.contestant_id): int(row.final_place)
+            for row in final_places.itertuples(index=False)
+        }
 
         weeks.append(
             {
@@ -134,6 +143,7 @@ def _build_season_weeks_with_noise(
                     )
                 ),
                 "eliminated_ids": eliminated_ids,
+                "final_places": final_place_map,
             }
         )
 
@@ -223,6 +233,155 @@ def _solve_week_assignment(cost_matrix: np.ndarray) -> List[int]:
     return ranks
 
 
+def _solve_week_assignment_constrained(
+    cost_matrix: np.ndarray,
+    contestants: List[int],
+    judge_rank: Dict[int, int],
+    final_places: Dict[int, int],
+) -> List[int]:
+    if not final_places:
+        return _solve_week_assignment(cost_matrix)
+
+    n = cost_matrix.shape[0]
+    row_index = {cid: idx for idx, cid in enumerate(contestants)}
+    place_by_row = {
+        row_index[cid]: int(place)
+        for cid, place in final_places.items()
+        if cid in row_index
+    }
+    if len(place_by_row) <= 1:
+        return _solve_week_assignment(cost_matrix)
+
+    rJ_by_row = {
+        idx: int(judge_rank[cid]) for idx, cid in enumerate(contestants)
+    }
+    constrained_rows = sorted(
+        place_by_row.keys(), key=lambda r: (place_by_row[r], r)
+    )
+
+    constraints: List[Tuple[int, int, int]] = []
+    rows = list(place_by_row.keys())
+    for i in range(len(rows)):
+        for j in range(i + 1, len(rows)):
+            a = rows[i]
+            b = rows[j]
+            place_a = place_by_row[a]
+            place_b = place_by_row[b]
+            if place_a == place_b:
+                continue
+            if place_a < place_b:
+                delta = rJ_by_row[b] - rJ_by_row[a]
+                constraints.append((a, b, delta))
+            else:
+                delta = rJ_by_row[a] - rJ_by_row[b]
+                constraints.append((b, a, delta))
+
+    def bounds_for_row(row: int, assigned: Dict[int, int]) -> Tuple[int, int]:
+        lower = 1
+        upper = n
+        for a, b, delta in constraints:
+            if row == a and b in assigned:
+                upper = min(upper, assigned[b] + delta)
+            elif row == b and a in assigned:
+                lower = max(lower, assigned[a] - delta)
+        lower = max(lower, 1)
+        upper = min(upper, n)
+        return lower, upper
+
+    def check_assigned_constraints(assigned: Dict[int, int]) -> bool:
+        for a, b, delta in constraints:
+            if a in assigned and b in assigned:
+                if assigned[a] - assigned[b] > delta:
+                    return False
+        return True
+
+    def solve_remaining(
+        remaining_rows: List[int], remaining_ranks: List[int]
+    ) -> Tuple[float, Dict[int, int]]:
+        if not remaining_rows:
+            return 0.0, {}
+        sub = cost_matrix[
+            np.ix_(remaining_rows, [r - 1 for r in remaining_ranks])
+        ]
+        assignment = linear_sum_assignment.SimpleLinearSumAssignment()
+        for i in range(sub.shape[0]):
+            for j in range(sub.shape[1]):
+                assignment.add_arc_with_cost(
+                    i, j, int(round(sub[i, j]))
+                )
+        status = assignment.solve()
+        if status != assignment.OPTIMAL:
+            raise RuntimeError("Assignment solver failed")
+        cost = 0.0
+        mapping: Dict[int, int] = {}
+        for i in range(sub.shape[0]):
+            j = assignment.right_mate(i)
+            cost += sub[i, j]
+            mapping[remaining_rows[i]] = remaining_ranks[j]
+        return cost, mapping
+
+    best_cost = math.inf
+    best_ranks: Optional[List[int]] = None
+
+    def dfs(
+        pos: int, assigned: Dict[int, int], used_ranks: set, current_cost: float
+    ) -> None:
+        nonlocal best_cost, best_ranks
+        if current_cost >= best_cost:
+            return
+        if not check_assigned_constraints(assigned):
+            return
+        if pos >= len(constrained_rows):
+            remaining_rows = [i for i in range(n) if i not in assigned]
+            remaining_ranks = [r for r in range(1, n + 1) if r not in used_ranks]
+            rem_cost, rem_mapping = solve_remaining(
+                remaining_rows, remaining_ranks
+            )
+            total_cost = current_cost + rem_cost
+            if total_cost < best_cost:
+                ranks = [0] * n
+                for row, rank in assigned.items():
+                    ranks[row] = rank
+                for row, rank in rem_mapping.items():
+                    ranks[row] = rank
+                best_cost = total_cost
+                best_ranks = ranks
+            return
+
+        row = constrained_rows[pos]
+        remaining_ranks = [r for r in range(1, n + 1) if r not in used_ranks]
+        lower, upper = bounds_for_row(row, assigned)
+        for rank in remaining_ranks:
+            if rank < lower or rank > upper:
+                continue
+            assigned[row] = rank
+            used_ranks.add(rank)
+            if check_assigned_constraints(assigned):
+                next_remaining = [
+                    r for r in range(1, n + 1) if r not in used_ranks
+                ]
+                feasible = True
+                for other in constrained_rows[pos + 1 :]:
+                    o_lower, o_upper = bounds_for_row(other, assigned)
+                    if not any(o_lower <= r <= o_upper for r in next_remaining):
+                        feasible = False
+                        break
+                if feasible:
+                    dfs(
+                        pos + 1,
+                        assigned,
+                        used_ranks,
+                        current_cost + cost_matrix[row, rank - 1],
+                    )
+            used_ranks.remove(rank)
+            del assigned[row]
+
+    dfs(0, {}, set(), 0.0)
+    if best_ranks is None:
+        raise RuntimeError("No feasible final-week assignment found")
+    return best_ranks
+
+
 def _altopt_solve(
     weeks: List[Dict],
     alpha: float,
@@ -236,6 +395,7 @@ def _altopt_solve(
 ) -> Dict[Tuple[int, int], int]:
     week_map = {w["week"]: w for w in weeks}
     week_numbers = sorted(week_map.keys())
+    final_week = max(week_numbers) if week_numbers else None
     season = weeks[0]["season"]
     rF: Dict[Tuple[int, int], int] = {}
 
@@ -278,7 +438,13 @@ def _altopt_solve(
                     if is_elim:
                         c += elim_weight_val * (n_w - k)
                     cost[row, col] = c * cost_scale
-            ranks = _solve_week_assignment(cost)
+            final_places = week.get("final_places", {})
+            if final_week is not None and week_num == final_week and final_places:
+                ranks = _solve_week_assignment_constrained(
+                    cost, contestants, week["judge_rank"], final_places
+                )
+            else:
+                ranks = _solve_week_assignment(cost)
             for row, contestant_id in enumerate(contestants):
                 rF[(week_num, contestant_id)] = ranks[row]
 
