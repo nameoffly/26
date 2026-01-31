@@ -5,23 +5,10 @@ from typing import Dict, List, Tuple
 from ortools.sat.python import cp_model
 
 
-def solve_season(
+def build_rank_model(
     weeks: List[Dict],
     weights_scaled: Dict[str, int],
-    weight_scale: int,
-    time_limit: float,
-    num_workers: int,
 ) -> Dict:
-    if not weeks:
-        return {
-            "status": "NO_WEEKS",
-            "objective_scaled": None,
-            "objective": None,
-            "rF": {},
-            "week_terms": {},
-            "slack_by_week_contestant": {},
-        }
-
     season = weeks[0]["season"]
     model = cp_model.CpModel()
 
@@ -122,8 +109,48 @@ def solve_season(
         for term in week_terms[week_num]["slack"]:
             objective_terms.append(weights_scaled["gamma"] * term)
 
-    if objective_terms:
-        model.Minimize(sum(objective_terms))
+    objective_expr = sum(objective_terms) if objective_terms else None
+
+    return {
+        "season": season,
+        "model": model,
+        "rF_vars": rF_vars,
+        "week_terms": week_terms,
+        "slack_by_week_contestant": slack_by_week_contestant,
+        "week_map": week_map,
+        "week_numbers": week_numbers,
+        "objective_terms": objective_terms,
+        "objective_expr": objective_expr,
+    }
+
+
+def solve_season(
+    weeks: List[Dict],
+    weights_scaled: Dict[str, int],
+    weight_scale: int,
+    time_limit: float,
+    num_workers: int,
+) -> Dict:
+    if not weeks:
+        return {
+            "status": "NO_WEEKS",
+            "objective_scaled": None,
+            "objective": None,
+            "rF": {},
+            "week_terms": {},
+            "slack_by_week_contestant": {},
+        }
+
+    build = build_rank_model(weeks, weights_scaled)
+    model = build["model"]
+    objective_expr = build["objective_expr"]
+    if objective_expr is not None:
+        model.Minimize(objective_expr)
+
+    rF_vars = build["rF_vars"]
+    week_terms = build["week_terms"]
+    slack_by_week_contestant = build["slack_by_week_contestant"]
+    week_numbers = build["week_numbers"]
 
     solver = cp_model.CpSolver()
     solver.parameters.max_time_in_seconds = float(time_limit)

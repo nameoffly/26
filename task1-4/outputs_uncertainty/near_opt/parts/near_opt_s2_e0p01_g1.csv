@@ -1,0 +1,19 @@
+season,week,contestant_id,celebrity_name,ballroom_partner,judge_rank,fan_rank_min,fan_rank_max,combined_rank_min,combined_rank_max,actual_eliminated,epsilon
+2,4,1,Tia Carrere,Maksim Chmerkoskiy,4,4,4,8,8,0,0.01
+2,4,2,George Hamilton,Edyta Sliwinska,6,6,6,12,12,0,0.01
+2,4,3,Lisa Rinna,Louis van Amstel,2,2,3,4,5,0,0.01
+2,4,4,Stacy Keibler,Tony Dovolani,2,2,3,4,5,0,0.01
+2,4,5,Jerry Rice,Anna Trebunskaya,5,5,5,10,10,0,0.01
+2,4,7,Master P,Ashly DelGrosso,7,7,7,14,14,1,0.01
+2,4,8,Drew Lachey,Cheryl Burke,1,1,1,2,2,0,0.01
+2,5,1,Tia Carrere,Maksim Chmerkoskiy,6,6,6,12,12,1,0.01
+2,5,2,George Hamilton,Edyta Sliwinska,4,4,4,8,8,0,0.01
+2,5,3,Lisa Rinna,Louis van Amstel,3,3,3,6,6,0,0.01
+2,5,4,Stacy Keibler,Tony Dovolani,1,1,1,2,2,0,0.01
+2,5,5,Jerry Rice,Anna Trebunskaya,5,5,5,10,10,0,0.01
+2,5,8,Drew Lachey,Cheryl Burke,2,2,2,4,4,0,0.01
+2,6,2,George Hamilton,Edyta Sliwinska,4,5,5,9,9,1,0.01
+2,6,3,Lisa Rinna,Louis van Amstel,3,3,3,6,6,0,0.01
+2,6,4,Stacy Keibler,Tony Dovolani,1,1,2,2,3,0,0.01
+2,6,5,Jerry Rice,Anna Trebunskaya,4,4,4,8,8,0,0.01
+2,6,8,Drew Lachey,Cheryl Burke,1,1,2,2,3,0,0.01

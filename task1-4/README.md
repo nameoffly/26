@@ -64,6 +64,41 @@ python grid_search.py --alphas 1 --betas 0.05,0.1,0.2 --gammas 10,50,100 --time-
 
 若需要重新覆盖已有输出，加 `--rerun`。
 
+## 不确定性分析（近最优区间 + 输入扰动，CPU 并行）
+
+本目录提供 `uncertainty_analysis.py`，按以下配置执行：
+
+- 近最优区间：ε = 1% / 5% / 10%（相对比例）
+- 输入扰动：评委分数加噪声 `N(0, 0.7)`，重复 500 次
+- 并行策略：多进程并行，每个进程内部使用单线程求解
+- 默认最优参数：`alpha=1.0, beta=0.05, gamma=10.0`
+- 默认基准输出：`task1-4/outputs/grid_a1p0_b0p05_g10p0`
+
+运行默认配置：
+
+```
+python uncertainty_analysis.py
+```
+
+常用参数示例：
+
+```
+python uncertainty_analysis.py \
+  --processes 12 \
+  --week-group-size 3 \
+  --n-samples 500 \
+  --noise-std 0.7 \
+  --seed 42
+```
+
+参数说明（节选）：
+
+- `--baseline-dir`：包含 `weekly_predictions.csv` 与 `optimization_info.json` 的目录
+- `--output-root`：不确定性分析输出根目录
+- `--week-group-size`：近最优任务的周分组大小（0 表示整季一次任务）
+- `--batch-size`：扰动批大小（0 表示自动按进程数均分）
+- `--near-opt-time-limit` / `--perturb-time-limit`：每次求解时限
+
 ## 输出文件
 
 输出目录：`/home/hisheep/d/MCM/26/task1-4/outputs`
@@ -72,6 +107,14 @@ python grid_search.py --alphas 1 --betas 0.05,0.1,0.2 --gammas 10,50,100 --time-
 - `consistency_summary.csv`：按周/按季淘汰一致性统计
 - `weekly_penalty.csv`：目标函数三部分的按周分解（未加权）
 - `optimization_info.json`：权重、求解状态、耗时等信息
+
+不确定性输出目录（默认）：`/home/hisheep/d/MCM/26/task1-4/outputs_uncertainty`
+
+- `near_opt/near_opt_interval.csv`：近最优区间（`rF` 与 `R` 的最小/最大）
+- `near_opt/near_opt_elim_certainty.csv`：区间推导的淘汰稳定性（`always_safe/always_eliminated/uncertain`）
+- `perturb/perturb_rF_stats.csv`：扰动下 `rF` 的均值/方差/分位数
+- `perturb/perturb_elim_prob.csv`：扰动下淘汰概率
+- `perturb/perturb_rank_stability.csv`：与基准解的 Spearman/Kendall 稳定性统计
 
 ## 说明
 
