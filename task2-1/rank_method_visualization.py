@@ -28,9 +28,9 @@ if sys.stdout.encoding != 'utf-8':
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT = os.path.dirname(SCRIPT_DIR)
-DEFAULT_CSV = os.path.join(SCRIPT_DIR, 'rank_vs_percent_elimination_2.csv')
+DEFAULT_CSV = os.path.join(SCRIPT_DIR, 'rank_vs_percent_elimination_150.csv')
 DEFAULT_EXCEL = os.path.join(PROJECT_ROOT, '2026_MCM_Problem_C_Processed_Data.xlsx')
-DEFAULT_FAN_CSV = os.path.join(SCRIPT_DIR, 'fan_vote_estimates_entropy_smooth_100.csv')
+DEFAULT_FAN_CSV = os.path.join(SCRIPT_DIR, 'fan_vote_estimates_entropy_smooth_150.csv')
 
 
 def load_data():

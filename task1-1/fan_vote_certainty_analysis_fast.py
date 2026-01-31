@@ -40,7 +40,7 @@ warnings.filterwarnings('ignore')
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT = os.path.dirname(SCRIPT_DIR)
-DEFAULT_CSV_PATH = os.path.join(SCRIPT_DIR, 'fan_vote_estimates_entropy_smooth_100.csv')
+DEFAULT_CSV_PATH = os.path.join(SCRIPT_DIR, 'fan_vote_estimates_entropy_smooth_150.csv')
 DEFAULT_EXCEL_PATH = os.path.join(PROJECT_ROOT, '2026_MCM_Problem_C_Processed_Data.xlsx')
 
 
@@ -56,7 +56,7 @@ def load_estimate_csv(csv_path: str) -> pd.DataFrame:
 
 def certainty_method1_interval(df: pd.DataFrame, output_dir: str) -> pd.DataFrame:
     """方法一：可行域区间法"""
-    out_path = os.path.join(output_dir, 'certainty_method1_interval_summary.csv')
+    out_path = os.path.join(output_dir, 'certainty_method1_interval_summary_150.csv')
     agg = df.groupby('eliminated').agg(
         count=('interval_width', 'count'),
         mean_width=('interval_width', 'mean'),
@@ -146,7 +146,7 @@ def certainty_method2_bootstrap_parallel(
     output_dir: str,
     n_bootstrap: int = 1000,
     sigma: float = 0.01,
-    lambda_smooth: float = 100.0,
+    lambda_smooth: float = 150.0,
     seasons: Tuple[int, int] = (3, 28),
     n_processes: int = None,
 ) -> pd.DataFrame:
@@ -220,7 +220,7 @@ def certainty_method2_bootstrap_parallel(
     out_df = base.merge(agg_b, on=merge_cols, how='left')
     
     # 保存结果
-    out_path = os.path.join(output_dir, f'certainty_method2_bootstrap_{n_bootstrap}.csv')
+    out_path = os.path.join(output_dir, f'certainty_method2_bootstrap_150_{n_bootstrap}.csv')
     out_df.to_csv(out_path, index=False, encoding='utf-8-sig')
     print(f"\n✓ 结果已保存: {out_path}")
     
@@ -272,14 +272,14 @@ def run_certainty_analysis(
             output_dir=output_dir,
             n_bootstrap=n_bootstrap,
             sigma=sigma,
-            lambda_smooth=100.0,
+            lambda_smooth=150.0,
             n_processes=n_processes,
         )
         results['method2'] = df2
     
     # 合并结果
     if run_method1 and run_method2 and 'method2' in results:
-        combined_path = os.path.join(output_dir, f'certainty_combined_{n_bootstrap}.csv')
+        combined_path = os.path.join(output_dir, f'certainty_combined_150_{n_bootstrap}.csv')
         results['method2'].to_csv(combined_path, index=False, encoding='utf-8-sig')
         print(f"\n✓ 合并结果: {combined_path}")
         results['combined'] = results['method2']

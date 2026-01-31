@@ -665,10 +665,10 @@ def compare_lambda_values(excel_path: str, lambda_values: List[float] = [0.1, 1.
 
 if __name__ == "__main__":
     excel_path = r"d:\Users\13016\Desktop\26MCM\2026_C\2026_MCM_Problem_C_Processed_Data.xlsx"
-    output_path = r"d:\Users\13016\Desktop\26MCM\2026_C\task1-1\fan_vote_estimates_entropy_smooth_150.csv"
+    output_path = r"d:\Users\13016\Desktop\26MCM\2026_C\task1-1\fan_vote_estimates_entropy_smooth_100.csv"
     
     # 默认λ=10.0，更强调时间连续性
-    lambda_smooth = 150.0
+    lambda_smooth = 100.0
     
     # 运行估计
     results = run_estimation(excel_path, output_path, lambda_smooth=lambda_smooth)

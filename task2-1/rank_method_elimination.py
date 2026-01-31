@@ -6,7 +6,7 @@
 - 综合排名 = 评委排名 + 观众排名（和越小越好）
 - 淘汰：综合排名和最大的 k 名选手被淘汰（k = 该周实际淘汰人数，与百分比法一致）
 
-使用估计的观众投票百分比 fan_vote_estimates_entropy_smooth_100.csv 得到每周观众排名。
+使用估计的观众投票百分比 fan_vote_estimates_entropy_smooth_150.csv 得到每周观众排名。
 评委排名由 2026_MCM_Problem_C_Processed_Data.xlsx 中该周评委百分比得到。
 """
 
@@ -24,7 +24,7 @@ if sys.stdout.encoding != 'utf-8':
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT = os.path.dirname(SCRIPT_DIR)
 DEFAULT_EXCEL = os.path.join(PROJECT_ROOT, '2026_MCM_Problem_C_Processed_Data.xlsx')
-DEFAULT_FAN_CSV = os.path.join(SCRIPT_DIR, 'fan_vote_estimates_entropy_smooth_100.csv')
+DEFAULT_FAN_CSV = os.path.join(SCRIPT_DIR, 'fan_vote_estimates_entropy_smooth_150.csv')
 
 
 def load_processed_data(excel_path: str) -> pd.DataFrame:
@@ -263,7 +263,7 @@ def main():
     print()
 
     # 保存每周对比
-    out_csv = os.path.join(SCRIPT_DIR, 'rank_vs_percent_elimination_2.csv')
+    out_csv = os.path.join(SCRIPT_DIR, 'rank_vs_percent_elimination_150.csv')
     df.to_csv(out_csv, index=False, encoding='utf-8-sig')
     print(f"每周对比已保存: {out_csv}")
     print()

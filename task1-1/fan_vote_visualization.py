@@ -59,9 +59,9 @@ def load_all_data():
     """加载所有必要的CSV文件"""
     print("正在加载数据...")
     
-    estimates_path = os.path.join(SCRIPT_DIR, 'fan_vote_estimates_entropy_smooth_100.csv')
-    bootstrap_path = os.path.join(SCRIPT_DIR, 'certainty_method2_bootstrap_1000.csv')
-    interval_summary_path = os.path.join(SCRIPT_DIR, 'certainty_method1_interval_summary.csv')
+    estimates_path = os.path.join(SCRIPT_DIR, 'fan_vote_estimates_entropy_smooth_150.csv')
+    bootstrap_path = os.path.join(SCRIPT_DIR, 'certainty_method2_bootstrap_150_1000.csv')
+    interval_summary_path = os.path.join(SCRIPT_DIR, 'certainty_method1_interval_summary_150.csv')
     
     estimates = pd.read_csv(estimates_path)
     bootstrap = pd.read_csv(bootstrap_path)
