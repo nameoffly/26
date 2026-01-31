@@ -2,12 +2,12 @@
   "weights": {
     "alpha": 1.0,
     "beta": 0.05,
-    "gamma": 10.0
+    "gamma": 100.0
   },
   "weights_scaled": {
     "alpha": 100,
     "beta": 5,
-    "gamma": 1000
+    "gamma": 10000
   },
   "weight_scale": 100,
   "time_limit": 120.0,
@@ -36,38 +36,38 @@
     },
     "28": {
       "status": "OPTIMAL",
-      "objective_scaled": 36320,
-      "objective": 363.2
+      "objective_scaled": 78700,
+      "objective": 787.0
     },
     "29": {
-      "status": "FEASIBLE",
-      "objective_scaled": 37695,
-      "objective": 376.95
+      "status": "OPTIMAL",
+      "objective_scaled": 55695,
+      "objective": 556.95
     },
     "30": {
       "status": "OPTIMAL",
-      "objective_scaled": 64560,
-      "objective": 645.6
+      "objective_scaled": 134870,
+      "objective": 1348.7
     },
     "31": {
       "status": "OPTIMAL",
-      "objective_scaled": 18555,
-      "objective": 185.55
+      "objective_scaled": 54555,
+      "objective": 545.55
     },
     "32": {
       "status": "OPTIMAL",
-      "objective_scaled": 38450,
-      "objective": 384.5
+      "objective_scaled": 43000,
+      "objective": 430.0
     },
     "33": {
       "status": "OPTIMAL",
-      "objective_scaled": 29850,
-      "objective": 298.5
+      "objective_scaled": 68090,
+      "objective": 680.9
     },
     "34": {
       "status": "OPTIMAL",
-      "objective_scaled": 38995,
-      "objective": 389.95
+      "objective_scaled": 62145,
+      "objective": 621.45
     }
   },
   "notes": [

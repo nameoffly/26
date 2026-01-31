@@ -47,11 +47,11 @@ season,week,contestant_id,celebrity_name,ballroom_partner,judge_score,judge_rank
 2,3,1,Tia Carrere,Maksim Chmerkoskiy,26.0,3,3,6,,0,0,0
 2,3,2,George Hamilton,Edyta Sliwinska,22.0,5,7,12,,0,0,0
 2,3,3,Lisa Rinna,Louis van Amstel,25.0,4,6,10,,0,0,0
-2,3,4,Stacy Keibler,Tony Dovolani,27.0,1,1,2,,0,0,0
+2,3,4,Stacy Keibler,Tony Dovolani,27.0,1,2,3,,0,0,0
 2,3,5,Jerry Rice,Anna Trebunskaya,19.0,7,5,12,,0,0,0
 2,3,6,Giselle Fernandez,Jonathan Roberts,22.0,5,8,13,,1,1,0
 2,3,7,Master P,Ashly DelGrosso,14.0,8,4,12,,0,0,0
-2,3,8,Drew Lachey,Cheryl Burke,27.0,1,2,3,,0,0,0
+2,3,8,Drew Lachey,Cheryl Burke,27.0,1,1,2,,0,0,0
 2,4,1,Tia Carrere,Maksim Chmerkoskiy,25.0,4,4,8,,0,0,0
 2,4,2,George Hamilton,Edyta Sliwinska,21.0,6,6,12,,0,0,0
 2,4,3,Lisa Rinna,Louis van Amstel,26.0,2,3,5,,0,0,0
@@ -113,17 +113,17 @@ season,week,contestant_id,celebrity_name,ballroom_partner,judge_score,judge_rank
 28,3,11,Hannah Brown,Alan Bersten,21.0,5,5,10,,0,0,0
 28,4,0,Kate Flannery,Pasha Pashkov,26.0,8,8,16,,0,0,0
 28,4,1,James Van Der Beek,Emma Slater,28.0,6,6,12,,0,0,0
-28,4,2,Kel Mitchell,Witney Carson,32.0,1,3,4,,0,0,0
+28,4,2,Kel Mitchell,Witney Carson,32.0,1,2,3,,0,0,0
 28,4,4,Lamar Odom,Peta Murgatroyd,20.0,10,10,20,,1,1,0
 28,4,5,Sailor Brinkley-Cook,Valentin Chmerkovskiy,31.0,5,5,10,,0,0,0
 28,4,6,Sean Spicer,Lindsay Arnold,21.0,9,9,18,,0,0,0
 28,4,8,Lauren Alaina,Gleb Savchenko,32.0,1,4,5,,0,0,0
 28,4,9,Ally Brooke,Sasha Farber,32.0,1,1,2,,0,0,0
 28,4,10,Karamo Brown,Jenna Johnson,28.0,6,7,13,,0,0,0
-28,4,11,Hannah Brown,Alan Bersten,32.0,1,2,3,,0,0,0
+28,4,11,Hannah Brown,Alan Bersten,32.0,1,3,4,,0,0,0
 28,5,0,Kate Flannery,Pasha Pashkov,24.0,5,5,10,,0,0,0
-28,5,1,James Van Der Beek,Emma Slater,26.0,2,2,4,,0,0,0
-28,5,2,Kel Mitchell,Witney Carson,26.0,2,3,5,,0,0,0
+28,5,1,James Van Der Beek,Emma Slater,26.0,2,3,5,,0,0,0
+28,5,2,Kel Mitchell,Witney Carson,26.0,2,2,4,,0,0,0
 28,5,5,Sailor Brinkley-Cook,Valentin Chmerkovskiy,24.0,5,6,11,,0,0,0
 28,5,6,Sean Spicer,Lindsay Arnold,19.0,9,9,18,,0,0,0
 28,5,8,Lauren Alaina,Gleb Savchenko,23.0,7,7,14,,0,0,0
@@ -132,12 +132,12 @@ season,week,contestant_id,celebrity_name,ballroom_partner,judge_score,judge_rank
 28,5,11,Hannah Brown,Alan Bersten,25.0,4,4,8,,0,0,0
 28,6,0,Kate Flannery,Pasha Pashkov,27.0,1,2,3,,0,0,0
 28,6,1,James Van Der Beek,Emma Slater,27.0,1,1,2,,0,0,0
-28,6,2,Kel Mitchell,Witney Carson,26.0,4,5,9,,0,0,0
+28,6,2,Kel Mitchell,Witney Carson,26.0,4,4,8,,0,0,0
 28,6,5,Sailor Brinkley-Cook,Valentin Chmerkovskiy,27.0,1,9,10,,1,0,0
 28,6,6,Sean Spicer,Lindsay Arnold,21.0,9,8,17,,0,1,8
-28,6,8,Lauren Alaina,Gleb Savchenko,26.0,4,6,10,,0,0,1
+28,6,8,Lauren Alaina,Gleb Savchenko,26.0,4,5,9,,0,0,0
 28,6,9,Ally Brooke,Sasha Farber,25.0,6,3,9,,0,0,0
-28,6,10,Karamo Brown,Jenna Johnson,25.0,6,4,10,,0,0,1
+28,6,10,Karamo Brown,Jenna Johnson,25.0,6,6,12,,0,0,3
 28,6,11,Hannah Brown,Alan Bersten,24.0,8,7,15,,0,0,6
 28,7,0,Kate Flannery,Pasha Pashkov,24.0,7,6,13,,0,0,0
 28,7,1,James Van Der Beek,Emma Slater,27.0,1,1,2,,0,0,0
@@ -216,14 +216,14 @@ season,week,contestant_id,celebrity_name,ballroom_partner,judge_score,judge_rank
 29,4,0,Anne Heche,Keo Motsepe,21.0,10,13,23,,1,1,0
 29,4,1,Jesse Metcalfe,Sharna Burgess,21.0,10,11,21,,0,0,0
 29,4,2,Chrishell Stause,Gleb Savchenko,22.0,8,9,17,,0,0,0
-29,4,3,Skai Jackson,Alan Bersten,28.0,1,1,2,,0,0,0
+29,4,3,Skai Jackson,Alan Bersten,28.0,1,2,3,,0,0,0
 29,4,4,Justina Machado,Sasha Farber,24.0,3,7,10,,0,0,0
 29,4,6,Veron Davis,Peta Murgatroyd,22.0,8,8,16,,0,0,0
 29,4,7,Johnny Weir,Britt Stewart,24.0,3,3,6,,0,0,0
 29,4,8,Nev Schulman,Jenna Johnson,24.0,3,4,7,,0,0,0
 29,4,9,AJ McLean,Cheryl Burke,24.0,3,6,9,,0,0,0
 29,4,10,Nelly,Daniella Karagach,21.0,10,12,22,,0,0,0
-29,4,11,Kaitlyn Bristowe,Artem Chigvintsev,25.0,2,2,4,,0,0,0
+29,4,11,Kaitlyn Bristowe,Artem Chigvintsev,25.0,2,1,3,,0,0,0
 29,4,13,Monica Aldama,Valentin Chmerkovskiy,24.0,3,5,8,,0,0,0
 29,4,14,Jeannie Mai,Brandon Armstrong,21.0,10,10,20,,0,0,0
 29,5,1,Jesse Metcalfe,Sharna Burgess,19.0,11,12,23,,1,1,0
@@ -252,18 +252,18 @@ season,week,contestant_id,celebrity_name,ballroom_partner,judge_score,judge_rank
 29,7,2,Chrishell Stause,Gleb Savchenko,26.0,5,7,12,,0,0,0
 29,7,3,Skai Jackson,Alan Bersten,27.0,2,4,6,,0,0,0
 29,7,4,Justina Machado,Sasha Farber,26.0,5,5,10,,0,0,0
-29,7,7,Johnny Weir,Britt Stewart,27.0,2,2,4,,0,0,0
+29,7,7,Johnny Weir,Britt Stewart,27.0,2,3,5,,0,0,0
 29,7,8,Nev Schulman,Jenna Johnson,30.0,1,1,2,,0,0,0
 29,7,9,AJ McLean,Cheryl Burke,26.0,5,6,11,,0,0,0
-29,7,10,Nelly,Daniella Karagach,27.0,2,3,5,,0,0,0
+29,7,10,Nelly,Daniella Karagach,27.0,2,2,4,,0,0,0
 29,7,11,Kaitlyn Bristowe,Artem Chigvintsev,24.0,9,9,18,,0,0,0
 29,7,13,Monica Aldama,Valentin Chmerkovskiy,22.0,10,10,20,,1,1,0
 29,7,14,Jeannie Mai,Brandon Armstrong,25.0,8,8,16,,0,0,0
 29,8,2,Chrishell Stause,Gleb Savchenko,27.0,5,8,13,,1,1,0
 29,8,3,Skai Jackson,Alan Bersten,26.9998,7,5,12,,0,0,0
 29,8,4,Justina Machado,Sasha Farber,28.9998,3,3,6,,0,0,0
-29,8,7,Johnny Weir,Britt Stewart,30.0,1,1,2,,0,0,0
-29,8,8,Nev Schulman,Jenna Johnson,30.0,1,2,3,,0,0,0
+29,8,7,Johnny Weir,Britt Stewart,30.0,1,2,3,,0,0,0
+29,8,8,Nev Schulman,Jenna Johnson,30.0,1,1,2,,0,0,0
 29,8,9,AJ McLean,Cheryl Burke,27.0,5,7,12,,0,0,0
 29,8,10,Nelly,Daniella Karagach,24.0,8,4,12,,0,0,0
 29,8,11,Kaitlyn Bristowe,Artem Chigvintsev,28.0,4,6,10,,0,0,0
@@ -425,7 +425,7 @@ season,week,contestant_id,celebrity_name,ballroom_partner,judge_score,judge_rank
 31,3,3,Joseph Baena,Daniella Karagach,29.0,7,8,15,,0,0,0
 31,3,4,Trevor Donovan,Emma Slater,27.0,10,10,20,,0,0,0
 31,3,5,Daniel Durant,Britt Stewart,31.0,5,5,10,,0,0,0
-31,3,6,Wayne Brady,Witney Carson,33.0,1,2,3,,0,0,0
+31,3,6,Wayne Brady,Witney Carson,33.0,1,3,4,,0,0,0
 31,3,7,Sam Champion,Cheryl Burke,25.0,12,13,25,,0,0,0
 31,3,8,Jessie James Decker,Alan Bersten,26.0,11,11,22,,0,0,0
 31,3,9,Jordin Sparks,Brandon Armstrong,29.0,7,7,14,,0,0,0
@@ -433,12 +433,12 @@ season,week,contestant_id,celebrity_name,ballroom_partner,judge_score,judge_rank
 31,3,11,Charli D'Amelio,Mark Ballas,33.0,1,1,2,,0,0,0
 31,3,13,Vinny Guadagnino,Koko Iwasaki,23.0,14,12,26,,0,0,0
 31,3,14,Shangela,Gleb Savchenko,30.0,6,6,12,,0,0,0
-31,3,15,Gabby Windey,Valentin Chmerkovskiy,33.0,1,3,4,,0,0,0
+31,3,15,Gabby Windey,Valentin Chmerkovskiy,33.0,1,2,3,,0,0,0
 31,4,2,Selma Blair,Sasha Farber,32.0,6,7,13,,0,0,0
 31,4,3,Joseph Baena,Daniella Karagach,28.0,11,12,23,,0,0,0
 31,4,4,Trevor Donovan,Emma Slater,28.0,11,11,22,,0,0,0
 31,4,5,Daniel Durant,Britt Stewart,29.0,9,9,18,,0,0,0
-31,4,6,Wayne Brady,Witney Carson,36.0,1,2,3,,0,0,0
+31,4,6,Wayne Brady,Witney Carson,36.0,1,3,4,,0,0,0
 31,4,7,Sam Champion,Cheryl Burke,25.0,13,13,26,,1,1,0
 31,4,8,Jessie James Decker,Alan Bersten,31.0,8,8,16,,0,0,0
 31,4,9,Jordin Sparks,Brandon Armstrong,34.0,4,5,9,,0,0,0
@@ -446,7 +446,7 @@ season,week,contestant_id,celebrity_name,ballroom_partner,judge_score,judge_rank
 31,4,11,Charli D'Amelio,Mark Ballas,36.0,1,1,2,,0,0,0
 31,4,13,Vinny Guadagnino,Koko Iwasaki,29.0,9,10,19,,0,0,0
 31,4,14,Shangela,Gleb Savchenko,32.0,6,6,12,,0,0,0
-31,4,15,Gabby Windey,Valentin Chmerkovskiy,36.0,1,3,4,,0,0,0
+31,4,15,Gabby Windey,Valentin Chmerkovskiy,36.0,1,2,3,,0,0,0
 31,5,2,Selma Blair,Sasha Farber,40.0,4,4,8,,0,0,0
 31,5,3,Joseph Baena,Daniella Karagach,35.0,10,12,22,,1,1,0
 31,5,4,Trevor Donovan,Emma Slater,36.0,7,7,14,,0,0,0
@@ -567,12 +567,12 @@ season,week,contestant_id,celebrity_name,ballroom_partner,judge_score,judge_rank
 32,6,13,Ariana Madix,Pasha Pashkov,41.0,2,2,4,,0,0,0
 32,7,2,Barry Williams,Peta Murgatroyd,32.5,7,3,10,,0,0,0
 32,7,3,Alyson Hannigan,Sasha Farber,35.0,6,4,10,,0,0,0
-32,7,4,Xochitl Gomez,Valentin Chmerkovskiy,37.0,1,2,3,,0,0,0
+32,7,4,Xochitl Gomez,Valentin Chmerkovskiy,37.0,1,1,2,,0,0,0
 32,7,8,Jason Mraz,Daniella Karagach,36.0,4,6,10,,0,0,0
 32,7,9,Lele Pons,Brandon Armstrong,36.5,3,8,11,,1,0,0
 32,7,10,Harry Jowsey,Rylee Arnold,32.0,8,7,15,,0,1,5
 32,7,12,Charity Lawson,Artem Chigvintsev,36.0,4,5,9,,0,0,0
-32,7,13,Ariana Madix,Pasha Pashkov,37.0,1,1,2,,0,0,0
+32,7,13,Ariana Madix,Pasha Pashkov,37.0,1,2,3,,0,0,0
 32,8,2,Barry Williams,Peta Murgatroyd,35.0,5,7,12,,1,1,0
 32,8,3,Alyson Hannigan,Sasha Farber,36.0,4,6,10,,0,0,0
 32,8,4,Xochitl Gomez,Valentin Chmerkovskiy,40.0,2,2,4,,0,0,0
@@ -634,12 +634,12 @@ season,week,contestant_id,celebrity_name,ballroom_partner,judge_score,judge_rank
 33,3,11,Jenn Tran,Sasha Farber,31.0,3,4,7,,0,0,0
 33,3,12,Joey Graziadei,Jenna Johnson,35.0,1,1,2,,0,0,0
 33,4,3,Chandler Kinney,Brandon Armstrong,32.0,4,4,8,,0,0,0
-33,4,4,Dwight Howard?,Daniella Karagach,29.0,9,7,16,,0,1,4
+33,4,4,Dwight Howard?,Daniella Karagach,29.0,9,8,17,,0,1,5
 33,4,5,Danny Amendola,Witney Carson,36.0,1,2,3,,0,0,0
 33,4,6,Stephen Nedoroscik,Rylee Arnold,33.0,3,3,6,,0,0,0
 33,4,7,Ilona Maher,Alan Bersten,32.0,4,6,10,,0,0,0
 33,4,9,Brooks Nader,Gleb Savchenko,32.0,4,9,13,,1,0,0
-33,4,10,Phaedra Parks,Val Chmerkovskiy,32.0,4,8,12,,0,0,0
+33,4,10,Phaedra Parks,Val Chmerkovskiy,32.0,4,7,11,,0,0,0
 33,4,11,Jenn Tran,Sasha Farber,32.0,4,5,9,,0,0,0
 33,4,12,Joey Graziadei,Jenna Johnson,36.0,1,1,2,,0,0,0
 33,5,3,Chandler Kinney,Brandon Armstrong,27.0,1,1,2,,0,0,0

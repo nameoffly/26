@@ -1,15 +1,15 @@
 {
   "weights": {
     "alpha": 1.0,
-    "beta": 0.05,
-    "gamma": 10.0
+    "beta": 0.1,
+    "gamma": 50.0
   },
   "weights_scaled": {
-    "alpha": 100,
-    "beta": 5,
-    "gamma": 1000
+    "alpha": 10,
+    "beta": 1,
+    "gamma": 500
   },
-  "weight_scale": 100,
+  "weight_scale": 10,
   "time_limit": 120.0,
   "workers": 8,
   "seasons": [
@@ -26,48 +26,48 @@
   "season_info": {
     "1": {
       "status": "OPTIMAL",
-      "objective_scaled": 4410,
-      "objective": 44.1
+      "objective_scaled": 462,
+      "objective": 46.2
     },
     "2": {
       "status": "OPTIMAL",
-      "objective_scaled": 7330,
-      "objective": 73.3
+      "objective_scaled": 806,
+      "objective": 80.6
     },
     "28": {
       "status": "OPTIMAL",
-      "objective_scaled": 36320,
-      "objective": 363.2
+      "objective_scaled": 6150,
+      "objective": 615.0
     },
     "29": {
       "status": "FEASIBLE",
-      "objective_scaled": 37695,
-      "objective": 376.95
+      "objective_scaled": 5123,
+      "objective": 512.3
     },
     "30": {
       "status": "OPTIMAL",
-      "objective_scaled": 64560,
-      "objective": 645.6
+      "objective_scaled": 10956,
+      "objective": 1095.6
     },
     "31": {
       "status": "OPTIMAL",
-      "objective_scaled": 18555,
-      "objective": 185.55
+      "objective_scaled": 3671,
+      "objective": 367.1
     },
     "32": {
       "status": "OPTIMAL",
-      "objective_scaled": 38450,
-      "objective": 384.5
+      "objective_scaled": 4490,
+      "objective": 449.0
     },
     "33": {
       "status": "OPTIMAL",
-      "objective_scaled": 29850,
-      "objective": 298.5
+      "objective_scaled": 4994,
+      "objective": 499.4
     },
     "34": {
       "status": "OPTIMAL",
-      "objective_scaled": 38995,
-      "objective": 389.95
+      "objective_scaled": 5579,
+      "objective": 557.9
     }
   },
   "notes": [

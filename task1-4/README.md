@@ -275,6 +275,34 @@ R_max(i,w) = rJ_{i,w} + rF_max(i,w)
 - `near_opt_elim_certainty.csv`  
   基于区间的淘汰稳定性：`always_safe / always_eliminated / uncertain`。
 
+### 交替最优化近最优区间（无求解器）
+
+脚本：`task1-4/near_opt_altopt.py`  
+输出目录：`task1-4/outputs_uncertainty_altopt/near_opt_altopt`
+
+思路：用交替最优化生成多组候选解，并用基准 Opt 过滤近最优解。
+
+1) 读取基准 `optimization_info.json` 中的 `Opt`  
+2) 用交替最优化（baseline 初始化，多轮 sweep）生成 N 个候选 `rF`  
+3) 用近似目标值计算：
+
+```
+Objective = alpha * Jterm + beta * Smooth + gamma * Slack
+```
+
+4) 保留满足 `Objective <= (1+ε)*Opt` 的候选解  
+5) 对保留解计算 `rF_min/rF_max` 与 `R_min/R_max`，并导出稳定性判断
+
+常用参数：
+- `--n-samples`：候选解数量（默认 10）
+- `--sweeps`：交替最优化轮数（默认 5）
+- `--epsilons`：近最优比例（默认 0.01,0.05,0.1）
+
+输出文件：
+- `near_opt_interval.csv`
+- `near_opt_elim_certainty.csv`
+- `near_opt_summary.json`（记录参数）
+
 ### 输入扰动输出（`outputs_uncertainty/perturb`）
 - `perturb_rF_stats.csv`  
   扰动下 `rF` 的均值、标准差、P05/P95。

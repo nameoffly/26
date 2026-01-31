@@ -1,15 +1,15 @@
 {
   "weights": {
     "alpha": 1.0,
-    "beta": 0.05,
-    "gamma": 10.0
+    "beta": 0.2,
+    "gamma": 100.0
   },
   "weights_scaled": {
-    "alpha": 100,
-    "beta": 5,
+    "alpha": 10,
+    "beta": 2,
     "gamma": 1000
   },
-  "weight_scale": 100,
+  "weight_scale": 10,
   "time_limit": 120.0,
   "workers": 8,
   "seasons": [
@@ -26,48 +26,48 @@
   "season_info": {
     "1": {
       "status": "OPTIMAL",
-      "objective_scaled": 4410,
-      "objective": 44.1
+      "objective_scaled": 504,
+      "objective": 50.4
     },
     "2": {
       "status": "OPTIMAL",
-      "objective_scaled": 7330,
-      "objective": 73.3
+      "objective_scaled": 952,
+      "objective": 95.2
     },
     "28": {
       "status": "OPTIMAL",
-      "objective_scaled": 36320,
-      "objective": 363.2
+      "objective_scaled": 8698,
+      "objective": 869.8
     },
     "29": {
       "status": "FEASIBLE",
-      "objective_scaled": 37695,
-      "objective": 376.95
+      "objective_scaled": 7058,
+      "objective": 705.8
     },
     "30": {
-      "status": "OPTIMAL",
-      "objective_scaled": 64560,
-      "objective": 645.6
+      "status": "FEASIBLE",
+      "objective_scaled": 14842,
+      "objective": 1484.2
     },
     "31": {
       "status": "OPTIMAL",
-      "objective_scaled": 18555,
-      "objective": 185.55
+      "objective_scaled": 6062,
+      "objective": 606.2
     },
     "32": {
       "status": "OPTIMAL",
-      "objective_scaled": 38450,
-      "objective": 384.5
+      "objective_scaled": 4846,
+      "objective": 484.6
     },
     "33": {
       "status": "OPTIMAL",
-      "objective_scaled": 29850,
-      "objective": 298.5
+      "objective_scaled": 7344,
+      "objective": 734.4
     },
     "34": {
-      "status": "OPTIMAL",
-      "objective_scaled": 38995,
-      "objective": 389.95
+      "status": "FEASIBLE",
+      "objective_scaled": 7284,
+      "objective": 728.4
     }
   },
   "notes": [
