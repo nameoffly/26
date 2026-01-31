@@ -28,7 +28,7 @@ season,week,k_actual,predicted_size,consistent,hit_rate,actual_eliminated,predic
 29,7,1,1,1.0,1.0,Monica Aldama,Monica Aldama
 29,8,1,1,1.0,1.0,Chrishell Stause,Chrishell Stause
 29,9,1,1,1.0,1.0,AJ McLean,AJ McLean
-29,10,2,3,1.0,1.0,Skai Jackson;Johnny Weir,Skai Jackson;Johnny Weir;Nelly
+29,10,2,2,1.0,1.0,Skai Jackson;Johnny Weir,Skai Jackson;Johnny Weir
 29,ALL,,,1.0,,,
 30,2,1,1,1.0,1.0,Martin Kove,Martin Kove
 30,3,1,1,0.0,0.0,Christine Chiu,Cody Rigsby
@@ -63,7 +63,7 @@ season,week,k_actual,predicted_size,consistent,hit_rate,actual_eliminated,predic
 33,3,2,2,1.0,1.0,Eric Roberts;Reginald VelJohnson,Eric Roberts;Reginald VelJohnson
 33,4,1,1,0.0,0.0,Brooks Nader,Dwight Howard?
 33,5,1,1,1.0,1.0,Phaedra Parks,Phaedra Parks
-33,6,1,3,1.0,1.0,Jenn Tran,Danny Amendola;Ilona Maher;Jenn Tran
+33,6,1,3,1.0,1.0,Jenn Tran,Stephen Nedoroscik;Ilona Maher;Jenn Tran
 33,7,1,1,1.0,1.0,Dwight Howard?,Dwight Howard?
 33,ALL,,,0.8333,,,
 34,2,2,2,1.0,1.0,Corey Feldman;Baron Davis,Corey Feldman;Baron Davis

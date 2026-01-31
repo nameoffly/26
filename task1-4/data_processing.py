@@ -7,6 +7,7 @@ import pandas as pd
 
 WEEK_COL_RE = re.compile(r"week(\d+)_judge_score", re.IGNORECASE)
 ELIM_RE = re.compile(r"Eliminated\s+Week\s+(\d+)", re.IGNORECASE)
+FINAL_RE = re.compile(r"(\d+)(st|nd|rd|th)\s+Place", re.IGNORECASE)
 
 
 def get_week_columns(df: pd.DataFrame) -> List[str]:
@@ -29,6 +30,16 @@ def parse_elimination_week(result_value: object) -> Optional[int]:
     return None
 
 
+def parse_final_place(result_value: object) -> Optional[int]:
+    if result_value is None or (isinstance(result_value, float) and pd.isna(result_value)):
+        return None
+    result_str = str(result_value)
+    match = FINAL_RE.search(result_str)
+    if match:
+        return int(match.group(1))
+    return None
+
+
 def build_season_weeks(
     df: pd.DataFrame, season: int, week_cols: List[str]
 ) -> List[Dict]:
@@ -39,6 +50,7 @@ def build_season_weeks(
     season_df = season_df.reset_index(drop=True)
     season_df["contestant_id"] = season_df.index.astype(int)
     season_df["elim_week"] = season_df["results"].apply(parse_elimination_week)
+    season_df["final_place"] = season_df["results"].apply(parse_final_place)
 
     weeks = []
     for idx, col in enumerate(week_cols, start=1):
@@ -55,6 +67,7 @@ def build_season_weeks(
                 "ballroom_partner",
                 "results",
                 "elim_week",
+                "final_place",
                 col,
             ],
         ].copy()
@@ -67,6 +80,11 @@ def build_season_weeks(
         eliminated_ids = week_df.loc[
             week_df["elim_week"] == idx, "contestant_id"
         ].tolist()
+        final_places = week_df.dropna(subset=["final_place"])
+        final_place_map = {
+            int(row.contestant_id): int(row.final_place)
+            for row in final_places.itertuples(index=False)
+        }
 
         weeks.append(
             {
@@ -92,6 +110,7 @@ def build_season_weeks(
                     )
                 ),
                 "eliminated_ids": eliminated_ids,
+                "final_places": final_place_map,
             }
         )
 

@@ -115,6 +115,17 @@ def main() -> None:
 
         week_map = {w["week"]: w for w in weeks}
         week_numbers = sorted(week_map.keys())
+        final_week = max(week_numbers) if week_numbers else None
+        final_rank_map = {}
+        if final_week is not None:
+            final_week_info = week_map[final_week]
+            finals = []
+            for i in final_week_info["contestants"]:
+                combined = int(final_week_info["judge_rank"][i] + rF[(final_week, i)])
+                finals.append((i, combined))
+            finals.sort(key=lambda x: x[1])
+            for idx, (i, _) in enumerate(finals, start=1):
+                final_rank_map[i] = idx
         week_consistent = []
 
         for week_num in week_numbers:
@@ -141,6 +152,7 @@ def main() -> None:
                     "combined_rank": int(
                         week["judge_rank"][i] + rF[(week_num, i)]
                     ),
+                    "final_rank": final_rank_map.get(i) if week_num == final_week else "",
                     "actual_eliminated": int(i in eliminated),
                     "predicted_eliminated": int(i in predicted_ids)
                     if k > 0

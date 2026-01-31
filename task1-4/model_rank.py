@@ -81,7 +81,7 @@ def build_rank_model(
                     )
 
         if final_week is not None and week_num == final_week:
-            combined_vars = []
+            combined_vars = {}
             for i in contestants:
                 rJ = int(week["judge_rank"][i])
                 rF = rF_vars[(week_num, i)]
@@ -89,9 +89,18 @@ def build_rank_model(
                     2, 2 * n_w, f"R_s{season}_w{week_num}_i{i}"
                 )
                 model.Add(combined == rF + rJ)
-                combined_vars.append(combined)
-            if combined_vars:
-                model.AddAllDifferent(combined_vars)
+                combined_vars[i] = combined
+
+            final_places = week.get("final_places", {})
+            if final_places:
+                place_items = sorted(final_places.items(), key=lambda x: x[1])
+                for idx_a in range(len(place_items)):
+                    i_a, place_a = place_items[idx_a]
+                    for idx_b in range(idx_a + 1, len(place_items)):
+                        i_b, place_b = place_items[idx_b]
+                        if place_a == place_b:
+                            continue
+                        model.Add(combined_vars[i_a] <= combined_vars[i_b])
 
     for week_num in week_numbers:
         prev_week = week_num - 1

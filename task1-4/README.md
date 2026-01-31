@@ -31,8 +31,10 @@
 
 - 只保留当周 `judge_score > 0` 且非 NA 的选手。
 - 仅解析 `results` 中的 `"Eliminated Week X"`；`Withdrew` 或无淘汰周不加淘汰约束。
+- 解析 `results` 中的名次（如 `1st/2nd/3rd/4th/5th Place`），得到决赛名次 `final_place`。
 - `judge_rank` 使用 competition ranking（并列同名次，下一名次跳过）。
-- **决赛周约束**：每季最后一周视为决赛周，强制该周综合名次 `R = rJ + rF` 两两不同（不允许并列），确保综合名次更低者排名更靠前。
+- **决赛周约束**：每季最后一周视为决赛周，仅对 `results` 中含名次的决赛选手生效。
+  若 A 的 Place 更高（数值更小），则强制 `R_A <= R_B`，**允许并列**。
 
 ## 程序结构与作用
 
@@ -264,6 +266,8 @@ R_max(i,w) = rJ_{i,w} + rF_max(i,w)
   三类目标项（贴近评委/平滑/淘汰松弛）的周级分解。
 - `optimization_info.json`  
   权重、求解状态、耗时与各 season 的目标值。
+- `final_rank`（在 `weekly_predictions.csv` 中）：  
+  决赛周（每季最后一周）综合名次的排序结果，按 `combined_rank = rJ + rF` 升序得到；仅在决赛周行填值，其余周为空。
 
 ### 近最优区间输出（`outputs_uncertainty/near_opt`）
 - `near_opt_interval.csv`  
