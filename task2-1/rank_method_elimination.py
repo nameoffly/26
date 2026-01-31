@@ -7,7 +7,11 @@
 - 淘汰：综合排名和最大的 k 名选手被淘汰（k = 该周实际淘汰人数，与百分比法一致）
 
 使用估计的观众投票百分比 fan_vote_estimates_entropy_smooth_150.csv 得到每周观众排名。
-评委排名由 2026_MCM_Problem_C_Processed_Data.xlsx 中该周评委百分比得到。
+评委排名由 Data_4.xlsx 中该周评委百分比得到。
+
+功能：
+1. 每周淘汰结果对比（排名法 vs 百分比法）
+2. 决赛排名准确性分析（两种方法预测的排名与实际排名对比）
 """
 
 import pandas as pd
@@ -23,7 +27,8 @@ if sys.stdout.encoding != 'utf-8':
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT = os.path.dirname(SCRIPT_DIR)
-DEFAULT_EXCEL = os.path.join(PROJECT_ROOT, '2026_MCM_Problem_C_Processed_Data.xlsx')
+# 使用 Data_4.xlsx 作为数据源（包含正确的淘汰信息）
+DEFAULT_EXCEL = os.path.join(PROJECT_ROOT, 'Data_4.xlsx')
 DEFAULT_FAN_CSV = os.path.join(SCRIPT_DIR, 'fan_vote_estimates_entropy_smooth_150.csv')
 
 
@@ -62,6 +67,176 @@ def get_eliminated_this_week(season_df: pd.DataFrame, week: int) -> list:
         if f'eliminated week {week}' in r:
             eliminated.append(row['celebrity_name'])
     return eliminated
+
+
+def get_max_elimination_week(season_df: pd.DataFrame) -> int:
+    """获取该季最大淘汰周数"""
+    max_elim_week = 0
+    for w in range(1, 12):
+        for _, row in season_df.iterrows():
+            r = str(row.get('results', '')).lower()
+            if f'eliminated week {w}' in r:
+                max_elim_week = w
+                break
+    return max_elim_week
+
+
+def get_final_week(season_df: pd.DataFrame) -> int:
+    """获取决赛周数（最大淘汰周+1）"""
+    max_elim_week = get_max_elimination_week(season_df)
+    return max_elim_week + 1 if max_elim_week > 0 else 0
+
+
+def get_final_rankings(season_df: pd.DataFrame, week: int) -> dict:
+    """
+    获取决赛周的实际排名信息
+    
+    Returns:
+        dict: {celebrity_name: placement}, 如果不是决赛周返回空字典
+    """
+    rankings = {}
+    col = f'{week}_percent'
+    
+    if col not in season_df.columns:
+        return rankings
+    
+    # 确认是决赛周
+    expected_final_week = get_final_week(season_df)
+    if week != expected_final_week:
+        return rankings
+    
+    # 遍历本周有评分的选手
+    week_contestants = season_df[season_df[col] > 0]
+    
+    for _, row in week_contestants.iterrows():
+        result = str(row.get('results', '')).lower()
+        # 检查是否包含排名信息(1st place, 2nd place等)且不是被淘汰
+        if 'place' in result and 'eliminated' not in result:
+            rankings[row['celebrity_name']] = int(row['placement'])
+    
+    # 只有当有多个选手有排名信息时才返回(确认是决赛)
+    if len(rankings) >= 2:
+        return rankings
+    else:
+        return {}
+
+
+def compute_final_ranking_by_percent(
+    names: list,
+    judge_percents: np.ndarray,
+    fan_percents: np.ndarray,
+) -> dict:
+    """
+    根据百分比法计算决赛排名
+    总分 = 评委% + 观众%，总分越高排名越前
+    
+    Returns:
+        dict: {celebrity_name: rank} (1=第一名)
+    """
+    total = judge_percents + fan_percents
+    # 按总分降序排序，排名越小越好
+    order = np.argsort(-total)
+    rankings = {}
+    for rank, idx in enumerate(order, start=1):
+        rankings[names[idx]] = rank
+    return rankings
+
+
+def compute_final_ranking_by_rank_method(
+    names: list,
+    judge_percents: np.ndarray,
+    fan_percents: np.ndarray,
+) -> dict:
+    """
+    根据排名法计算决赛排名
+    综合排名 = 评委排名 + 观众排名，综合排名越小越好
+    同分时评委排名小的（更好）排在前面
+    
+    Returns:
+        dict: {celebrity_name: rank} (1=第一名)
+    """
+    # 评委排名：降序，最高百分比=1
+    judge_rank = pd.Series(judge_percents).rank(ascending=False, method='min').astype(int).values
+    # 观众排名：同上
+    fan_rank = pd.Series(fan_percents).rank(ascending=False, method='min').astype(int).values
+    sum_rank = judge_rank + fan_rank
+    
+    # 按综合排名升序（越小越好），同分时评委排名小的在前
+    idx = np.lexsort((judge_rank, sum_rank))
+    
+    rankings = {}
+    for rank, i in enumerate(idx, start=1):
+        rankings[names[i]] = rank
+    return rankings
+
+
+def compare_ranking_accuracy(
+    actual_rankings: dict,
+    method_rankings: dict,
+) -> dict:
+    """
+    比较预测排名与实际排名的准确性
+    
+    Returns:
+        dict: {
+            'exact_match': bool,  # 完全一致
+            'top1_correct': bool,  # 第一名正确
+            'top2_correct': bool,  # 前两名正确（顺序也对）
+            'kendall_tau': float,  # Kendall tau相关系数
+            'displacement_sum': int,  # 排名位移总和
+        }
+    """
+    if not actual_rankings or not method_rankings:
+        return {}
+    
+    # 取交集的选手
+    common_names = set(actual_rankings.keys()) & set(method_rankings.keys())
+    if len(common_names) < 2:
+        return {}
+    
+    # 按实际排名排序
+    sorted_by_actual = sorted(common_names, key=lambda x: actual_rankings[x])
+    sorted_by_method = sorted(common_names, key=lambda x: method_rankings[x])
+    
+    # 完全一致
+    exact_match = sorted_by_actual == sorted_by_method
+    
+    # 第一名正确
+    top1_correct = sorted_by_actual[0] == sorted_by_method[0]
+    
+    # 前两名正确（顺序也对）
+    top2_correct = sorted_by_actual[:2] == sorted_by_method[:2]
+    
+    # 排名位移总和
+    displacement_sum = 0
+    for name in common_names:
+        displacement_sum += abs(actual_rankings[name] - method_rankings[name])
+    
+    # Kendall tau（简化计算：统计concordant和discordant对）
+    n = len(common_names)
+    concordant = 0
+    discordant = 0
+    for i, name_i in enumerate(sorted_by_actual):
+        for name_j in sorted_by_actual[i+1:]:
+            # 在actual中 name_i 排在 name_j 前面
+            # 检查在method中是否也是
+            if method_rankings[name_i] < method_rankings[name_j]:
+                concordant += 1
+            elif method_rankings[name_i] > method_rankings[name_j]:
+                discordant += 1
+            # 相等时不计
+    
+    total_pairs = n * (n - 1) / 2
+    kendall_tau = (concordant - discordant) / total_pairs if total_pairs > 0 else 0
+    
+    return {
+        'exact_match': exact_match,
+        'top1_correct': top1_correct,
+        'top2_correct': top2_correct,
+        'kendall_tau': kendall_tau,
+        'displacement_sum': displacement_sum,
+        'n_contestants': n,
+    }
 
 
 def apply_rank_method_one_week(
@@ -104,13 +279,14 @@ def run_rank_method_all_seasons(
 ) -> tuple:
     """
     对指定季度范围（默认3-27）每周应用排名法，得到淘汰名单，并与百分比法实际淘汰比较。
-    返回：(weekly_results, differences_summary)
+    返回：(weekly_results, differences_summary, final_rankings_results)
     """
     raw = load_processed_data(excel_path)
     fan_df = load_fan_estimates(fan_csv_path)
 
     rows = []
     differences = []
+    final_results = []  # 决赛排名结果
 
     for season in range(seasons[0], seasons[1]):
         season_df = raw[raw['season'] == season]
@@ -118,6 +294,7 @@ def run_rank_method_all_seasons(
             continue
         max_week = get_season_weeks(season_df)
         fan_season = fan_df[fan_df['season'] == season]
+        final_week = get_final_week(season_df)
 
         for week in range(1, max_week + 1):
             names, judge_percents = get_week_contestants_and_judge(season_df, week)
@@ -142,7 +319,8 @@ def run_rank_method_all_seasons(
             set_rank = set(rank_eliminated)
             same = set_actual == set_rank
 
-            rows.append({
+            # 基本行数据
+            row_data = {
                 'season': season,
                 'week': week,
                 'n_contestants': len(names),
@@ -150,7 +328,57 @@ def run_rank_method_all_seasons(
                 'percent_eliminated': ','.join(sorted(actual_eliminated)) if actual_eliminated else '',
                 'rank_eliminated': ','.join(sorted(rank_eliminated)) if rank_eliminated else '',
                 'same_result': same,
-            })
+                'is_final': False,
+                'actual_ranking': '',
+                'percent_ranking': '',
+                'rank_method_ranking': '',
+                'percent_exact_match': '',
+                'rank_exact_match': '',
+                'percent_top1_correct': '',
+                'rank_top1_correct': '',
+            }
+
+            # 决赛排名分析
+            if week == final_week:
+                actual_rankings = get_final_rankings(season_df, week)
+                if actual_rankings:
+                    # 计算两种方法的排名
+                    percent_rankings = compute_final_ranking_by_percent(
+                        names, judge_percents, fan_percents
+                    )
+                    rank_method_rankings = compute_final_ranking_by_rank_method(
+                        names, judge_percents, fan_percents
+                    )
+                    
+                    # 比较准确性
+                    percent_accuracy = compare_ranking_accuracy(actual_rankings, percent_rankings)
+                    rank_accuracy = compare_ranking_accuracy(actual_rankings, rank_method_rankings)
+                    
+                    # 格式化排名字符串（按排名顺序）
+                    def format_ranking(rankings):
+                        return '>'.join([name for name, _ in sorted(rankings.items(), key=lambda x: x[1])])
+                    
+                    row_data['is_final'] = True
+                    row_data['actual_ranking'] = format_ranking(actual_rankings)
+                    row_data['percent_ranking'] = format_ranking(percent_rankings)
+                    row_data['rank_method_ranking'] = format_ranking(rank_method_rankings)
+                    row_data['percent_exact_match'] = percent_accuracy.get('exact_match', False)
+                    row_data['rank_exact_match'] = rank_accuracy.get('exact_match', False)
+                    row_data['percent_top1_correct'] = percent_accuracy.get('top1_correct', False)
+                    row_data['rank_top1_correct'] = rank_accuracy.get('top1_correct', False)
+                    
+                    final_results.append({
+                        'season': season,
+                        'week': week,
+                        'n_finalists': len(actual_rankings),
+                        'actual_rankings': actual_rankings,
+                        'percent_rankings': percent_rankings,
+                        'rank_method_rankings': rank_method_rankings,
+                        'percent_accuracy': percent_accuracy,
+                        'rank_accuracy': rank_accuracy,
+                    })
+
+            rows.append(row_data)
 
             if not same:
                 only_percent = set_actual - set_rank  # 仅百分比法淘汰的
@@ -164,7 +392,7 @@ def run_rank_method_all_seasons(
                     'rank_eliminated': rank_eliminated,
                 })
 
-    return pd.DataFrame(rows), differences
+    return pd.DataFrame(rows), differences, final_results
 
 
 def analyze_which_favors_audience(differences: list, excel_path: str, fan_csv_path: str) -> str:
@@ -227,6 +455,119 @@ def analyze_which_favors_audience(differences: list, excel_path: str, fan_csv_pa
         return "当淘汰结果不同时，两种方法下被淘汰选手的观众人气分布没有明显倾向，无法明确判断哪种方法更偏向观众意见。"
 
 
+def format_ranking_list(rankings: dict) -> str:
+    """将排名字典格式化为字符串，按排名顺序显示"""
+    if not rankings:
+        return "无"
+    sorted_items = sorted(rankings.items(), key=lambda x: x[1])
+    return ' > '.join([f"{name}({rank})" for name, rank in sorted_items])
+
+
+def analyze_final_rankings(final_results: list) -> None:
+    """分析决赛排名准确性"""
+    if not final_results:
+        print("无决赛排名数据")
+        return
+    
+    print("\n" + "=" * 80)
+    print("决赛排名准确性分析")
+    print("=" * 80)
+    
+    # 统计汇总
+    percent_exact = 0
+    percent_top1 = 0
+    percent_top2 = 0
+    rank_exact = 0
+    rank_top1 = 0
+    rank_top2 = 0
+    total_seasons = len(final_results)
+    
+    percent_kendall_sum = 0
+    rank_kendall_sum = 0
+    percent_displacement_sum = 0
+    rank_displacement_sum = 0
+    
+    print(f"\n共 {total_seasons} 季有决赛排名数据\n")
+    
+    # 详细显示每季决赛排名
+    for fr in final_results:
+        season = fr['season']
+        week = fr['week']
+        n_finalists = fr['n_finalists']
+        actual = fr['actual_rankings']
+        percent_r = fr['percent_rankings']
+        rank_r = fr['rank_method_rankings']
+        pa = fr['percent_accuracy']
+        ra = fr['rank_accuracy']
+        
+        print("-" * 80)
+        print(f"【第 {season} 季 第 {week} 周决赛】 ({n_finalists} 位选手)")
+        print(f"  实际排名:   {format_ranking_list(actual)}")
+        print(f"  百分比法:   {format_ranking_list(percent_r)}", end="")
+        if pa.get('exact_match'):
+            print(" ✓完全正确")
+        elif pa.get('top1_correct'):
+            print(" ✓冠军正确")
+        else:
+            print(" ✗")
+        print(f"  排名法:     {format_ranking_list(rank_r)}", end="")
+        if ra.get('exact_match'):
+            print(" ✓完全正确")
+        elif ra.get('top1_correct'):
+            print(" ✓冠军正确")
+        else:
+            print(" ✗")
+        
+        # 累计统计
+        if pa.get('exact_match'):
+            percent_exact += 1
+        if pa.get('top1_correct'):
+            percent_top1 += 1
+        if pa.get('top2_correct'):
+            percent_top2 += 1
+        if ra.get('exact_match'):
+            rank_exact += 1
+        if ra.get('top1_correct'):
+            rank_top1 += 1
+        if ra.get('top2_correct'):
+            rank_top2 += 1
+        
+        percent_kendall_sum += pa.get('kendall_tau', 0)
+        rank_kendall_sum += ra.get('kendall_tau', 0)
+        percent_displacement_sum += pa.get('displacement_sum', 0)
+        rank_displacement_sum += ra.get('displacement_sum', 0)
+    
+    print("-" * 80)
+    
+    # 汇总统计
+    print(f"\n【汇总统计】({total_seasons} 季决赛)")
+    print("-" * 50)
+    print(f"{'指标':^20} | {'百分比法':^12} | {'排名法':^12}")
+    print("-" * 50)
+    print(f"{'完全正确':^20} | {percent_exact:^6} ({percent_exact/total_seasons*100:5.1f}%) | {rank_exact:^6} ({rank_exact/total_seasons*100:5.1f}%)")
+    print(f"{'第一名正确':^20} | {percent_top1:^6} ({percent_top1/total_seasons*100:5.1f}%) | {rank_top1:^6} ({rank_top1/total_seasons*100:5.1f}%)")
+    print(f"{'前两名正确':^20} | {percent_top2:^6} ({percent_top2/total_seasons*100:5.1f}%) | {rank_top2:^6} ({rank_top2/total_seasons*100:5.1f}%)")
+    print(f"{'平均Kendall τ':^20} | {percent_kendall_sum/total_seasons:^12.4f} | {rank_kendall_sum/total_seasons:^12.4f}")
+    print(f"{'总排名位移':^20} | {percent_displacement_sum:^12} | {rank_displacement_sum:^12}")
+    print("-" * 50)
+    
+    # 结论
+    print("\n【决赛排名准确性结论】")
+    if percent_top1 > rank_top1:
+        print(f"  百分比法在预测冠军方面更准确 ({percent_top1} vs {rank_top1})")
+    elif rank_top1 > percent_top1:
+        print(f"  排名法在预测冠军方面更准确 ({rank_top1} vs {percent_top1})")
+    else:
+        print(f"  两种方法预测冠军准确率相同 ({percent_top1})")
+    
+    if percent_exact > rank_exact:
+        print(f"  百分比法在预测完整排名方面更准确 ({percent_exact} vs {rank_exact})")
+    elif rank_exact > percent_exact:
+        print(f"  排名法在预测完整排名方面更准确 ({rank_exact} vs {percent_exact})")
+    else:
+        print(f"  两种方法预测完整排名准确率相同 ({percent_exact})")
+
+
 def main():
     excel_path = DEFAULT_EXCEL
     fan_csv_path = DEFAULT_FAN_CSV
@@ -238,7 +579,7 @@ def main():
     print(f"观众估计: {fan_csv_path}")
     print()
 
-    df, differences = run_rank_method_all_seasons(excel_path, fan_csv_path)
+    df, differences, final_results = run_rank_method_all_seasons(excel_path, fan_csv_path)
 
     # 汇总（排除没有人淘汰的周数）
     total_weeks = len(df)
@@ -288,7 +629,10 @@ def main():
     else:
         print("所有周淘汰结果一致，无需判断谁更偏观众。")
 
-    return df, differences
+    # 决赛排名分析
+    analyze_final_rankings(final_results)
+
+    return df, differences, final_results
 
 
 if __name__ == '__main__':

@@ -15,11 +15,13 @@
     1. ∑_i v_{i,t} = 1  (每周归一化)
     2. v_{i,t} ≥ 0      (非负)
     3. T_e < T_s        (淘汰者总分低于幸存者)
+    4. T_{rank_k} > T_{rank_k+1}  (决赛周排名约束：排名靠前的总分高于排名靠后的)
 
 这种方法：
     - 最大熵：让投票分布尽可能均匀，避免极端解
     - 平滑性：让同一选手的投票份额在相邻周之间变化尽量小
     - 联合优化：避免每周独立求解导致的人气剧烈抖动
+    - 决赛排名约束：确保决赛周的最终排名与总分一致
 """
 
 import pandas as pd
@@ -172,6 +174,7 @@ class EntropySmoothFanVoteEstimator:
                 'names': week_data['contestant_names'],
                 'judge_percents': week_data['judge_percents'],
                 'eliminated_indices': week_data['eliminated_indices'],
+                'final_rankings': week_data.get('final_rankings', {}),  # 添加决赛排名信息
                 'week': week_data['week']
             })
             total_vars += n_this_week
@@ -285,6 +288,62 @@ class EntropySmoothFanVoteEstimator:
                         'fun': lambda v, f=ineq_constraint: -f(v),  # scipy的ineq是>=0
                         'jac': lambda v, j=ineq_constraint_jac: -j(v)
                     })
+        
+        # 决赛排名约束: Total_higher_rank > Total_lower_rank + epsilon
+        # 即: (j_higher + v_higher) > (j_lower + v_lower) + epsilon
+        # 转换为: v_higher - v_lower > (j_lower - j_higher) + epsilon
+        # 不等式形式: -(v_higher - v_lower) + (j_lower - j_higher + epsilon) <= 0
+        # 
+        # 注意:只在决赛周(没有淘汰者且有排名信息)应用此约束
+        for info in week_var_info:
+            final_rankings = info.get('final_rankings', {})
+            eliminated_indices = info.get('eliminated_indices', [])
+            
+            # 如果是决赛周:有排名信息且没有淘汰者
+            if final_rankings and len(eliminated_indices) == 0:
+                start = info['start_idx']
+                judge_percents = info['judge_percents']
+                names = info['names']
+                
+                # 构建名字到索引的映射
+                name_to_idx = {name: i for i, name in enumerate(names)}
+                
+                # 按排名排序
+                sorted_rankings = sorted(final_rankings.items(), key=lambda x: x[1])
+                
+                # 为每对相邻排名添加约束
+                for i in range(len(sorted_rankings) - 1):
+                    name_higher, rank_higher = sorted_rankings[i]  # 排名小的(第1名)
+                    name_lower, rank_lower = sorted_rankings[i+1]  # 排名大的(第2名)
+                    
+                    if name_higher in name_to_idx and name_lower in name_to_idx:
+                        idx_higher = name_to_idx[name_higher]
+                        idx_lower = name_to_idx[name_lower]
+                        
+                        j_higher = judge_percents[idx_higher]
+                        j_lower = judge_percents[idx_lower]
+                        
+                        # Total_higher > Total_lower + epsilon
+                        # (j_higher + v_higher) > (j_lower + v_lower) + epsilon
+                        # v_higher - v_lower > (j_lower - j_higher) + epsilon
+                        diff = j_lower - j_higher + self.epsilon
+                        
+                        def final_ineq_constraint(v, start=start, idx_h=idx_higher, idx_l=idx_lower, diff=diff):
+                            # v_higher - v_lower >= diff
+                            # 转换为 -(v_higher - v_lower) + diff <= 0
+                            return -(v[start+idx_h] - v[start+idx_l]) + diff
+                        
+                        def final_ineq_constraint_jac(v, start=start, idx_h=idx_higher, idx_l=idx_lower):
+                            jac = np.zeros(total_vars)
+                            jac[start+idx_h] = -1
+                            jac[start+idx_l] = 1
+                            return jac
+                        
+                        constraints.append({
+                            'type': 'ineq',
+                            'fun': lambda v, f=final_ineq_constraint: -f(v),  # scipy的ineq是>=0
+                            'jac': lambda v, j=final_ineq_constraint_jac: -j(v)
+                        })
         
         # 变量边界: v_i >= 0
         bounds = [(1e-10, 1.0) for _ in range(total_vars)]  # 下界用小正数避免log(0)
@@ -432,6 +491,50 @@ class DWTSProcessedDataProcessor:
                 eliminated.append(row['celebrity_name'])
         return eliminated
     
+    def get_final_rankings(self, season_df: pd.DataFrame, week: int) -> Dict[str, int]:
+        """
+        获取决赛周的排名信息
+        
+        只有真正的决赛周（最大淘汰周数+1）才返回排名信息
+        
+        Returns:
+            dict: {celebrity_name: placement}, 如果不是决赛周返回空字典
+        """
+        rankings = {}
+        col = f'{week}_percent'
+        
+        if col not in season_df.columns:
+            return rankings
+        
+        # 首先找出最大淘汰周数
+        max_elim_week = 0
+        for w in range(1, 12):
+            elim = season_df[season_df['results'].str.contains(f'Eliminated Week {w}', na=False)]
+            if len(elim) > 0:
+                max_elim_week = w
+        
+        # 决赛周应该是最大淘汰周数+1
+        expected_final_week = max_elim_week + 1
+        
+        # 如果当前周不是推测的决赛周，返回空字典
+        if week != expected_final_week:
+            return rankings
+        
+        # 遍历本周有评分的选手
+        week_contestants = season_df[season_df[col] > 0]
+        
+        for _, row in week_contestants.iterrows():
+            result = str(row['results']).lower()
+            # 检查是否包含排名信息(1st place, 2nd place等)且不是被淘汰
+            if 'place' in result and 'eliminated' not in result:
+                rankings[row['celebrity_name']] = int(row['placement'])
+        
+        # 只有当有多个选手有排名信息时才返回(确认是决赛)
+        if len(rankings) >= 2:
+            return rankings
+        else:
+            return {}
+    
     def process_season(self, season: int) -> List[Dict]:
         """处理一个季度的所有周数据"""
         season_df = self.get_season_data(season)
@@ -451,19 +554,23 @@ class DWTSProcessedDataProcessor:
             name_to_idx = {name: i for i, name in enumerate(contestant_names)}
             eliminated_indices = [name_to_idx[name] for name in eliminated if name in name_to_idx]
             
+            # 获取决赛排名信息
+            final_rankings = self.get_final_rankings(season_df, week)
+            
             season_data.append({
                 'week': week,
                 'contestant_names': contestant_names,
                 'judge_percents': judge_percents,
                 'eliminated': eliminated,
                 'eliminated_indices': eliminated_indices,
+                'final_rankings': final_rankings,  # 新增:决赛排名
                 'n_contestants': len(contestant_names)
             })
         
         return season_data
 
 
-def run_estimation(excel_path: str, output_path: str = None, lambda_smooth: float = 1.0):
+def run_estimation(excel_path: str, output_path: str = None, lambda_smooth: float = 1.0, epsilon: float = 0.001):
     """
     运行完整的观众投票估计（最大熵+平滑性联合正则化版本）
     
@@ -471,13 +578,14 @@ def run_estimation(excel_path: str, output_path: str = None, lambda_smooth: floa
         excel_path: 数据文件路径
         output_path: 输出文件路径
         lambda_smooth: 平滑性权重参数
+        epsilon: 严格不等式的小量
     """
     processor = DWTSProcessedDataProcessor(excel_path)
-    estimator = EntropySmoothFanVoteEstimator(epsilon=0.001, lambda_smooth=lambda_smooth)
+    estimator = EntropySmoothFanVoteEstimator(epsilon=epsilon, lambda_smooth=lambda_smooth)
     
     all_results = []
     
-    print(f"\n使用参数: epsilon=0.001, lambda_smooth={lambda_smooth}")
+    print(f"\n使用参数: epsilon={epsilon}, lambda_smooth={lambda_smooth}")
     
     # 遍历第3-27季
     for season in range(3, 28):
@@ -502,35 +610,77 @@ def run_estimation(excel_path: str, output_path: str = None, lambda_smooth: floa
             
             eliminated_names = [c['name'] for c in contestants if c['eliminated']]
             
+            # 检查是否是决赛周
+            final_rankings = {}
+            week_data = next((wd for wd in season_data if wd['week'] == week), None)
+            if week_data and week_data.get('final_rankings'):
+                final_rankings = week_data['final_rankings']
+            
             print(f"\n  第 {week} 周: {len(contestants)} 位选手, 熵={entropy:.4f}", end="")
-            if eliminated_names:
+            if final_rankings:
+                print(f" [决赛周]", end="")
+            elif eliminated_names:
                 print(f", 淘汰: {eliminated_names}", end="")
             print()
             print(f"    求解状态: {status}")
             
-            for c in contestants:
-                elim_mark = " [淘汰]" if c['eliminated'] else ""
-                smooth_info = f"平滑度={c['smoothness']:.6f}" if c['n_weeks'] > 1 else "首周"
-                print(f"      {c['name']}: 评委{c['judge_percent']*100:.2f}% + "
-                      f"观众{c['fan_vote_percent']*100:.2f}% = {c['total_percent']*100:.2f}% "
-                      f"({smooth_info}){elim_mark}")
+            # 如果是决赛周,按排名排序输出
+            if final_rankings:
+                # 创建带排名的选手列表
+                contestants_with_rank = []
+                for c in contestants:
+                    rank = final_rankings.get(c['name'], 999)
+                    contestants_with_rank.append((rank, c))
+                contestants_with_rank.sort(key=lambda x: x[0])
                 
-                all_results.append({
-                    'season': season,
-                    'week': week,
-                    'celebrity_name': c['name'],
-                    'judge_percent': c['judge_percent'],
-                    'fan_vote_percent': c['fan_vote_percent'],
-                    'total_percent': c['total_percent'],
-                    'fan_vote_min': c['fan_vote_min'],
-                    'fan_vote_max': c['fan_vote_max'],
-                    'interval_width': c['interval_width'],
-                    'smoothness': c['smoothness'],
-                    'n_weeks': c['n_weeks'],
-                    'week_entropy': entropy,
-                    'eliminated': c['eliminated'],
-                    'solve_status': status
-                })
+                for rank, c in contestants_with_rank:
+                    rank_str = f"第{rank}名"
+                    smooth_info = f"平滑度={c['smoothness']:.6f}" if c['n_weeks'] > 1 else "首周"
+                    print(f"      {rank_str} {c['name']}: 评委{c['judge_percent']*100:.2f}% + "
+                          f"观众{c['fan_vote_percent']*100:.2f}% = {c['total_percent']*100:.2f}% "
+                          f"({smooth_info})")
+                    
+                    # 保存决赛周的数据
+                    all_results.append({
+                        'season': season,
+                        'week': week,
+                        'celebrity_name': c['name'],
+                        'judge_percent': c['judge_percent'],
+                        'fan_vote_percent': c['fan_vote_percent'],
+                        'total_percent': c['total_percent'],
+                        'fan_vote_min': c['fan_vote_min'],
+                        'fan_vote_max': c['fan_vote_max'],
+                        'interval_width': c['interval_width'],
+                        'smoothness': c['smoothness'],
+                        'n_weeks': c['n_weeks'],
+                        'week_entropy': entropy,
+                        'eliminated': c['eliminated'],
+                        'solve_status': status
+                    })
+            else:
+                for c in contestants:
+                    elim_mark = " [淘汰]" if c['eliminated'] else ""
+                    smooth_info = f"平滑度={c['smoothness']:.6f}" if c['n_weeks'] > 1 else "首周"
+                    print(f"      {c['name']}: 评委{c['judge_percent']*100:.2f}% + "
+                          f"观众{c['fan_vote_percent']*100:.2f}% = {c['total_percent']*100:.2f}% "
+                          f"({smooth_info}){elim_mark}")
+                
+                    all_results.append({
+                        'season': season,
+                        'week': week,
+                        'celebrity_name': c['name'],
+                        'judge_percent': c['judge_percent'],
+                        'fan_vote_percent': c['fan_vote_percent'],
+                        'total_percent': c['total_percent'],
+                        'fan_vote_min': c['fan_vote_min'],
+                        'fan_vote_max': c['fan_vote_max'],
+                        'interval_width': c['interval_width'],
+                        'smoothness': c['smoothness'],
+                        'n_weeks': c['n_weeks'],
+                        'week_entropy': entropy,
+                        'eliminated': c['eliminated'],
+                        'solve_status': status
+                    })
     
     # 保存结果
     if output_path and all_results:
@@ -664,14 +814,16 @@ def compare_lambda_values(excel_path: str, lambda_values: List[float] = [0.1, 1.
 
 
 if __name__ == "__main__":
-    excel_path = r"d:\Users\13016\Desktop\26MCM\2026_C\2026_MCM_Problem_C_Processed_Data.xlsx"
+    # 使用 Data_4.xlsx 作为数据源
+    excel_path = r"d:\Users\13016\Desktop\26MCM\2026_C\Data_4.xlsx"
     output_path = r"d:\Users\13016\Desktop\26MCM\2026_C\task1-1\fan_vote_estimates_entropy_smooth_150.csv"
     
-    # 默认λ=10.0，更强调时间连续性
+    # 默认λ=150.0，epsilon=1e-9保证严格不等式约束
     lambda_smooth = 150.0
+    epsilon = 1e-9
     
     # 运行估计
-    results = run_estimation(excel_path, output_path, lambda_smooth=lambda_smooth)
+    results = run_estimation(excel_path, output_path, lambda_smooth=lambda_smooth, epsilon=epsilon)
     
     # 验证结果
     if results:
