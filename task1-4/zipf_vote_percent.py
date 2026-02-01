@@ -9,11 +9,11 @@ import pandas as pd
 
 
 DEFAULT_INPUT = (
-    "/home/hisheep/d/MCM/26/task1-4/outputs/"
+    "/home/hisheep/d/MCM/26/task1-4/final_outputs/baseline/"
     "grid_a1p0_b0p05_g10p0/weekly_predictions.csv"
 )
 DEFAULT_OUTPUT = (
-    "/home/hisheep/d/MCM/26/task1-4/outputs/"
+    "/home/hisheep/d/MCM/26/task1-4/final_outputs/baseline/"
     "grid_a1p0_b0p05_g10p0/fan_vote_percent.csv"
 )
 

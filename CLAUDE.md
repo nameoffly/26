@@ -60,6 +60,9 @@ Data_4.xlsx → data_processing.py → model_rank.py → solve_rank.py → outpu
 - **uncertainty_altopt.py**: Fast heuristic alternative using Hungarian algorithm with alternating optimization
 - **zipf_vote_percent.py**: Models audience voting percentages using Zipf distribution
 - **plot_figures.py**: Comprehensive visualization module (8+ plot types)
+- **near_opt_altopt.py**: Fast near-optimal interval analysis using alternating optimization
+- **plot_perturb.py**: Perturbation analysis visualizations (Kendall correlation heatmaps)
+- **plot_uncertainty_altopt.py**: Uncertainty visualization for alternating optimization results
 
 ### Mathematical Model
 
@@ -83,7 +86,10 @@ min α·(Judge Proximity) + β·(Smoothing) + γ·(Slack Penalty)
 - `task1-4/outputs/`: Baseline solver results (predictions, consistency, penalties)
 - `task1-4/outputs_uncertainty/`: CP-SAT uncertainty analysis results
 - `task1-4/outputs_uncertainty_altopt/`: Alternating optimization results
-- `task1-4/outputs_image/`: Generated visualization plots
+- `task1-4/outputs_image/`: Generated visualization plots from plot_figures.py
+- `task1-4/outputs_image_perturb/`: Perturbation analysis plots from plot_perturb.py
+- `task1-4/outputs_images_uncertainty/`: Uncertainty visualization plots
+- `task1-4/final_outputs/`: Final consolidated outputs for paper submission
 
 ## Key Implementation Notes
 
@@ -91,3 +97,5 @@ min α·(Judge Proximity) + β·(Smoothing) + γ·(Slack Penalty)
 - Uncertainty analysis uses ProcessPoolExecutor with single-threaded solving per process
 - The alternating optimization approach is significantly faster than CP-SAT for large perturbation studies
 - Rank correlation metrics: Spearman ρ and Kendall τ-a for stability assessment
+- Plotting scripts require seaborn (not in requirements.txt): `pip install seaborn`
+- Default seasons analyzed: 1, 2, 28, 29, 30, 31, 32, 33, 34
