@@ -72,6 +72,16 @@ def main():
     # 合并两部分
     combined = pd.concat([df1, df2], ignore_index=True)
 
+    # 合并行业和名次字段
+    industry_placement = data4[['season', 'celebrity_name', 'celebrity_industry',
+                                 'results', 'placement']].drop_duplicates()
+    combined = pd.merge(
+        combined,
+        industry_placement,
+        on=['season', 'celebrity_name'],
+        how='left'
+    )
+
     # 重命名列
     result = combined.rename(columns={
         'season': '赛季',
@@ -83,12 +93,19 @@ def main():
         'celebrity_age_during_season': '年龄',
         'judge_percent': '评委评分百分比',
         'fan_vote_percent': '粉丝投票百分比',
-        'total_percent': '总百分比'
+        'total_percent': '总百分比',
+        'celebrity_industry': '行业',
+        'results': '比赛结果',
+        'placement': '最终名次'
     })
 
     # 选择并排序列
     result = result[['赛季', '周数', '人名', '伴侣名', '地区', '国家', '年龄',
+                     '行业', '最终名次', '比赛结果',
                      '评委评分百分比', '粉丝投票百分比', '总百分比']]
+
+    # 填充地区空值为 others
+    result['地区'] = result['地区'].fillna('others')
 
     # 按赛季和周数排序
     result = result.sort_values(['赛季', '周数', '人名']).reset_index(drop=True)
