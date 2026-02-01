@@ -30,11 +30,12 @@ DATA_FILE = os.path.join(SCRIPT_DIR, 'combined_contestant_info.csv')
 OUTPUT_DIR = os.path.join(SCRIPT_DIR, 'results')
 
 # 争议选手定义
+# actual_method: 该赛季实际使用的方法 ('rank' for S1-2,S28-34; 'percent' for S3-27)
 CONTROVERSIAL_CONTESTANTS = [
-    {'season': 2, 'name': 'Jerry Rice', 'actual_placement': 2, 'description': '5周评委垫底，亚军'},
-    {'season': 4, 'name': 'Billy Ray Cyrus', 'actual_placement': 5, 'description': '8周评委倒数第1，第5名'},
-    {'season': 11, 'name': 'Bristol Palin', 'actual_placement': 3, 'description': '12次评委最低，季军'},
-    {'season': 27, 'name': 'Bobby Bones', 'actual_placement': 1, 'description': '8周评委倒数第1，冠军'},
+    {'season': 2, 'name': 'Jerry Rice', 'actual_placement': 2, 'description': '5周评委垫底，亚军', 'actual_method': 'rank'},
+    {'season': 4, 'name': 'Billy Ray Cyrus', 'actual_placement': 5, 'description': '8周评委倒数第1，第5名', 'actual_method': 'percent'},
+    {'season': 11, 'name': 'Bristol Palin', 'actual_placement': 3, 'description': '12次评委最低，季军', 'actual_method': 'percent'},
+    {'season': 27, 'name': 'Bobby Bones', 'actual_placement': 1, 'description': '8周评委倒数第1，冠军', 'actual_method': 'percent'},
 ]
 
 
@@ -295,25 +296,50 @@ def analyze_controversial_contestant(df, contestant_info):
     """分析单个争议选手"""
     season = contestant_info['season']
     name = contestant_info['name']
+    actual_placement = contestant_info['actual_placement']
+    actual_method = contestant_info.get('actual_method', 'percent')  # 默认百分比法
     
     season_df = df[df['season'] == season]
     if name not in season_df['name'].values:
         print(f"警告：找不到 {name} 在第 {season} 季的数据")
         return None
     
+    # 获取选手实际存活周数
+    contestant_data = season_df[season_df['name'] == name]
+    actual_survival_weeks = len(contestant_data)  # 选手参与的周数
+    
     simulator = SeasonSimulator(season_df, name)
     
     # 运行四种规则
     rules = [
-        (rule_percent_only, 'R1: 纯百分比法'),
-        (rule_rank_only, 'R2: 纯排名法'),
-        (rule_percent_judge_decide, 'R3: 百分比+评委决定'),
-        (rule_rank_judge_decide, 'R4: 排名+评委决定'),
+        (rule_percent_only, 'R1: 纯百分比法', 'percent'),
+        (rule_rank_only, 'R2: 纯排名法', 'rank'),
+        (rule_percent_judge_decide, 'R3: 百分比+评委决定', 'percent_judge'),
+        (rule_rank_judge_decide, 'R4: 排名+评委决定', 'rank_judge'),
     ]
     
     results = []
-    for rule_func, rule_name in rules:
-        result = simulator.simulate_rule(rule_func, rule_name)
+    for rule_func, rule_name, method_type in rules:
+        # 如果该规则对应实际使用的方法（不带评委决定的），直接使用实际结果
+        if (actual_method == 'percent' and method_type == 'percent') or \
+           (actual_method == 'rank' and method_type == 'rank'):
+            # 使用实际结果
+            result = {
+                'rule_name': rule_name,
+                'survival_weeks': actual_survival_weeks,
+                'eliminated_week': None,  # 未被淘汰（进入决赛）
+                'reached_final': True,
+                'final_placement': actual_placement,
+                'times_in_bottom_two': 0,  # 实际数据未知，设为0
+                'bottom_two_weeks': [],
+                'weekly_status': [],
+                'is_actual': True,  # 标记这是实际结果
+            }
+        else:
+            # 进行模拟
+            result = simulator.simulate_rule(rule_func, rule_name)
+            result['is_actual'] = False
+        
         results.append(result)
     
     return {
