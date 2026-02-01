@@ -39,6 +39,48 @@ def load_data():
     df = pd.read_csv(DATA_PATH)
     print(f"周级别数据: {len(df)} 行")
 
+    # 行业合并映射：26种 -> 5大类
+    industry_mapping = {
+        # 演艺类 (Acting/Entertainment)
+        'Actor/Actress': 'Acting',
+        'Comedian': 'Acting',
+        'Magician': 'Acting',
+
+        # 体育类 (Sports)
+        'Athlete': 'Sports',
+        'Racing Driver': 'Sports',
+
+        # 音乐类 (Music)
+        'Singer/Rapper': 'Music',
+        'Musician': 'Music',
+
+        # 媒体/主持类 (Media)
+        'TV Personality': 'Media',
+        'Radio Personality': 'Media',
+        'News Anchor': 'Media',
+        'Sports Broadcaster': 'Media',
+        'Journalist': 'Media',
+
+        # 其他类 (Other)
+        'Model': 'Other',
+        'Social Media Personality': 'Other',
+        'Social media personality': 'Other',
+        'Entrepreneur': 'Other',
+        'Politician': 'Other',
+        'Beauty Pagent': 'Other',
+        'Astronaut': 'Other',
+        'Fashion Designer': 'Other',
+        'Motivational Speaker': 'Other',
+        'Military': 'Other',
+        'Producer': 'Other',
+        'Fitness Instructor': 'Other',
+        'Con artist': 'Other',
+        'Conservationist': 'Other'
+    }
+
+    # 应用行业合并
+    df['行业大类'] = df['行业'].map(industry_mapping).fillna('Other')
+
     # 选手级别汇总
     contestant = df.groupby(['赛季', '人名']).agg({
         '粉丝投票百分比': 'mean',
@@ -49,15 +91,21 @@ def load_data():
         '国家': 'first',
         '年龄': 'first',
         '行业': 'first',
+        '行业大类': 'first',
         '最终名次': 'first',
         '比赛结果': 'first'
     }).reset_index()
 
     contestant.columns = ['赛季', '人名', '平均粉丝投票', '平均评委评分', '存活周数',
-                          '伴侣名', '地区', '国家', '年龄', '行业', '最终名次', '比赛结果']
+                          '伴侣名', '地区', '国家', '年龄', '行业', '行业大类', '最终名次', '比赛结果']
 
     contestant['是否获奖'] = contestant['最终名次'] <= 3
     print(f"选手级别数据: {len(contestant)} 人")
+
+    # 打印行业大类分布
+    print(f"\n行业大类分布:")
+    print(contestant['行业大类'].value_counts().to_string())
+
     return df, contestant
 
 
@@ -67,8 +115,8 @@ def descriptive_stats(contestant):
     print("描述性统计分析")
     print("="*60)
 
-    # 各行业统计
-    industry_stats = contestant.groupby('行业').agg({
+    # 各行业大类统计
+    industry_stats = contestant.groupby('行业大类').agg({
         '最终名次': ['mean', 'std', 'count'],
         '是否获奖': ['sum', 'mean'],
         '年龄': 'mean',
@@ -81,8 +129,8 @@ def descriptive_stats(contestant):
 
     # 保存
     industry_stats.to_csv(os.path.join(OUTPUT_DIR, 'descriptive_stats.csv'), encoding='utf-8-sig')
-    print("\n各行业统计（按平均名次排序）:")
-    print(industry_stats[['平均名次', '人数', '获奖率', '平均年龄']].head(10))
+    print("\n各行业大类统计（按平均名次排序）:")
+    print(industry_stats[['平均名次', '人数', '获奖率', '平均年龄']])
 
     # 年龄统计
     print(f"\n年龄统计:")
@@ -126,7 +174,7 @@ def hypothesis_tests(contestant):
     results = []
 
     # 1. 卡方检验：行业与获奖独立性
-    contingency = pd.crosstab(contestant['行业'], contestant['是否获奖'])
+    contingency = pd.crosstab(contestant['行业大类'], contestant['是否获奖'])
     chi2, p_chi2, dof, expected = stats.chi2_contingency(contingency)
     results.append({
         '检验': '卡方检验',
@@ -136,7 +184,7 @@ def hypothesis_tests(contestant):
         '自由度': dof,
         '结论': '拒绝H0' if p_chi2 < 0.05 else '不拒绝H0'
     })
-    print(f"\n1. 卡方检验（行业与获奖独立性）:")
+    print(f"\n1. 卡方检验（行业大类与获奖独立性）:")
     print(f"   χ² = {chi2:.4f}, p = {p_chi2:.4f}, df = {dof}")
     print(f"   结论: {'行业与获奖显著相关' if p_chi2 < 0.05 else '行业与获奖无显著关系'}")
 
@@ -155,9 +203,9 @@ def hypothesis_tests(contestant):
     print(f"   结论: {'年龄与名次显著正相关（年龄越大名次越差）' if p_corr < 0.05 and r > 0 else '年龄与名次无显著关系'}")
 
     # 3. ANOVA：不同行业名次差异
-    # 只选择人数>=10的行业
-    major_industries = contestant.groupby('行业').filter(lambda x: len(x) >= 10)
-    model = smf.ols('最终名次 ~ C(行业)', data=major_industries).fit()
+    # 使用行业大类（5类，每类样本量充足）
+    major_industries = contestant.copy()  # 使用全部数据
+    model = smf.ols('最终名次 ~ C(行业大类)', data=major_industries).fit()
     anova = sm.stats.anova_lm(model, typ=2)
     f_stat = anova['F'].iloc[0]
     p_anova = anova['PR(>F)'].iloc[0]
@@ -235,6 +283,72 @@ def hypothesis_tests(contestant):
             print(f"   χ² = {chi2_region:.4f}, p = {p_region:.4f}, df = {dof_region}")
             print(f"   结论: {'地区与获奖显著相关' if p_region < 0.05 else '地区与获奖无显著关系'}")
 
+    # 8. ANOVA：行业对粉丝投票的影响
+    model_fan_industry = smf.ols('平均粉丝投票 ~ C(行业大类)', data=major_industries).fit()
+    anova_fan = sm.stats.anova_lm(model_fan_industry, typ=2)
+    f_fan = anova_fan['F'].iloc[0]
+    p_fan_anova = anova_fan['PR(>F)'].iloc[0]
+    results.append({
+        '检验': 'ANOVA',
+        '假设': '各行业粉丝投票相同',
+        '统计量': round(f_fan, 4),
+        'p值': round(p_fan_anova, 4),
+        '自由度': f"{anova_fan['df'].iloc[0]:.0f},{anova_fan['df'].iloc[1]:.0f}",
+        '结论': '拒绝H0' if p_fan_anova < 0.05 else '不拒绝H0'
+    })
+    print(f"\n8. ANOVA（行业对粉丝投票的影响）:")
+    print(f"   F = {f_fan:.4f}, p = {p_fan_anova:.4f}")
+    print(f"   结论: {'不同行业的粉丝投票存在显著差异' if p_fan_anova < 0.05 else '不同行业的粉丝投票无显著差异'}")
+
+    # 9. ANOVA：行业对评委评分的影响
+    model_judge_industry = smf.ols('平均评委评分 ~ C(行业大类)', data=major_industries).fit()
+    anova_judge = sm.stats.anova_lm(model_judge_industry, typ=2)
+    f_judge = anova_judge['F'].iloc[0]
+    p_judge_anova = anova_judge['PR(>F)'].iloc[0]
+    results.append({
+        '检验': 'ANOVA',
+        '假设': '各行业评委评分相同',
+        '统计量': round(f_judge, 4),
+        'p值': round(p_judge_anova, 4),
+        '自由度': f"{anova_judge['df'].iloc[0]:.0f},{anova_judge['df'].iloc[1]:.0f}",
+        '结论': '拒绝H0' if p_judge_anova < 0.05 else '不拒绝H0'
+    })
+    print(f"\n9. ANOVA（行业对评委评分的影响）:")
+    print(f"   F = {f_judge:.4f}, p = {p_judge_anova:.4f}")
+    print(f"   结论: {'不同行业的评委评分存在显著差异' if p_judge_anova < 0.05 else '不同行业的评委评分无显著差异'}")
+
+    # 10. t检验：美国vs非美国对粉丝投票的影响
+    us_fan = contestant[contestant['是否美国']]['平均粉丝投票']
+    non_us_fan = contestant[~contestant['是否美国']]['平均粉丝投票']
+    t_fan, p_t_fan = stats.ttest_ind(us_fan, non_us_fan)
+    results.append({
+        '检验': 't检验',
+        '假设': '美国vs非美国粉丝投票相同',
+        '统计量': round(t_fan, 4),
+        'p值': round(p_t_fan, 4),
+        '自由度': len(contestant) - 2,
+        '结论': '拒绝H0' if p_t_fan < 0.05 else '不拒绝H0'
+    })
+    print(f"\n10. t检验（美国vs非美国对粉丝投票的影响）:")
+    print(f"   t = {t_fan:.4f}, p = {p_t_fan:.4f}")
+    print(f"   US均值={us_fan.mean():.4f}, Non-US均值={non_us_fan.mean():.4f}")
+
+    # 11. t检验：美国vs非美国对评委评分的影响
+    us_judge = contestant[contestant['是否美国']]['平均评委评分']
+    non_us_judge = contestant[~contestant['是否美国']]['平均评委评分']
+    t_judge_us, p_t_judge = stats.ttest_ind(us_judge, non_us_judge)
+    results.append({
+        '检验': 't检验',
+        '假设': '美国vs非美国评委评分相同',
+        '统计量': round(t_judge_us, 4),
+        'p值': round(p_t_judge, 4),
+        '自由度': len(contestant) - 2,
+        '结论': '拒绝H0' if p_t_judge < 0.05 else '不拒绝H0'
+    })
+    print(f"\n11. t检验（美国vs非美国对评委评分的影响）:")
+    print(f"   t = {t_judge_us:.4f}, p = {p_t_judge:.4f}")
+    print(f"   US均值={us_judge.mean():.4f}, Non-US均值={non_us_judge.mean():.4f}")
+
     # 保存结果
     results_df = pd.DataFrame(results)
     results_df.to_csv(os.path.join(OUTPUT_DIR, 'hypothesis_tests.csv'), index=False, encoding='utf-8-sig')
@@ -243,73 +357,418 @@ def hypothesis_tests(contestant):
 
 
 def regression_analysis(contestant):
-    """回归分析"""
+    """回归分析 - 使用周级别数据"""
     print("\n" + "="*60)
-    print("回归分析")
+    print("回归分析（周级别数据）")
     print("="*60)
 
-    # 只选择人数>=5的行业和舞伴
-    major_industries = contestant['行业'].value_counts()
-    major_industries = major_industries[major_industries >= 5].index.tolist()
-    major_partners = contestant['伴侣名'].value_counts()
-    major_partners = major_partners[major_partners >= 3].index.tolist()
+    # 读取周级别数据
+    df = pd.read_csv(DATA_PATH)
+    print(f"周级别数据: {len(df)} 行")
 
-    data = contestant[contestant['行业'].isin(major_industries) &
-                      contestant['伴侣名'].isin(major_partners)].copy()
-    print(f"筛选后样本量: {len(data)}")
+    # 添加行业大类映射
+    industry_mapping = {
+        'Actor/Actress': 'Acting', 'Comedian': 'Acting', 'Magician': 'Acting',
+        'Athlete': 'Sports', 'Racing Driver': 'Sports',
+        'Singer/Rapper': 'Music', 'Musician': 'Music',
+        'TV Personality': 'Media', 'Radio Personality': 'Media', 'News Anchor': 'Media',
+        'Sports Broadcaster': 'Media', 'Journalist': 'Media',
+        'Model': 'Other', 'Social Media Personality': 'Other', 'Social media personality': 'Other',
+        'Entrepreneur': 'Other', 'Politician': 'Other', 'Beauty Pagent': 'Other',
+        'Astronaut': 'Other', 'Fashion Designer': 'Other', 'Motivational Speaker': 'Other',
+        'Military': 'Other', 'Producer': 'Other', 'Fitness Instructor': 'Other',
+        'Con artist': 'Other', 'Conservationist': 'Other'
+    }
+    df['行业大类'] = df['行业'].map(industry_mapping).fillna('Other')
 
-    # 模型1：预测最终名次（OLS回归）
-    print("\n模型1：预测最终名次 (OLS)")
-    model1 = smf.ols('最终名次 ~ 年龄 + C(行业)', data=data).fit()
-    print(f"  R² = {model1.rsquared:.4f}")
-    print(f"  年龄系数 = {model1.params['年龄']:.4f} (p = {model1.pvalues['年龄']:.4f})")
+    # 筛选参赛>=20次的舞伴
+    major_partners = df['伴侣名'].value_counts()
+    major_partners = major_partners[major_partners >= 20].index.tolist()
 
-    # 模型2：预测是否获奖（Logistic回归）
-    print("\n模型2：预测是否获奖 (Logit)")
-    try:
-        data['是否获奖_int'] = data['是否获奖'].astype(int)
-        model2 = smf.logit('是否获奖_int ~ 年龄 + C(行业)', data=data).fit(disp=0)
-        print(f"  Pseudo R² = {model2.prsquared:.4f}")
-        print(f"  年龄系数 = {model2.params['年龄']:.4f} (p = {model2.pvalues['年龄']:.4f})")
-    except Exception as e:
-        print(f"  Logit模型拟合失败: {e}")
-        model2 = None
+    data = df[df['伴侣名'].isin(major_partners)].copy()
+    print(f"筛选后样本量: {len(data)} 行")
 
-    # 模型3：评委评分影响因素
-    print("\n模型3：评委评分影响因素 (OLS)")
-    model_judge = smf.ols('平均评委评分 ~ 年龄 + C(行业)', data=data).fit()
-    print(f"  R² = {model_judge.rsquared:.4f}")
+    # 模型1：预测评委评分 - 基础模型
+    print("\n模型1a：评委评分 - 基础模型 (年龄+行业)")
+    model_judge_base = smf.ols('评委评分百分比 ~ 年龄 + C(行业大类)', data=data).fit()
+    print(f"  R² = {model_judge_base.rsquared:.4f}")
+
+    # 模型1b：加入舞伴、赛季、周数
+    print("\n模型1b：评委评分 - 完整模型 (年龄+行业+舞伴+赛季+周数)")
+    model_judge = smf.ols('评委评分百分比 ~ 年龄 + C(行业大类) + C(伴侣名) + C(赛季) + 周数', data=data).fit()
+    print(f"  R² = {model_judge.rsquared:.4f} (提升 {model_judge.rsquared - model_judge_base.rsquared:.4f})")
     print(f"  年龄系数 = {model_judge.params['年龄']:.6f} (p = {model_judge.pvalues['年龄']:.4f})")
+    print(f"  周数系数 = {model_judge.params['周数']:.6f} (p = {model_judge.pvalues['周数']:.4f})")
 
-    # 模型4：粉丝投票影响因素
-    print("\n模型4：粉丝投票影响因素 (OLS)")
-    model_fan = smf.ols('平均粉丝投票 ~ 年龄 + C(行业)', data=data).fit()
-    print(f"  R² = {model_fan.rsquared:.4f}")
+    # 模型2：预测粉丝投票 - 基础模型
+    print("\n模型2a：粉丝投票 - 基础模型 (年龄+行业)")
+    model_fan_base = smf.ols('粉丝投票百分比 ~ 年龄 + C(行业大类)', data=data).fit()
+    print(f"  R² = {model_fan_base.rsquared:.4f}")
+
+    # 模型2b：加入舞伴、赛季、周数
+    print("\n模型2b：粉丝投票 - 完整模型 (年龄+行业+舞伴+赛季+周数)")
+    model_fan = smf.ols('粉丝投票百分比 ~ 年龄 + C(行业大类) + C(伴侣名) + C(赛季) + 周数', data=data).fit()
+    print(f"  R² = {model_fan.rsquared:.4f} (提升 {model_fan.rsquared - model_fan_base.rsquared:.4f})")
     print(f"  年龄系数 = {model_fan.params['年龄']:.6f} (p = {model_fan.pvalues['年龄']:.4f})")
+    print(f"  周数系数 = {model_fan.params['周数']:.6f} (p = {model_fan.pvalues['周数']:.4f})")
+
+    # 选手级别模型（预测最终名次）
+    print("\n模型3a：最终名次 - 基础模型 (年龄+行业) [选手级别]")
+    contestant_data = contestant[contestant['伴侣名'].isin(major_partners)].copy()
+    model1_base = smf.ols('最终名次 ~ 年龄 + C(行业大类)', data=contestant_data).fit()
+    print(f"  R² = {model1_base.rsquared:.4f}")
+
+    print("\n模型3b：最终名次 - 完整模型 (年龄+行业+舞伴+赛季) [选手级别]")
+    model1 = smf.ols('最终名次 ~ 年龄 + C(行业大类) + C(伴侣名) + C(赛季)', data=contestant_data).fit()
+    print(f"  R² = {model1.rsquared:.4f} (提升 {model1.rsquared - model1_base.rsquared:.4f})")
+    print(f"  年龄系数 = {model1.params['年龄']:.4f} (p = {model1.pvalues['年龄']:.4f})")
 
     # 保存回归结果
     with open(os.path.join(OUTPUT_DIR, 'regression_results.txt'), 'w', encoding='utf-8') as f:
         f.write("="*60 + "\n")
-        f.write("模型1：预测最终名次 (OLS)\n")
-        f.write("="*60 + "\n")
-        f.write(model1.summary().as_text())
-        f.write("\n\n")
-        f.write("="*60 + "\n")
-        f.write("模型3：评委评分影响因素 (OLS)\n")
+        f.write("模型对比：基础模型 vs 完整模型\n")
+        f.write("="*60 + "\n\n")
+        f.write("【周级别数据回归】\n")
+        f.write(f"模型1 (评委评分): R² {model_judge_base.rsquared:.4f} -> {model_judge.rsquared:.4f}\n")
+        f.write(f"模型2 (粉丝投票): R² {model_fan_base.rsquared:.4f} -> {model_fan.rsquared:.4f}\n")
+        f.write(f"\n【选手级别数据回归】\n")
+        f.write(f"模型3 (最终名次): R² {model1_base.rsquared:.4f} -> {model1.rsquared:.4f}\n")
+        f.write("\n" + "="*60 + "\n")
+        f.write("模型1b：评委评分 - 完整模型 (周级别)\n")
         f.write("="*60 + "\n")
         f.write(model_judge.summary().as_text())
         f.write("\n\n")
         f.write("="*60 + "\n")
-        f.write("模型4：粉丝投票影响因素 (OLS)\n")
+        f.write("模型2b：粉丝投票 - 完整模型 (周级别)\n")
         f.write("="*60 + "\n")
         f.write(model_fan.summary().as_text())
+        f.write("\n\n")
+        f.write("="*60 + "\n")
+        f.write("模型3b：最终名次 - 完整模型 (选手级别)\n")
+        f.write("="*60 + "\n")
+        f.write(model1.summary().as_text())
 
     # 系数对比
-    print("\n评委vs粉丝：年龄影响对比")
+    print("\n评委vs粉丝：年龄影响对比（周级别数据）")
     print(f"  年龄对评委评分的影响: {model_judge.params['年龄']:.6f}")
     print(f"  年龄对粉丝投票的影响: {model_fan.params['年龄']:.6f}")
+    print(f"\n周数影响对比:")
+    print(f"  周数对评委评分的影响: {model_judge.params['周数']:.6f} (越后面周数评分越{'高' if model_judge.params['周数'] > 0 else '低'})")
+    print(f"  周数对粉丝投票的影响: {model_fan.params['周数']:.6f} (越后面周数投票越{'高' if model_fan.params['周数'] > 0 else '低'})")
 
-    return model1, model2, model_judge, model_fan
+    return model1, None, model_judge, model_fan, data
+
+
+def plot_regression_results(model1, model_judge, model_fan, data):
+    """绘制回归分析可视化"""
+    print("\n" + "="*60)
+    print("回归结果可视化")
+    print("="*60)
+
+    # ========== 1. 系数森林图（只显示年龄和周数） ==========
+    fig, axes = plt.subplots(1, 3, figsize=(15, 6))
+
+    for idx, (model, title, ax) in enumerate([
+        (model1, 'Final Placement\n(Contestant-level)', axes[0]),
+        (model_judge, 'Judge Score\n(Week-level)', axes[1]),
+        (model_fan, 'Fan Vote\n(Week-level)', axes[2])
+    ]):
+        # 提取关键系数
+        params = model.params
+        conf = model.conf_int()
+        pvalues = model.pvalues
+
+        # 选择要显示的变量
+        vars_to_show = ['年龄']
+        if '周数' in params.index:
+            vars_to_show.append('周数')
+
+        key_params = [(name, params[name], conf.loc[name, 0], conf.loc[name, 1], pvalues[name])
+                      for name in vars_to_show if name in params.index]
+
+        if not key_params:
+            continue
+
+        names = []
+        coefs = []
+        ci_low = []
+        ci_high = []
+        colors = []
+
+        for name, coef, low, high, pval in key_params:
+            display_name = 'Age' if name == '年龄' else 'Week'
+            names.append(display_name)
+            coefs.append(coef)
+            ci_low.append(low)
+            ci_high.append(high)
+            colors.append('green' if pval < 0.05 else 'gray')
+
+        y_pos = range(len(names))
+        ax.barh(y_pos, coefs, color=colors, alpha=0.7)
+        ax.errorbar(coefs, y_pos, xerr=[np.array(coefs) - np.array(ci_low),
+                                         np.array(ci_high) - np.array(coefs)],
+                    fmt='none', color='black', capsize=3)
+        ax.axvline(x=0, color='red', linestyle='--', linewidth=1)
+        ax.set_yticks(y_pos)
+        ax.set_yticklabels(names)
+        ax.set_title(f'{title}\n(R²={model.rsquared:.3f})', fontsize=11)
+        ax.set_xlabel('Coefficient (green=significant)')
+
+        # 添加数值标签
+        for i, (coef, name) in enumerate(zip(coefs, names)):
+            ax.text(coef + 0.001 if coef >= 0 else coef - 0.001, i,
+                    f'{coef:.4f}', ha='left' if coef >= 0 else 'right', va='center', fontsize=9)
+
+    plt.tight_layout()
+    plt.savefig(os.path.join(FIGURE_DIR, 'regression_coefficients.png'), dpi=300)
+    plt.close()
+    print("  1. regression_coefficients.png (系数森林图)")
+
+    # ========== 2. 年龄和周数系数对比图 ==========
+    fig, axes = plt.subplots(1, 2, figsize=(14, 5))
+
+    # 2a. 年龄系数对比
+    ax = axes[0]
+    models_info = [
+        ('Final Placement', model1.params['年龄'], model1.pvalues['年龄']),
+        ('Judge Score', model_judge.params['年龄'], model_judge.pvalues['年龄']),
+        ('Fan Vote', model_fan.params['年龄'], model_fan.pvalues['年龄'])
+    ]
+    names = [m[0] for m in models_info]
+    coefs = [m[1] for m in models_info]
+    pvals = [m[2] for m in models_info]
+    colors = ['green' if p < 0.05 else 'gray' for p in pvals]
+
+    x_pos = range(len(names))
+    bars = ax.bar(x_pos, coefs, color=colors, alpha=0.7)
+    ax.axhline(y=0, color='red', linestyle='--', linewidth=1)
+    ax.set_xticks(x_pos)
+    ax.set_xticklabels(names, fontsize=10)
+    ax.set_title('Age Effect Across Models\n(All significant at p<0.001)', fontsize=12)
+    ax.set_ylabel('Age Coefficient')
+    for bar, coef in zip(bars, coefs):
+        ax.text(bar.get_x() + bar.get_width()/2, bar.get_height(),
+                f'{coef:.5f}', ha='center', va='bottom' if coef >= 0 else 'top', fontsize=9)
+
+    # 2b. 周数系数对比（只有周级别模型有）
+    ax = axes[1]
+    week_models = [
+        ('Judge Score', model_judge.params['周数'], model_judge.pvalues['周数']),
+        ('Fan Vote', model_fan.params['周数'], model_fan.pvalues['周数'])
+    ]
+    names = [m[0] for m in week_models]
+    coefs = [m[1] for m in week_models]
+    pvals = [m[2] for m in week_models]
+    colors = ['green' if p < 0.05 else 'gray' for p in pvals]
+
+    x_pos = range(len(names))
+    bars = ax.bar(x_pos, coefs, color=colors, alpha=0.7)
+    ax.axhline(y=0, color='red', linestyle='--', linewidth=1)
+    ax.set_xticks(x_pos)
+    ax.set_xticklabels(names, fontsize=10)
+    ax.set_title('Week Effect (Later weeks = higher scores)\n(All significant at p<0.001)', fontsize=12)
+    ax.set_ylabel('Week Coefficient')
+    for bar, coef in zip(bars, coefs):
+        ax.text(bar.get_x() + bar.get_width()/2, bar.get_height(),
+                f'{coef:.4f}', ha='center', va='bottom', fontsize=9)
+
+    plt.tight_layout()
+    plt.savefig(os.path.join(FIGURE_DIR, 'regression_age_comparison.png'), dpi=300)
+    plt.close()
+    print("  2. regression_age_comparison.png (年龄和周数系数对比图)")
+
+    # ========== 3. 预测效果图（周级别数据） ==========
+    fig, axes = plt.subplots(1, 2, figsize=(12, 5))
+
+    for idx, (model, y_col, title, ax) in enumerate([
+        (model_judge, '评委评分百分比', 'Judge Score (Week-level)', axes[0]),
+        (model_fan, '粉丝投票百分比', 'Fan Vote (Week-level)', axes[1])
+    ]):
+        y_actual = data[y_col]
+        y_pred = model.fittedvalues
+
+        ax.scatter(y_actual, y_pred, alpha=0.3, s=10)
+        min_val = min(y_actual.min(), y_pred.min())
+        max_val = max(y_actual.max(), y_pred.max())
+        ax.plot([min_val, max_val], [min_val, max_val], 'r--', linewidth=1, label='Perfect fit')
+        ax.set_xlabel(f'Actual {title}')
+        ax.set_ylabel(f'Predicted {title}')
+        ax.set_title(f'{title}\nR²={model.rsquared:.3f}', fontsize=11)
+        ax.legend()
+
+    plt.tight_layout()
+    plt.savefig(os.path.join(FIGURE_DIR, 'regression_prediction.png'), dpi=300)
+    plt.close()
+    print("  3. regression_prediction.png (预测效果图)")
+
+
+def create_comparison_table(contestant):
+    """创建因素影响横向对比表"""
+    print("\n" + "="*60)
+    print("因素影响横向对比分析")
+    print("="*60)
+
+    results = []
+
+    # 只选择人数>=10的行业
+    major_industries = contestant.groupby('行业').filter(lambda x: len(x) >= 10)
+
+    # 美国vs非美国分组
+    contestant['是否美国'] = contestant['国家'] == 'United States'
+    us_group = contestant[contestant['是否美国']]
+    non_us_group = contestant[~contestant['是否美国']]
+
+    # ========== 年龄影响 ==========
+    # 年龄 vs 名次
+    r, p = stats.pearsonr(contestant['年龄'], contestant['最终名次'])
+    results.append({
+        '因素': '年龄', '因变量': '最终名次', '检验方法': 'Pearson',
+        '统计量': round(r, 4), 'p值': round(p, 4),
+        '效应方向': '年龄↑名次↑' if r > 0 else '年龄↑名次↓',
+        '显著性': '***' if p < 0.001 else ('**' if p < 0.01 else ('*' if p < 0.05 else 'ns'))
+    })
+
+    # 年龄 vs 粉丝投票
+    r, p = stats.pearsonr(contestant['年龄'], contestant['平均粉丝投票'])
+    results.append({
+        '因素': '年龄', '因变量': '粉丝投票', '检验方法': 'Pearson',
+        '统计量': round(r, 4), 'p值': round(p, 4),
+        '效应方向': '年龄↑投票↑' if r > 0 else '年龄↑投票↓',
+        '显著性': '***' if p < 0.001 else ('**' if p < 0.01 else ('*' if p < 0.05 else 'ns'))
+    })
+
+    # 年龄 vs 评委评分
+    r, p = stats.pearsonr(contestant['年龄'], contestant['平均评委评分'])
+    results.append({
+        '因素': '年龄', '因变量': '评委评分', '检验方法': 'Pearson',
+        '统计量': round(r, 4), 'p值': round(p, 4),
+        '效应方向': '年龄↑评分↑' if r > 0 else '年龄↑评分↓',
+        '显著性': '***' if p < 0.001 else ('**' if p < 0.01 else ('*' if p < 0.05 else 'ns'))
+    })
+
+    # ========== 行业影响 ==========
+    # 行业 vs 名次
+    model = smf.ols('最终名次 ~ C(行业大类)', data=major_industries).fit()
+    anova = sm.stats.anova_lm(model, typ=2)
+    f_stat, p = anova['F'].iloc[0], anova['PR(>F)'].iloc[0]
+    results.append({
+        '因素': '行业', '因变量': '最终名次', '检验方法': 'ANOVA',
+        '统计量': round(f_stat, 4), 'p值': round(p, 4),
+        '效应方向': '-',
+        '显著性': '***' if p < 0.001 else ('**' if p < 0.01 else ('*' if p < 0.05 else 'ns'))
+    })
+
+    # 行业 vs 粉丝投票
+    model = smf.ols('平均粉丝投票 ~ C(行业大类)', data=major_industries).fit()
+    anova = sm.stats.anova_lm(model, typ=2)
+    f_stat, p = anova['F'].iloc[0], anova['PR(>F)'].iloc[0]
+    results.append({
+        '因素': '行业', '因变量': '粉丝投票', '检验方法': 'ANOVA',
+        '统计量': round(f_stat, 4), 'p值': round(p, 4),
+        '效应方向': '-',
+        '显著性': '***' if p < 0.001 else ('**' if p < 0.01 else ('*' if p < 0.05 else 'ns'))
+    })
+
+    # 行业 vs 评委评分
+    model = smf.ols('平均评委评分 ~ C(行业大类)', data=major_industries).fit()
+    anova = sm.stats.anova_lm(model, typ=2)
+    f_stat, p = anova['F'].iloc[0], anova['PR(>F)'].iloc[0]
+    results.append({
+        '因素': '行业', '因变量': '评委评分', '检验方法': 'ANOVA',
+        '统计量': round(f_stat, 4), 'p值': round(p, 4),
+        '效应方向': '-',
+        '显著性': '***' if p < 0.001 else ('**' if p < 0.01 else ('*' if p < 0.05 else 'ns'))
+    })
+
+    # ========== 美国vs非美国影响 ==========
+    # 美国 vs 获奖（卡方检验）
+    contingency = pd.crosstab(contestant['是否美国'], contestant['是否获奖'])
+    chi2, p, dof, _ = stats.chi2_contingency(contingency)
+    results.append({
+        '因素': '美国vs非美国', '因变量': '是否获奖', '检验方法': '卡方检验',
+        '统计量': round(chi2, 4), 'p值': round(p, 4),
+        '效应方向': '-',
+        '显著性': '***' if p < 0.001 else ('**' if p < 0.01 else ('*' if p < 0.05 else 'ns'))
+    })
+
+    # 美国 vs 粉丝投票（t检验）
+    t, p = stats.ttest_ind(us_group['平均粉丝投票'], non_us_group['平均粉丝投票'])
+    diff = us_group['平均粉丝投票'].mean() - non_us_group['平均粉丝投票'].mean()
+    results.append({
+        '因素': '美国vs非美国', '因变量': '粉丝投票', '检验方法': 't检验',
+        '统计量': round(t, 4), 'p值': round(p, 4),
+        '效应方向': 'US>Non-US' if diff > 0 else 'US<Non-US',
+        '显著性': '***' if p < 0.001 else ('**' if p < 0.01 else ('*' if p < 0.05 else 'ns'))
+    })
+
+    # 美国 vs 评委评分（t检验）
+    t, p = stats.ttest_ind(us_group['平均评委评分'], non_us_group['平均评委评分'])
+    diff = us_group['平均评委评分'].mean() - non_us_group['平均评委评分'].mean()
+    results.append({
+        '因素': '美国vs非美国', '因变量': '评委评分', '检验方法': 't检验',
+        '统计量': round(t, 4), 'p值': round(p, 4),
+        '效应方向': 'US>Non-US' if diff > 0 else 'US<Non-US',
+        '显著性': '***' if p < 0.001 else ('**' if p < 0.01 else ('*' if p < 0.05 else 'ns'))
+    })
+
+    # 保存结果
+    comparison_df = pd.DataFrame(results)
+    comparison_df.to_csv(os.path.join(OUTPUT_DIR, 'factor_comparison.csv'), index=False, encoding='utf-8-sig')
+
+    print("\n因素影响横向对比表:")
+    print(comparison_df.to_string(index=False))
+
+    return comparison_df
+
+
+def plot_factor_comparison(comparison_df, contestant):
+    """绘制因素影响横向对比热力图"""
+    print("\n生成横向对比图...")
+
+    fig, axes = plt.subplots(1, 2, figsize=(14, 6))
+
+    # 1. 显著性热力图
+    ax = axes[0]
+    # 创建显著性矩阵
+    sig_map = {'***': 3, '**': 2, '*': 1, 'ns': 0}
+    pivot_data = comparison_df.pivot(index='因素', columns='因变量', values='显著性')
+    pivot_numeric = pivot_data.replace(sig_map)
+
+    # 重新排序列
+    col_order = ['最终名次', '粉丝投票', '评委评分', '是否获奖']
+    col_order = [c for c in col_order if c in pivot_numeric.columns]
+    pivot_numeric = pivot_numeric[col_order]
+
+    sns.heatmap(pivot_numeric, annot=pivot_data[col_order], fmt='', cmap='RdYlGn',
+                vmin=0, vmax=3, ax=ax, cbar_kws={'label': 'Significance Level'})
+    ax.set_title('Factor Impact Significance\n(***p<0.001, **p<0.01, *p<0.05, ns=not significant)', fontsize=11)
+    ax.set_xlabel('Dependent Variable')
+    ax.set_ylabel('Factor')
+
+    # 2. 年龄效应对比条形图
+    ax = axes[1]
+    age_effects = comparison_df[comparison_df['因素'] == '年龄'].copy()
+    age_effects = age_effects[age_effects['因变量'] != '是否获奖']
+
+    x = range(len(age_effects))
+    colors = ['green' if s != 'ns' else 'gray' for s in age_effects['显著性']]
+    bars = ax.bar(x, age_effects['统计量'], color=colors, alpha=0.7)
+    ax.set_xticks(x)
+    ax.set_xticklabels(age_effects['因变量'])
+    ax.axhline(y=0, color='black', linestyle='-', linewidth=0.5)
+    ax.set_title('Age Effect on Different Outcomes\n(Pearson r)', fontsize=11)
+    ax.set_xlabel('Dependent Variable')
+    ax.set_ylabel('Correlation Coefficient (r)')
+
+    # 添加数值标签
+    for i, (bar, val) in enumerate(zip(bars, age_effects['统计量'])):
+        ax.text(bar.get_x() + bar.get_width()/2, bar.get_height() + 0.02,
+                f'{val:.3f}', ha='center', va='bottom', fontsize=10)
+
+    plt.tight_layout()
+    plt.savefig(os.path.join(FIGURE_DIR, 'factor_comparison.png'), dpi=300)
+    plt.close()
+    print("  factor_comparison.png")
 
 
 def partner_analysis(contestant):
@@ -538,13 +997,22 @@ def main():
     tests = hypothesis_tests(contestant)
 
     # 回归分析
-    models = regression_analysis(contestant)
+    model1, model2, model_judge, model_fan, reg_data = regression_analysis(contestant)
 
     # 舞伴分析
     partner_stats = partner_analysis(contestant)
 
+    # 横向对比分析
+    comparison_df = create_comparison_table(contestant)
+
     # 可视化
     create_visualizations(contestant, partner_stats, industry_stats, country_stats, region_stats)
+
+    # 回归结果可视化
+    plot_regression_results(model1, model_judge, model_fan, reg_data)
+
+    # 横向对比可视化
+    plot_factor_comparison(comparison_df, contestant)
 
     print("\n" + "="*60)
     print("分析完成！")
@@ -556,6 +1024,7 @@ def main():
     print(f"  - {OUTPUT_DIR}/hypothesis_tests.csv")
     print(f"  - {OUTPUT_DIR}/regression_results.txt")
     print(f"  - {OUTPUT_DIR}/partner_ranking.csv")
+    print(f"  - {OUTPUT_DIR}/factor_comparison.csv")
     print(f"  - {FIGURE_DIR}/*.png")
 
 
